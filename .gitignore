@@ -1,0 +1,33 @@
+# Ortam Değişkenleri
+.env
+.env.local
+
+# Yerel ajan dosyaları (kurulum kopyaları ve araç artefaktları depoya girmez)
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+.claude/
+.agents/
+.codegraph/
+.gitnexus/
+graft/
+graphify-out/
+.graphify/
+.graphify*
+.anayasa-analiz/
+.ignore
+
+# IDE ve Editör
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Geçici ve Yedek Dosyalar
+*.tmp
+*.bak
+*.log
+
+# OS Dosyaları
+.DS_Store
+Thumbs.db

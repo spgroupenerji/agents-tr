@@ -1,0 +1,6 @@
+# Tüm metin dosyaları depoda ve checkout'ta LF tutulur.
+# Windows'ta (CRLF) düzenlenen dosyaların CRLF ile uzak depoya gitmesini engeller.
+* text=auto eol=lf
+
+# Markdown belgeleri kesin LF
+*.md text eol=lf
