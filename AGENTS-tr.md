@@ -1,6 +1,6 @@
 ---
 description: "Anayasa: Token Verimliliğini ve Güvenliği Optimize Eden Agresif Kodlama Stratejisi; stabilite, bağlam mühendisliği, sıfır spagetti/ölü kod, zorunlu araç disiplini."
-version: "v202610310118"
+version: "v202610310129"
 alwaysApply: true
 ---
 

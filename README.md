@@ -16,7 +16,7 @@ SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Belge te
 
 | Belge | Sürüm | Kapsam |
 | --- | --- | --- |
-| [`AGENTS-tr.md`](AGENTS-tr.md) | v202610310118 | Ajan anayasası: ilkeler, iş akışı, risk sınıfları, araç disiplini, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, git ve belge disiplini |
+| [`AGENTS-tr.md`](AGENTS-tr.md) | v202610310129 | Ajan anayasası: ilkeler, iş akışı, risk sınıfları, araç disiplini, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, git ve belge disiplini |
 
 Katalog tablosu, depodaki belgenin yayın sürümünü listeler; sürüm damgası frontmatter, katalog ve release tag'inde birebir aynıdır.
 
@@ -24,19 +24,30 @@ Katalog tablosu, depodaki belgenin yayın sürümünü listeler; sürüm damgas�
 
 Belge derleme gerektirmez. Kurulum, `AGENTS-tr.md` içeriğinin platformun beklediği bellek dosyasına kopyalanmasıdır; depo dosyası yerinde düzenlenmez, değişiklik burada yapılıp kurulum yenilenir.
 
-| Platform | Hedef dosya |
-| --- | --- |
-| DSH (genel kurallar) | `%USERPROFILE%\.dsh\AGENTS.md` |
-| Claude Code | proje kökünde `CLAUDE.md` veya `~/.claude/CLAUDE.md` |
-| Codex CLI ve AGENTS.md okuyan platformlar | proje kökünde `AGENTS.md` |
-
-Hedef dosya adı ve yükleme davranışı platform sürümüne göre değişebilir; ilgili platformun belgesiyle doğrulanmalıdır.
-
 ```powershell
 Copy-Item -Force .\AGENTS-tr.md "$HOME\.dsh\AGENTS.md"
 ```
 
 Güncellemede önce `git pull`, sonra kopyalama yapılır; depo ile kopya arasındaki fark sürüm damgasından izlenir.
+
+## Platform Desteği
+
+Kullanılan ajan platformlarının `AGENTS.md` desteği ve okuduğu ek kural dosyaları:
+
+| Araç | AGENTS.md desteği | Okunan kural dosyaları / davranış |
+| --- | --- | --- |
+| DeepSeek Harness | Tam uyumlu | Proje kökünde `AGENTS.md` ve `CLAUDE.md`; genel kurallar için `%USERPROFILE%\.dsh\AGENTS.md` |
+| ZCode | Tam uyumlu | Kök dizindeki `AGENTS.md` ana talimat dosyası olarak sürekli yüklenir |
+| Google Antigravity | Tam uyumlu | Kökte `AGENTS.md`, `GEMINI.md` ve `.agents/` klasörü |
+| OpenCode | Tam uyumlu | Kökten alt klasörlere tüm `AGENTS.md` dosyalarını hiyerarşik olarak birleştirir |
+| VS Code (Copilot) | Tam uyumlu | Kökte `AGENTS.md` ve `.github/copilot-instructions.md` birlikte okunur |
+| Qoder | Tam uyumlu | Kökte `AGENTS.md` uyumluluk kaynağı; ek olarak `.qoder/rules` |
+| WorkBuddyAI | Yarı uyumlu | Öncelik `.codebuddy` / IDE Rules yapısında; `AGENTS.md` kural ayarlarından tanıtılır |
+| Cline | Tam uyumlu | Kök ve alt klasörlerde `AGENTS.md`; `.clinerules/` ile birlikte algılanır |
+| ChatGPT (Codex) | Tam uyumlu | Kök ve alt dizinlerdeki `AGENTS.md` dosyalarını otomatik tarar |
+| Gemini (CLI / Assist) | Ayar veya kanca ile | Varsayılan `GEMINI.md`; içine `@AGENTS.md` satırı yazılır veya ayardan bağlanır |
+
+Tablo yalnız kullanılan platformları kapsar; dosya adları ve öncelik sırası platform sürümüne göre değişebilir, güncelliği ilgili platformun belgesiyle doğrulanmalıdır.
 
 ## Kullanım
 
