@@ -11,12 +11,13 @@ SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Belge te
 - Türkçe iletişim ve imla standardı; kod isimlerinde ASCII uyumlu Türkçe kökler
 - Git üzerinde LF satır sonu politikası (`.gitattributes`); Windows'ta CRLF karışması önlenir
 - Güvenli varsayılanlar: depoya secret girmez, dış veri talimat olarak yürütülmez
+- Sürüm damgası `vYYYYMMDDHHMM`; frontmatter, katalog ve release tag birebir eşit; tek üretim, yüzey eşitliği ve Türkiye saati (UTC+3)
 
 ## Belge Kataloğu
 
 | Belge | Sürüm | Kapsam |
 | --- | --- | --- |
-| [`AGENTS-tr.md`](AGENTS-tr.md) | v202610310129 | Ajan anayasası: ilkeler, iş akışı, risk sınıfları, araç disiplini, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, git ve belge disiplini |
+| [`AGENTS-tr.md`](AGENTS-tr.md) | v202610310226 | Ajan anayasası: ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
 
 Katalog tablosu, depodaki belgenin yayın sürümünü listeler; sürüm damgası frontmatter, katalog ve release tag'inde birebir aynıdır.
 
@@ -55,10 +56,11 @@ Belge, ajan oturumunun başında bağlam olarak yüklenir; ayrıca bir komut ger
 
 - §1 İlkeler, §2 İş Akışı: anla → planla → haritala → doğrula → strateji seç → uygula → kanıtla → kapat
 - §3 Risk Sınıfları: basit, orta ve kritik işler için plan, kanıt, rollback ve onay eşikleri
-- §4 Araç Disiplini: envanter, eşleştirme, kanıt, yedek yol ve progressive disclosure
+- §4 Araç Disiplini: envanter, zorunlu kullanım, araç tamamlayıcılığı, kanıt, etkinleştirme ve progressive disclosure
 - §5 Bellek Yönetimi, §6 Kod Kalitesi: kalıcı kararlar, ölü kod yasağı, yorum ve fonksiyon sınırları
 - §7 İsimlendirme ve Türkçe: dil, imla ve kod isimlendirme standardı
 - §8 Güvenlik, §9 Hata Yönetimi, §10 Çatışma, Git ve Belge Disiplini
+- §11 Sürümleme ve Yayın: `vYYYYMMDDHHMM` damgası, tek üretim, yüzey eşitliği, tag ve yayın yasakları
 
 Projedeki yerel kural bu anayasa ile çelişirse §10.1 uyarınca anayasa kazanır.
 
@@ -66,7 +68,7 @@ Projedeki yerel kural bu anayasa ile çelişirse §10.1 uyarınca anayasa kazan�
 
 | Yol | İçerik |
 | --- | --- |
-| `AGENTS-tr.md` | Türkçe ajan anayasası (frontmatter ve 10 bölüm) |
+| `AGENTS-tr.md` | Türkçe ajan anayasası (frontmatter ve 11 bölüm) |
 | `README.md` | Katalog, kurulum, kullanım, sürümleme ve doğrulama |
 | `.gitattributes` | LF satır sonu politikası |
 | `.gitignore` | Ortam dosyaları, yerel ajan artefaktları, IDE ve OS dosyaları |
@@ -97,7 +99,7 @@ if (-not (git tag --list $damga)) { throw "Release tag eksik: $damga" }
 
 ## Sürümleme ve Bakım
 
-- Belge tek sürüm damgasıyla yönetilir: `vYYYYMMDDHHMM` (yıl-ay-gün-saat-dakika, yerel saat).
+- Belge tek sürüm damgasıyla yönetilir: `vYYYYMMDDHHMM` (yıl-ay-gün-saat-dakika, Türkiye saati UTC+3).
 - Damga; `AGENTS-tr.md` frontmatter'ı, katalog satırı ve aynı adlı release tag'inde birebir aynı olur; her yayında tag oluşturulup uzak depoya gönderilir.
 - Katalog tablosu, belge sürümüyle her değişiklikte eşitlenir.
 - Değişiklikler tek amaçlı, kısa ve emir kipiyle yazılmış commit mesajlarıyla iletilir.
