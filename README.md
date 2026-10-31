@@ -1,10 +1,10 @@
 # SP GROUP Ajan Anayasası (AGENTS-tr)
 
-SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Belge tek dosyada (`AGENTS-tr.md`) tanımlanır; sürüm damgası, katalog ve release tag'i bu depoda birlikte tutulur. Ajan platformları belgeyi oturum bağlamına yükler; depo, anayasanın sürümlü kaynağıdır.
+SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa tek dosyada (`AGENTS-tr.md`) tanımlanır; yardımcı belgeler `belgeler/` dizininde sürümlenir. Sürüm damgası, katalog ve release tag'i bu depoda birlikte tutulur. Ajan platformları anayasayı oturum bağlamına yükler; depo, anayasanın ve yardımcı belgelerin sürümlü kaynağıdır.
 
 ## Özellikler
 
-- Tek dosya ve tek kaynak; derleme, paketleme veya çalışma zamanı bağımlılığı yoktur
+- Anayasa tek dosya ve tek kaynak; derleme, paketleme veya çalışma zamanı bağımlılığı yoktur
 - Doğruluk ve güvenlik önceliği; token ekonomisi, bağlam mühendisliği ve sıfır ölü kod disiplini
 - Risk sınıfına göre seremoni dozu: basit, orta ve kritik işlerde farklı plan, kanıt ve onay yükü
 - Araç disiplini ve kanıt zorunluluğu; araçsız üretim ve kanıtsız "tamamlandı" yasaktır
@@ -18,8 +18,12 @@ SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Belge te
 | Belge | Sürüm | Kapsam |
 | --- | --- | --- |
 | [`AGENTS-tr.md`](AGENTS-tr.md) | v202610310226 | Ajan anayasası: ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
+| [`belgeler/01-kullanimdaki-arac-katalogu.md`](belgeler/01-kullanimdaki-arac-katalogu.md) | v202610310321 | Kullanımda olan ajan araçları kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme, metin, araştırma |
+| [`belgeler/03-kaynak-linkleri.md`](belgeler/03-kaynak-linkleri.md) | v202610310321 | Ajan ve altyapı dokümantasyonu, beceri depoları, katalog, uygulama ve ön yüz kaynak linkleri |
 
-Katalog tablosu, depodaki belgenin yayın sürümünü listeler; sürüm damgası frontmatter, katalog ve release tag'inde birebir aynıdır.
+Katalog tablosu, depodaki her belgenin yayın sürümünü listeler; damga belgenin frontmatter'ı, katalog satırı ve aynı adlı release tag'inde birebir aynıdır.
+
+Belge numaraları: `01` kullanımda olan araçları, `02` henüz test edilmemiş araçları, `03` kaynak doküman linklerini gösterir; `02` belgesi henüz yoktur.
 
 ## Kurulum
 
@@ -69,6 +73,7 @@ Projedeki yerel kural bu anayasa ile çelişirse §10.1 uyarınca anayasa kazan�
 | Yol | İçerik |
 | --- | --- |
 | `AGENTS-tr.md` | Türkçe ajan anayasası (frontmatter ve 11 bölüm) |
+| `belgeler/` | Numaralı yardımcı belgeler: kullanımdaki araç kataloğu (`01`) ve kaynak linkleri (`03`) |
 | `README.md` | Katalog, kurulum, kullanım, sürümleme ve doğrulama |
 | `.gitattributes` | LF satır sonu politikası |
 | `.gitignore` | Ortam dosyaları, yerel ajan artefaktları, IDE ve OS dosyaları |
@@ -88,20 +93,26 @@ git status --short
 git diff --check
 ```
 
-`AGENTS-tr.md` geçerli frontmatter ile başlamalı, `version` alanı `vYYYYMMDDHHMM` biçiminde olmalı ve katalog ile release tag'i aynı damgayı taşımalıdır. Damga tutarlılığını denetlemek için:
+Her belge geçerli frontmatter ile başlamalı, `version` alanı `vYYYYMMDDHHMM` biçiminde olmalı ve katalog ile release tag'i aynı damgayı taşımalıdır. Damga tutarlılığını denetlemek için:
 
 ```powershell
-$damga = (Select-String -Path .\AGENTS-tr.md -Pattern '^version:\s*"(.+)"$' -List).Matches[0].Groups[1].Value
-if ($damga -notmatch '^v\d{12}$') { throw "Geçersiz sürüm damgası: $damga" }
-if (-not (Select-String -Path .\README.md -Pattern ([regex]::Escape($damga)) -List)) { throw "Katalog damgası eşleşmiyor: $damga" }
-if (-not (git tag --list $damga)) { throw "Release tag eksik: $damga" }
+$belgeler = @(Get-Item .\AGENTS-tr.md) + @(Get-ChildItem .\belgeler -Filter *.md -Recurse)
+foreach ($belge in $belgeler) {
+  $bulunan = Select-String -Path $belge.FullName -Pattern '^version:\s*"(.+)"$' -List
+  if (-not $bulunan) { throw "Frontmatter sürüm damgası yok: $($belge.Name)" }
+  $damga = $bulunan.Matches[0].Groups[1].Value
+  if ($damga -notmatch '^v\d{12}$') { throw "Geçersiz sürüm damgası: $($belge.Name) -> $damga" }
+  $desen = '^\|.*' + [regex]::Escape($belge.Name) + '.*\|.*' + [regex]::Escape($damga)
+  if (-not (Select-String -Path .\README.md -Pattern $desen)) { throw "Katalog satırı eksik veya damga farklı: $($belge.Name) -> $damga" }
+  if (-not (git tag --list $damga)) { throw "Release tag eksik: $damga" }
+}
 ```
 
 ## Sürümleme ve Bakım
 
-- Belge tek sürüm damgasıyla yönetilir: `vYYYYMMDDHHMM` (yıl-ay-gün-saat-dakika, Türkiye saati UTC+3).
-- Damga; `AGENTS-tr.md` frontmatter'ı, katalog satırı ve aynı adlı release tag'inde birebir aynı olur; her yayında tag oluşturulup uzak depoya gönderilir.
-- Katalog tablosu, belge sürümüyle her değişiklikte eşitlenir.
+- Her belge tek sürüm damgasıyla yönetilir: `vYYYYMMDDHHMM` (yıl-ay-gün-saat-dakika, Türkiye saati UTC+3).
+- Damga; belgenin frontmatter'ı, README katalog satırı ve aynı adlı release tag'inde birebir aynı olur; her yayında tag oluşturulup uzak depoya gönderilir.
+- Katalog tablosu, belge sürümleriyle her değişiklikte eşitlenir.
 - Değişiklikler tek amaçlı, kısa ve emir kipiyle yazılmış commit mesajlarıyla iletilir.
 
 ## Lisans
