@@ -1,11 +1,12 @@
 ---
 description: "Ajan araçları kataloğu: araçlar ve bölüm bölüm başvuru kaynakları."
-version: "v202610310338"
+version: "v202610310402"
 ---
 
 # Ajan Araçları Kataloğu
 
 > Kaynak: kullanıcı notları ve resmî depo/sayfa açıklamaları
+> Sade bağlantı listesi: [linkler.md](linkler.md)
 
 ## 0. Benim İçin Kritik
 

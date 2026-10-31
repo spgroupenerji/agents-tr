@@ -18,12 +18,12 @@ SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa 
 | Belge | Sürüm | Kapsam |
 | --- | --- | --- |
 | [`AGENTS-tr.md`](AGENTS-tr.md) | v202610310226 | Ajan anayasası: ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
-| [`arac-katalogu/`](arac-katalogu/) | v202610310338 | Ajan araçları kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme, metin, araştırma |
-| [`kaynak-linkleri/`](kaynak-linkleri/) | v202610310334 | Ajan ve altyapı dokümantasyonu, beceri depoları, katalog, uygulama ve ön yüz kaynak linkleri |
+| [`arac-katalogu/`](arac-katalogu/) | v202610310402 | Ajan araçları kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme, metin, araştırma |
+| [`kaynak-linkleri/`](kaynak-linkleri/) | v202610310402 | Ajan ve altyapı dokümantasyonu, beceri depoları, katalog, uygulama ve ön yüz kaynak linkleri |
 
 Katalog tablosu, depodaki her belgenin yayın sürümünü listeler; damga belgenin frontmatter'ı, katalog satırı ve aynı adlı release tag'inde birebir aynıdır.
 
-Belgeler konu adlı dizinlerde tutulur; her dizinin `README.md` dosyası o belgenin sayfasıdır (GitHub'da dizin açıldığında render edilir). Kök `README.md` belge içeriğini kopyalamaz, yalnızca bağlantı verir.
+Belgeler konu adlı dizinlerde tutulur; her dizinin `README.md` dosyası o belgenin sayfasıdır (GitHub'da dizin açıldığında render edilir). Kök `README.md` belge içeriğini kopyalamaz, yalnızca bağlantı verir. Her dizinde ayrıca `linkler.md` sade bağlantı listesi bulunur; README ile aynı bağlantı dizisini taşır.
 
 ## Kurulum
 
@@ -73,8 +73,10 @@ Projedeki yerel kural bu anayasa ile çelişirse §10.1 uyarınca anayasa kazan�
 | Yol | İçerik |
 | --- | --- |
 | `AGENTS-tr.md` | Türkçe ajan anayasası (frontmatter ve 11 bölüm) |
-| `arac-katalogu/README.md` | Kullanımda olan ajan araçları kataloğu |
+| `arac-katalogu/README.md` | Ajan araçları kataloğu (açıklamalı) |
+| `arac-katalogu/linkler.md` | Kataloğun sade bağlantı listesi |
 | `kaynak-linkleri/README.md` | Ajan, altyapı ve tasarım kaynak linkleri |
+| `kaynak-linkleri/linkler.md` | Kaynak linklerinin gruplu sade listesi |
 | `README.md` | Katalog, kurulum, kullanım, sürümleme ve doğrulama |
 | `.gitattributes` | LF satır sonu politikası |
 | `.gitignore` | Ortam dosyaları, yerel ajan artefaktları, IDE ve OS dosyaları |
@@ -94,7 +96,7 @@ git status --short
 git diff --check
 ```
 
-Her belge geçerli frontmatter ile başlamalı, `version` alanı `vYYYYMMDDHHMM` biçiminde olmalı, katalog ile release tag'i aynı damgayı taşımalı ve göreli iç linkler çözülmelidir. Damga ve link tutarlılığını denetlemek için:
+Her belge geçerli frontmatter ile başlamalı, `version` alanı `vYYYYMMDDHHMM` biçiminde olmalı, katalog ile release tag'i aynı damgayı taşımalı, her dizinde README ile `linkler.md` aynı bağlantı dizisini taşımalı ve göreli iç linkler çözülmelidir. Damga ve link tutarlılığını denetlemek için:
 
 ```powershell
 $belgeler = @(Get-Item .\AGENTS-tr.md) + @(Get-ChildItem -Directory | Where-Object { $_.Name -notlike '.*' } | ForEach-Object { Join-Path $_.FullName 'README.md' } | Where-Object { Test-Path $_ } | ForEach-Object { Get-Item $_ })
@@ -107,6 +109,16 @@ foreach ($belge in $belgeler) {
   $desen = '^\|.*' + [regex]::Escape($goreli) + '.*\|.*' + [regex]::Escape($damga)
   if (-not (Select-String -Path .\README.md -Pattern $desen)) { throw "Katalog satırı eksik veya damga farklı: $goreli -> $damga" }
   if (-not (git tag --list $damga)) { throw "Release tag eksik: $damga" }
+}
+Get-ChildItem -Directory | Where-Object { $_.Name -notlike '.*' } | ForEach-Object {
+  $dizin = $_
+  $readme = Join-Path $dizin.FullName 'README.md'
+  $linkler = Join-Path $dizin.FullName 'linkler.md'
+  if ((Test-Path $readme) -and (Test-Path $linkler)) {
+    $okuma = [regex]::Matches((Get-Content -Raw -LiteralPath $readme), 'https?://[^\s)\]]+') | ForEach-Object { $_.Value }
+    $sade = [regex]::Matches((Get-Content -Raw -LiteralPath $linkler), 'https?://[^\s)\]]+') | ForEach-Object { $_.Value }
+    if (($okuma -join '|') -ne ($sade -join '|')) { throw "Bağlantı listesi README ile eşleşmiyor: $($dizin.Name)" }
+  }
 }
 $gitdizini = Join-Path (Get-Location).Path '.git'
 Get-ChildItem -Recurse -Filter *.md | Where-Object { $_.FullName -notlike "$gitdizini*" } | ForEach-Object {
@@ -128,6 +140,7 @@ Write-Output 'Doğrulama geçti'
 - Damga; belgenin frontmatter'ı, README katalog satırı ve aynı adlı release tag'inde birebir aynı olur; her yayında tag oluşturulup uzak depoya gönderilir.
 - Katalog tablosu, belge sürümleriyle her değişiklikte eşitlenir.
 - Belgeler konu adlı dizinlerde `README.md` olarak tutulur; kök `README.md` belge içeriğini kopyalamaz, yalnızca bağlantı verir.
+- Her dizindeki `linkler.md`, README ile birebir aynı bağlantı dizisini taşır; açıklama içermez.
 - Değişiklikler tek amaçlı, kısa ve emir kipiyle yazılmış commit mesajlarıyla iletilir.
 
 ## Lisans
