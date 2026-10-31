@@ -19,7 +19,7 @@ SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa 
 | --- | --- | --- |
 | [`AGENTS-tr.md`](AGENTS-tr.md) | v202610310226 | Ajan anayasası: ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
 | [`arac-katalogu/`](arac-katalogu/) | v202610310421 | Ajan araçları kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme, metin, araştırma |
-| [`dokumantasyon/`](dokumantasyon/) | v202610310421 | Ajan ve CLI dokümantasyonu: Antigravity, OpenCode, ZCode, Cline ve DeepSeek Harness resmî belgeleri |
+| [`dokumantasyon/`](dokumantasyon/) | v202610310429 | Ajan platformları ve kural dosyaları için resmî dokümantasyon: DeepSeek Harness, ZCode, Antigravity, OpenCode, VS Code, Qoder, WorkBuddy, Cline, ChatGPT/Codex ve Gemini CLI |
 | [`denemediklerim/`](denemediklerim/) | v202610310421 | Henüz denenmemiş araç, servis ve kaynak listeleri |
 
 Katalog tablosu, depodaki her belgenin yayın sürümünü listeler; damga belgenin frontmatter'ı, katalog satırı ve aynı adlı release tag'inde birebir aynıdır.
