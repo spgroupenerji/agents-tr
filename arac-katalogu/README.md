@@ -1,6 +1,6 @@
 ---
-description: "Ajan araçları kataloğu: kullanımda olan araçlar ve bölüm bölüm başvuru kaynakları."
-version: "v202610310334"
+description: "Ajan araçları kataloğu: araçlar ve bölüm bölüm başvuru kaynakları."
+version: "v202610310338"
 ---
 
 # Ajan Araçları Kataloğu
