@@ -1,6 +1,6 @@
 # SP GROUP Ajan Anayasası (AGENTS-tr)
 
-SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa tek dosyada (`AGENTS-tr.md`) tanımlanır; yardımcı belgeler `belgeler/` dizininde sürümlenir. Sürüm damgası, katalog ve release tag'i bu depoda birlikte tutulur. Ajan platformları anayasayı oturum bağlamına yükler; depo, anayasanın ve yardımcı belgelerin sürümlü kaynağıdır.
+SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa tek dosyada (`AGENTS-tr.md`) tanımlanır; yardımcı belgeler konu adlı dizinlerde (`arac-katalogu/`, `kaynak-linkleri/`) sürümlenir. Sürüm damgası, katalog ve release tag'i bu depoda birlikte tutulur. Ajan platformları anayasayı oturum bağlamına yükler; depo, anayasanın ve yardımcı belgelerin sürümlü kaynağıdır.
 
 ## Özellikler
 
@@ -18,12 +18,12 @@ SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa 
 | Belge | Sürüm | Kapsam |
 | --- | --- | --- |
 | [`AGENTS-tr.md`](AGENTS-tr.md) | v202610310226 | Ajan anayasası: ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
-| [`belgeler/01-kullanimdaki-arac-katalogu.md`](belgeler/01-kullanimdaki-arac-katalogu.md) | v202610310321 | Kullanımda olan ajan araçları kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme, metin, araştırma |
-| [`belgeler/03-kaynak-linkleri.md`](belgeler/03-kaynak-linkleri.md) | v202610310321 | Ajan ve altyapı dokümantasyonu, beceri depoları, katalog, uygulama ve ön yüz kaynak linkleri |
+| [`arac-katalogu/`](arac-katalogu/) | v202610310334 | Kullanımda olan ajan araçları kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme, metin, araştırma |
+| [`kaynak-linkleri/`](kaynak-linkleri/) | v202610310334 | Ajan ve altyapı dokümantasyonu, beceri depoları, katalog, uygulama ve ön yüz kaynak linkleri |
 
 Katalog tablosu, depodaki her belgenin yayın sürümünü listeler; damga belgenin frontmatter'ı, katalog satırı ve aynı adlı release tag'inde birebir aynıdır.
 
-Belge numaraları: `01` kullanımda olan araçları, `02` henüz test edilmemiş araçları, `03` kaynak doküman linklerini gösterir; `02` belgesi henüz yoktur.
+Belgeler konu adlı dizinlerde tutulur; her dizinin `README.md` dosyası o belgenin sayfasıdır (GitHub'da dizin açıldığında render edilir). Kök `README.md` belge içeriğini kopyalamaz, yalnızca bağlantı verir.
 
 ## Kurulum
 
@@ -73,7 +73,8 @@ Projedeki yerel kural bu anayasa ile çelişirse §10.1 uyarınca anayasa kazan�
 | Yol | İçerik |
 | --- | --- |
 | `AGENTS-tr.md` | Türkçe ajan anayasası (frontmatter ve 11 bölüm) |
-| `belgeler/` | Numaralı yardımcı belgeler: kullanımdaki araç kataloğu (`01`) ve kaynak linkleri (`03`) |
+| `arac-katalogu/README.md` | Kullanımda olan ajan araçları kataloğu |
+| `kaynak-linkleri/README.md` | Ajan, altyapı ve tasarım kaynak linkleri |
 | `README.md` | Katalog, kurulum, kullanım, sürümleme ve doğrulama |
 | `.gitattributes` | LF satır sonu politikası |
 | `.gitignore` | Ortam dosyaları, yerel ajan artefaktları, IDE ve OS dosyaları |
@@ -93,19 +94,32 @@ git status --short
 git diff --check
 ```
 
-Her belge geçerli frontmatter ile başlamalı, `version` alanı `vYYYYMMDDHHMM` biçiminde olmalı ve katalog ile release tag'i aynı damgayı taşımalıdır. Damga tutarlılığını denetlemek için:
+Her belge geçerli frontmatter ile başlamalı, `version` alanı `vYYYYMMDDHHMM` biçiminde olmalı, katalog ile release tag'i aynı damgayı taşımalı ve göreli iç linkler çözülmelidir. Damga ve link tutarlılığını denetlemek için:
 
 ```powershell
-$belgeler = @(Get-Item .\AGENTS-tr.md) + @(Get-ChildItem .\belgeler -Filter *.md -Recurse)
+$belgeler = @(Get-Item .\AGENTS-tr.md) + @(Get-ChildItem -Directory | Where-Object { $_.Name -notlike '.*' } | ForEach-Object { Join-Path $_.FullName 'README.md' } | Where-Object { Test-Path $_ } | ForEach-Object { Get-Item $_ })
 foreach ($belge in $belgeler) {
   $bulunan = Select-String -Path $belge.FullName -Pattern '^version:\s*"(.+)"$' -List
-  if (-not $bulunan) { throw "Frontmatter sürüm damgası yok: $($belge.Name)" }
+  if (-not $bulunan) { throw "Frontmatter sürüm damgası yok: $($belge.FullName)" }
   $damga = $bulunan.Matches[0].Groups[1].Value
-  if ($damga -notmatch '^v\d{12}$') { throw "Geçersiz sürüm damgası: $($belge.Name) -> $damga" }
-  $desen = '^\|.*' + [regex]::Escape($belge.Name) + '.*\|.*' + [regex]::Escape($damga)
-  if (-not (Select-String -Path .\README.md -Pattern $desen)) { throw "Katalog satırı eksik veya damga farklı: $($belge.Name) -> $damga" }
+  if ($damga -notmatch '^v\d{12}$') { throw "Geçersiz sürüm damgası: $($belge.FullName) -> $damga" }
+  $goreli = if ($belge.Name -eq 'README.md') { (Split-Path $belge.DirectoryName -Leaf) + '/' } else { $belge.Name }
+  $desen = '^\|.*' + [regex]::Escape($goreli) + '.*\|.*' + [regex]::Escape($damga)
+  if (-not (Select-String -Path .\README.md -Pattern $desen)) { throw "Katalog satırı eksik veya damga farklı: $goreli -> $damga" }
   if (-not (git tag --list $damga)) { throw "Release tag eksik: $damga" }
 }
+$gitdizini = Join-Path (Get-Location).Path '.git'
+Get-ChildItem -Recurse -Filter *.md | Where-Object { $_.FullName -notlike "$gitdizini*" } | ForEach-Object {
+  $dosya = $_
+  Select-String -Path $dosya.FullName -Pattern '\]\(([^)#][^)]*)\)' -AllMatches | ForEach-Object {
+    foreach ($b in $_.Matches) {
+      $hedef = $b.Groups[1].Value
+      if ($hedef -match '^(https?://|mailto:)') { continue }
+      if (-not (Test-Path (Join-Path $dosya.DirectoryName $hedef))) { throw "Kırık iç link: $($dosya.Name) -> $hedef" }
+    }
+  }
+}
+Write-Output 'Doğrulama geçti'
 ```
 
 ## Sürümleme ve Bakım
@@ -113,6 +127,7 @@ foreach ($belge in $belgeler) {
 - Her belge tek sürüm damgasıyla yönetilir: `vYYYYMMDDHHMM` (yıl-ay-gün-saat-dakika, Türkiye saati UTC+3).
 - Damga; belgenin frontmatter'ı, README katalog satırı ve aynı adlı release tag'inde birebir aynı olur; her yayında tag oluşturulup uzak depoya gönderilir.
 - Katalog tablosu, belge sürümleriyle her değişiklikte eşitlenir.
+- Belgeler konu adlı dizinlerde `README.md` olarak tutulur; kök `README.md` belge içeriğini kopyalamaz, yalnızca bağlantı verir.
 - Değişiklikler tek amaçlı, kısa ve emir kipiyle yazılmış commit mesajlarıyla iletilir.
 
 ## Lisans

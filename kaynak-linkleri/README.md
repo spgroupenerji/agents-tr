@@ -1,11 +1,11 @@
 ---
 description: "Kaynak linkleri: ajan, altyapı, beceri, katalog ve tasarım kaynakları."
-version: "v202610310321"
+version: "v202610310334"
 ---
 
 # Kaynak Linkleri
 
-> Kaynak: [01-kullanimdaki-arac-katalogu.md](01-kullanimdaki-arac-katalogu.md)
+> Kaynak: [Ajan Araçları Kataloğu](../arac-katalogu/)
 
 ## 1. Ajan ve CLI Dokümantasyonu
 
