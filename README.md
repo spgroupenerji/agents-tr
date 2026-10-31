@@ -1,6 +1,6 @@
 # SP GROUP Ajan Anayasası (AGENTS-tr)
 
-SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa tek dosyada (`AGENTS-tr.md`) tanımlanır; yardımcı belgeler konu adlı dizinlerde (`arac-katalogu/`, `kaynak-linkleri/`) sürümlenir. Sürüm damgası, katalog ve release tag'i bu depoda birlikte tutulur. Ajan platformları anayasayı oturum bağlamına yükler; depo, anayasanın ve yardımcı belgelerin sürümlü kaynağıdır.
+SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa tek dosyada (`AGENTS-tr.md`) tanımlanır; yardımcı belgeler konu adlı dizinlerde (`arac-katalogu/`, `dokumantasyon/`, `denemediklerim/`) sürümlenir. Sürüm damgası, katalog ve release tag'i bu depoda birlikte tutulur. Ajan platformları anayasayı oturum bağlamına yükler; depo, anayasanın ve yardımcı belgelerin sürümlü kaynağıdır.
 
 ## Özellikler
 
@@ -18,8 +18,9 @@ SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa 
 | Belge | Sürüm | Kapsam |
 | --- | --- | --- |
 | [`AGENTS-tr.md`](AGENTS-tr.md) | v202610310226 | Ajan anayasası: ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
-| [`arac-katalogu/`](arac-katalogu/) | v202610310402 | Ajan araçları kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme, metin, araştırma |
-| [`kaynak-linkleri/`](kaynak-linkleri/) | v202610310402 | Ajan ve altyapı dokümantasyonu, beceri depoları, katalog, uygulama ve ön yüz kaynak linkleri |
+| [`arac-katalogu/`](arac-katalogu/) | v202610310421 | Ajan araçları kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme, metin, araştırma |
+| [`dokumantasyon/`](dokumantasyon/) | v202610310421 | Ajan ve CLI dokümantasyonu: Antigravity, OpenCode, ZCode, Cline ve DeepSeek Harness resmî belgeleri |
+| [`denemediklerim/`](denemediklerim/) | v202610310421 | Henüz denenmemiş araç, servis ve kaynak listeleri |
 
 Katalog tablosu, depodaki her belgenin yayın sürümünü listeler; damga belgenin frontmatter'ı, katalog satırı ve aynı adlı release tag'inde birebir aynıdır.
 
@@ -75,8 +76,10 @@ Projedeki yerel kural bu anayasa ile çelişirse §10.1 uyarınca anayasa kazan�
 | `AGENTS-tr.md` | Türkçe ajan anayasası (frontmatter ve 11 bölüm) |
 | `arac-katalogu/README.md` | Ajan araçları kataloğu (açıklamalı) |
 | `arac-katalogu/linkler.md` | Kataloğun sade bağlantı listesi |
-| `kaynak-linkleri/README.md` | Ajan, altyapı ve tasarım kaynak linkleri |
-| `kaynak-linkleri/linkler.md` | Kaynak linklerinin gruplu sade listesi |
+| `dokumantasyon/README.md` | Ajan ve CLI dokümantasyonu (açıklamalı) |
+| `dokumantasyon/linkler.md` | Dokümantasyonun sade bağlantı listesi |
+| `denemediklerim/README.md` | Henüz denenmemiş araç ve kaynaklar (açıklamalı) |
+| `denemediklerim/linkler.md` | Denenmemişlerin gruplu sade bağlantı listesi |
 | `README.md` | Katalog, kurulum, kullanım, sürümleme ve doğrulama |
 | `.gitattributes` | LF satır sonu politikası |
 | `.gitignore` | Ortam dosyaları, yerel ajan artefaktları, IDE ve OS dosyaları |

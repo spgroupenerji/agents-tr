@@ -32,6 +32,7 @@
 - https://github.com/aicodeking/leanrea
 - https://github.com/usestrix/strix
 - https://github.com/Jakeschincariol/replica-skill
+- https://github.com/eyaprak/skills
 - https://github.com/nateherkai/herk-edit-kit
 - https://github.com/eyaprak/skills/tree/main/hyperframes-studio
 - https://github.com/omergocmen/anything2explainer
