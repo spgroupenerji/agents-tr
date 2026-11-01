@@ -1,3 +1,8 @@
+---
+description: "Ajan platformları resmî dokümantasyonunun sade bağlantı listesi; açıklamalı belge README.md dosyasındadır."
+version: "v202611011411"
+---
+
 # Bağlantılar
 
 > Açıklamalı belge: [README.md](README.md).

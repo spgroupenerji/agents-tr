@@ -1,3 +1,8 @@
+---
+description: "SP GROUP ajan anayasası deposunun giriş belgesi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama."
+version: "v202611011411"
+---
+
 # SP GROUP Ajan Anayasası (AGENTS-tr)
 
 SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa tek dosyada (`AGENTS-tr.md`) tanımlanır; yardımcı belgeler konu adlı dizinlerde (`yuklenecekler/`, `dokumantasyon/`, `denenecekler/`) sürümlenir. Sürüm damgası, katalog ve release tag'i bu depoda birlikte tutulur. Ajan platformları anayasayı oturum bağlamına yükler; depo, anayasanın ve yardımcı belgelerin sürümlü kaynağıdır.
@@ -17,13 +22,17 @@ SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa 
 
 | Belge | Sürüm | Kapsam |
 | --- | --- | --- |
+| [`README.md`](README.md) | v202611011411 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
 | [`AGENTS-tr.md`](AGENTS-tr.md) | v202610310226 | Ajan anayasası: ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
 | [`KURULUM.md`](KURULUM.md) | v202611011408 | Ajan gömme ve kurulum protokolü: platform tespiti, yedekleme, anayasayı sıfırdan yazma, envanter kurulumu, kaynak indeksi ve doğrulama |
 | [`platformlar.md`](platformlar.md) | v202611011408 | 10 platformluk kurulum matrisi: tespit işareti, global kural dosyası, skill dizini, MCP yapılandırması, kaynak indeksi hedefi ve doğrulama |
 | [`yuklenecekler/`](yuklenecekler/) | v202611011408 | Zorunlu yüklenen araç kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme, metin, araştırma |
+| [`yuklenecekler/linkler.md`](yuklenecekler/linkler.md) | v202611011411 | Zorunlu kataloğun sade bağlantı listesi |
 | [`yuklenecekler/envanter.md`](yuklenecekler/envanter.md) | v202611011408 | Kurulum envanteri: 50 bağlantının türü, platformdan bağımsız kurulum yöntemi ve doğrulama ölçütü |
 | [`dokumantasyon/`](dokumantasyon/) | v202610310429 | Ajan platformları ve kural dosyaları için resmî dokümantasyon: DeepSeek Harness, ZCode, Antigravity, OpenCode, VS Code, Qoder, WorkBuddy, Cline, ChatGPT/Codex ve Gemini CLI |
+| [`dokumantasyon/linkler.md`](dokumantasyon/linkler.md) | v202611011411 | Resmî dokümantasyonun sade bağlantı listesi |
 | [`denenecekler/`](denenecekler/) | v202610310421 | Manuel havuz: henüz denenmemiş araç, servis ve kaynak listeleri; kurulum protokolü bu dizine dokunmaz |
+| [`denenecekler/linkler.md`](denenecekler/linkler.md) | v202611011411 | Manuel havuzun sade bağlantı listesi |
 
 Katalog tablosu, depodaki her belgenin yayın sürümünü listeler; damga belgenin frontmatter'ı, katalog satırı ve aynı adlı release tag'inde birebir aynıdır.
 
@@ -121,7 +130,7 @@ foreach ($belge in $belgeler) {
   if (-not $bulunan) { throw "Frontmatter sürüm damgası yok: $($belge.FullName)" }
   $damga = $bulunan.Matches[0].Groups[1].Value
   if ($damga -notmatch '^v\d{12}$') { throw "Geçersiz sürüm damgası: $($belge.FullName) -> $damga" }
-  $goreli = if ($belge.Name -eq 'README.md') { (Split-Path $belge.DirectoryName -Leaf) + '/' } else { $belge.FullName.Substring($kok.Length + 1).Replace('\', '/') }
+  $goreli = if ($belge.FullName -eq (Join-Path $kok 'README.md')) { 'README.md' } elseif ($belge.Name -eq 'README.md') { (Split-Path $belge.DirectoryName -Leaf) + '/' } else { $belge.FullName.Substring($kok.Length + 1).Replace('\', '/') }
   $desen = '^\|.*' + [regex]::Escape($goreli) + '.*\|.*' + [regex]::Escape($damga)
   if (-not (Select-String -Path .\README.md -Pattern $desen)) { throw "Katalog satırı eksik veya damga farklı: $goreli -> $damga" }
   if (-not (git tag --list $damga)) { throw "Release tag eksik: $damga" }
