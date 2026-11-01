@@ -1,6 +1,6 @@
 ---
-description: "Ajan araçları kataloğu: araçlar ve bölüm bölüm başvuru kaynakları."
-version: "v202610310421"
+description: "Zorunlu yüklenen araç kataloğu: her zaman kurulan araçlar ve bölüm bölüm başvuru kaynakları."
+version: "v202611011408"
 ---
 
 # Ajan Araçları Kataloğu

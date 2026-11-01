@@ -1,6 +1,6 @@
 # SP GROUP Ajan Anayasası (AGENTS-tr)
 
-SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa tek dosyada (`AGENTS-tr.md`) tanımlanır; yardımcı belgeler konu adlı dizinlerde (`arac-katalogu/`, `dokumantasyon/`, `denemediklerim/`) sürümlenir. Sürüm damgası, katalog ve release tag'i bu depoda birlikte tutulur. Ajan platformları anayasayı oturum bağlamına yükler; depo, anayasanın ve yardımcı belgelerin sürümlü kaynağıdır.
+SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa tek dosyada (`AGENTS-tr.md`) tanımlanır; yardımcı belgeler konu adlı dizinlerde (`yuklenecekler/`, `dokumantasyon/`, `denenecekler/`) sürümlenir. Sürüm damgası, katalog ve release tag'i bu depoda birlikte tutulur. Ajan platformları anayasayı oturum bağlamına yükler; depo, anayasanın ve yardımcı belgelerin sürümlü kaynağıdır.
 
 ## Özellikler
 
@@ -18,9 +18,12 @@ SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa 
 | Belge | Sürüm | Kapsam |
 | --- | --- | --- |
 | [`AGENTS-tr.md`](AGENTS-tr.md) | v202610310226 | Ajan anayasası: ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
-| [`arac-katalogu/`](arac-katalogu/) | v202610310421 | Ajan araçları kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme, metin, araştırma |
+| [`KURULUM.md`](KURULUM.md) | v202611011408 | Ajan gömme ve kurulum protokolü: platform tespiti, yedekleme, anayasayı sıfırdan yazma, envanter kurulumu, kaynak indeksi ve doğrulama |
+| [`platformlar.md`](platformlar.md) | v202611011408 | 10 platformluk kurulum matrisi: tespit işareti, global kural dosyası, skill dizini, MCP yapılandırması, kaynak indeksi hedefi ve doğrulama |
+| [`yuklenecekler/`](yuklenecekler/) | v202611011408 | Zorunlu yüklenen araç kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme, metin, araştırma |
+| [`yuklenecekler/envanter.md`](yuklenecekler/envanter.md) | v202611011408 | Kurulum envanteri: 50 bağlantının türü, platformdan bağımsız kurulum yöntemi ve doğrulama ölçütü |
 | [`dokumantasyon/`](dokumantasyon/) | v202610310429 | Ajan platformları ve kural dosyaları için resmî dokümantasyon: DeepSeek Harness, ZCode, Antigravity, OpenCode, VS Code, Qoder, WorkBuddy, Cline, ChatGPT/Codex ve Gemini CLI |
-| [`denemediklerim/`](denemediklerim/) | v202610310421 | Henüz denenmemiş araç, servis ve kaynak listeleri |
+| [`denenecekler/`](denenecekler/) | v202610310421 | Manuel havuz: henüz denenmemiş araç, servis ve kaynak listeleri; kurulum protokolü bu dizine dokunmaz |
 
 Katalog tablosu, depodaki her belgenin yayın sürümünü listeler; damga belgenin frontmatter'ı, katalog satırı ve aynı adlı release tag'inde birebir aynıdır.
 
@@ -28,13 +31,17 @@ Belgeler konu adlı dizinlerde tutulur; her dizinin `README.md` dosyası o belge
 
 ## Kurulum
 
-Belge derleme gerektirmez. Kurulum, `AGENTS-tr.md` içeriğinin platformun beklediği bellek dosyasına kopyalanmasıdır; depo dosyası yerinde düzenlenmez, değişiklik burada yapılıp kurulum yenilenir.
+Belge derleme gerektirmez. İki yol vardır.
+
+**Ajanla kurulum (önerilen):** Depo bağlantısını ajana verip "buradakileri yükle" demek yeterlidir. Ajan [KURULUM.md](KURULUM.md) protokolünü uygular: platformunu tespit eder, mevcut global kural dosyasını `<ad>.yedek-<damga>` olarak yedekler, `AGENTS-tr.md` içeriğini global kural dosyasına sıfırdan yazar ve `yuklenecekler/` envanterindeki araçları global kurar. Protokol tam otomatiktir; `denenecekler/` dizinine dokunmaz.
+
+**Manuel kurulum:** `AGENTS-tr.md` içeriğini platformun beklediği global kural dosyasına kopyala; `yuklenecekler/envanter.md` satırlarını sırayla kur.
 
 ```powershell
 Copy-Item -Force .\AGENTS-tr.md "$HOME\.dsh\AGENTS.md"
 ```
 
-Güncellemede önce `git pull`, sonra kopyalama yapılır; depo ile kopya arasındaki fark sürüm damgasından izlenir.
+Global kural dosyası yolu platforma göre değişir; [platformlar.md](platformlar.md) tablosuna bak. Güncellemede önce `git pull`, sonra ajanla veya manuel kopyalamayla yenile; depo ile kopya arasındaki fark sürüm damgasından izlenir.
 
 ## Platform Desteği
 
@@ -55,6 +62,8 @@ Kullanılan ajan platformlarının `AGENTS.md` desteği ve okuduğu ek kural dos
 
 Tablo yalnız kullanılan platformları kapsar; dosya adları ve öncelik sırası platform sürümüne göre değişebilir, güncelliği ilgili platformun belgesiyle doğrulanmalıdır.
 
+Ajanla kurulum için gereken **global** kural dosyası, skill dizini, MCP yapılandırması ve kaynak indeksi hedefi [platformlar.md](platformlar.md) matrisinde tanımlıdır; yukarıdaki tablo yalnız proje kökü davranışını özetler.
+
 ## Kullanım
 
 Belge, ajan oturumunun başında bağlam olarak yüklenir; ayrıca bir komut gerekmez. Frontmatter `description` kapsamı, `alwaysApply: true` kural dosyası işaretini, `version` yayın damgasını taşır.
@@ -74,12 +83,15 @@ Projedeki yerel kural bu anayasa ile çelişirse §10.1 uyarınca anayasa kazan�
 | Yol | İçerik |
 | --- | --- |
 | `AGENTS-tr.md` | Türkçe ajan anayasası (frontmatter ve 11 bölüm) |
-| `arac-katalogu/README.md` | Ajan araçları kataloğu (açıklamalı) |
-| `arac-katalogu/linkler.md` | Kataloğun sade bağlantı listesi |
+| `KURULUM.md` | Ajan gömme ve kurulum protokolü (icra talimatı) |
+| `platformlar.md` | 10 platformun global kural, skill ve MCP kurulum matrisi |
+| `yuklenecekler/README.md` | Zorunlu yüklenen araç kataloğu (açıklamalı) |
+| `yuklenecekler/linkler.md` | Kataloğun sade bağlantı listesi |
+| `yuklenecekler/envanter.md` | Kurulum envanteri: her linkin türü, kurulum yöntemi ve doğrulaması |
 | `dokumantasyon/README.md` | Ajan ve CLI dokümantasyonu (açıklamalı) |
 | `dokumantasyon/linkler.md` | Dokümantasyonun sade bağlantı listesi |
-| `denemediklerim/README.md` | Henüz denenmemiş araç ve kaynaklar (açıklamalı) |
-| `denemediklerim/linkler.md` | Denenmemişlerin gruplu sade bağlantı listesi |
+| `denenecekler/README.md` | Manuel havuz: henüz denenmemiş araç ve kaynaklar (açıklamalı) |
+| `denenecekler/linkler.md` | Denenmemişlerin gruplu sade bağlantı listesi |
 | `README.md` | Katalog, kurulum, kullanım, sürümleme ve doğrulama |
 | `.gitattributes` | LF satır sonu politikası |
 | `.gitignore` | Ortam dosyaları, yerel ajan artefaktları, IDE ve OS dosyaları |
@@ -102,13 +114,14 @@ git diff --check
 Her belge geçerli frontmatter ile başlamalı, `version` alanı `vYYYYMMDDHHMM` biçiminde olmalı, katalog ile release tag'i aynı damgayı taşımalı, her dizinde README ile `linkler.md` aynı bağlantı dizisini taşımalı ve göreli iç linkler çözülmelidir. Damga ve link tutarlılığını denetlemek için:
 
 ```powershell
-$belgeler = @(Get-Item .\AGENTS-tr.md) + @(Get-ChildItem -Directory | Where-Object { $_.Name -notlike '.*' } | ForEach-Object { Join-Path $_.FullName 'README.md' } | Where-Object { Test-Path $_ } | ForEach-Object { Get-Item $_ })
+$kok = (Get-Location).Path
+$belgeler = Get-ChildItem -Recurse -Filter *.md | Where-Object { $_.FullName -notlike "*\.git\*" } | Where-Object { (Get-Content -LiteralPath $_.FullName -TotalCount 1) -eq '---' }
 foreach ($belge in $belgeler) {
   $bulunan = Select-String -Path $belge.FullName -Pattern '^version:\s*"(.+)"$' -List
   if (-not $bulunan) { throw "Frontmatter sürüm damgası yok: $($belge.FullName)" }
   $damga = $bulunan.Matches[0].Groups[1].Value
   if ($damga -notmatch '^v\d{12}$') { throw "Geçersiz sürüm damgası: $($belge.FullName) -> $damga" }
-  $goreli = if ($belge.Name -eq 'README.md') { (Split-Path $belge.DirectoryName -Leaf) + '/' } else { $belge.Name }
+  $goreli = if ($belge.Name -eq 'README.md') { (Split-Path $belge.DirectoryName -Leaf) + '/' } else { $belge.FullName.Substring($kok.Length + 1).Replace('\', '/') }
   $desen = '^\|.*' + [regex]::Escape($goreli) + '.*\|.*' + [regex]::Escape($damga)
   if (-not (Select-String -Path .\README.md -Pattern $desen)) { throw "Katalog satırı eksik veya damga farklı: $goreli -> $damga" }
   if (-not (git tag --list $damga)) { throw "Release tag eksik: $damga" }
