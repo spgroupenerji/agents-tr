@@ -1,6 +1,6 @@
 ---
 description: "SP GROUP ajan anayasası deposunun giriş belgesi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama."
-version: "v202611011411"
+version: "v202611011412"
 ---
 
 # SP GROUP Ajan Anayasası (AGENTS-tr)
@@ -22,7 +22,7 @@ SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa 
 
 | Belge | Sürüm | Kapsam |
 | --- | --- | --- |
-| [`README.md`](README.md) | v202611011411 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
+| [`README.md`](README.md) | v202611011412 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
 | [`AGENTS-tr.md`](AGENTS-tr.md) | v202610310226 | Ajan anayasası: ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
 | [`KURULUM.md`](KURULUM.md) | v202611011408 | Ajan gömme ve kurulum protokolü: platform tespiti, yedekleme, anayasayı sıfırdan yazma, envanter kurulumu, kaynak indeksi ve doğrulama |
 | [`platformlar.md`](platformlar.md) | v202611011408 | 10 platformluk kurulum matrisi: tespit işareti, global kural dosyası, skill dizini, MCP yapılandırması, kaynak indeksi hedefi ve doğrulama |
@@ -161,11 +161,11 @@ Write-Output 'Doğrulama geçti'
 
 ## Sürümleme ve Bakım
 
-- Her belge tek sürüm damgasıyla yönetilir: `vYYYYMMDDHHMM` (yıl-ay-gün-saat-dakika, Türkiye saati UTC+3).
+- Her belge tek sürüm damgasıyla yönetilir: `vYYYYMMDDHHMM` (yıl-ay-gün-saat-dakika, Türkiye saati UTC+3); belge her değiştiğinde damgası yükseltilir ve katalog satırı aynı yayında güncellenir.
 - Damga; belgenin frontmatter'ı, README katalog satırı ve aynı adlı release tag'inde birebir aynı olur; her yayında tag oluşturulup uzak depoya gönderilir.
 - Katalog tablosu, belge sürümleriyle her değişiklikte eşitlenir.
 - Belgeler konu adlı dizinlerde `README.md` olarak tutulur; kök `README.md` belge içeriğini kopyalamaz, yalnızca bağlantı verir.
-- Her dizindeki `linkler.md`, README ile birebir aynı bağlantı dizisini taşır; açıklama içermez.
+- Her dizindeki `linkler.md`, README ile birebir aynı bağlantı dizisini taşır; gövdesinde açıklama içermez, yalnız frontmatter'da belge kimliği taşır.
 - Değişiklikler tek amaçlı, kısa ve emir kipiyle yazılmış commit mesajlarıyla iletilir.
 
 ## Lisans
