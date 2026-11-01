@@ -1,17 +1,17 @@
 ---
 description: "Ajan gömme ve kurulum protokolü: depo bağlantısı verildiğinde anayasayı ve zorunlu araçları platformun global ortamına kuran icra adımları."
-version: "v202611011408"
+version: "v202611011444"
 ---
 
 # Ajan Gömme ve Kurulum Protokolü
 
 > Bu dosya bir ajana verilen **icra talimatıdır**. Kullanıcı bu deponun bağlantısını verip "buradakileri yükle" dediğinde ajan bu protokolü uygular.
-> Anayasa: [AGENTS-tr.md](AGENTS-tr.md) · Envanter: [yuklenecekler/envanter.md](yuklenecekler/envanter.md) · Platform matrisi: [platformlar.md](platformlar.md)
+> Anayasa: [AGENTS-tr.md](AGENTS-tr.md) · Envanter: [01-yuklenecekler/envanter.md](01-yuklenecekler/envanter.md) · Platform matrisi: [platformlar.md](platformlar.md)
 
 ## 0. Kapsam ve değişmezler
 
-- **Yüklenenler:** `AGENTS-tr.md` anayasası + `yuklenecekler/` envanterindeki araçlar.
-- **`denenecekler/` kapsam dışıdır:** okunmaz, değiştirilmez, yüklenmez. Bu dizin kullanıcının manuel havuzudur; kullanıcı denediği aracı kendisi `yuklenecekler/` dizinine taşır ve o an zorunlu yüklenenlere girer.
+- **Yüklenenler:** `AGENTS-tr.md` anayasası + `01-yuklenecekler/` envanterindeki araçlar.
+- **`03-denenecekler/` kapsam dışıdır:** okunmaz, değiştirilmez, yüklenmez. Bu dizin kullanıcının manuel havuzudur; kullanıcı denediği aracı kendisi `01-yuklenecekler/` dizinine taşır ve o an zorunlu yüklenenlere girer.
 - **Depo salt kaynaktır:** kurulum sırasında depo dosyaları değiştirilmez; değişiklik depoda yapılıp kurulum yenilenir.
 - **Tam otomatik:** onay sorulmaz. Yalnızca platform tespiti belirsizse, yedek alınamıyorsa veya geri dönüşü zor bir çakışma varsa durulur ve raporlanır.
 - **İdempotent:** protokol kaç kez çalıştırılırsa çalıştırılsın aynı sonuç üretilir; her çalıştırma yeni bir yedek damgası açar.
@@ -22,7 +22,7 @@ version: "v202611011408"
 1. Ortam işaretlerini topla: `DSH_*` gibi değişkenler, kullanıcı ana dizinindeki platform dizinleri (`.dsh`, `.claude`, `.codex`, `.gemini`, `.agents`, `.cursor`, `.config/opencode`, `.qoder`, `.clinerules`), araç sürüm komutları.
 2. [platformlar.md](platformlar.md) tablosundaki **Tespit işareti** sütunuyla eşleştir.
 3. Tam olarak bir platform eşleşirse devam et. Eşleşme yoksa veya birden fazlaysa kullanıcıya tek soru sor; cevap yoksa dur ve raporla.
-4. Platform matrisindeki hücre "doğrulanmalı" ise ilgili resmî dokümanı ([dokumantasyon/linkler.md](dokumantasyon/linkler.md)) oku ve yolu teyit et. Teyit edilemezse dur ve raporla.
+4. Platform matrisindeki hücre "doğrulanmalı" ise ilgili resmî dokümanı ([02-dokumantasyon/linkler.md](02-dokumantasyon/linkler.md)) oku ve yolu teyit et. Teyit edilemezse dur ve raporla.
 
 ## 2. Aşama 1 — Yedekleme
 
@@ -41,7 +41,7 @@ Kural dosyası yolu platforma göre değişir; [platformlar.md](platformlar.md) 
 
 ## 4. Aşama 3 — Yetenek kurulumu
 
-1. [yuklenecekler/envanter.md](yuklenecekler/envanter.md) dosyasını oku.
+1. [01-yuklenecekler/envanter.md](01-yuklenecekler/envanter.md) dosyasını oku.
 2. Her satırı türüne göre kur:
    - `skill`: depoyu geçici dizine klonla (`git clone --depth 1`), `SKILL.md` ve eşlik eden dosyaları platformun skill dizinine `<ad>/` altına kopyala, geçici dizini sil.
    - `MCP`: platformun MCP yapılandırma dosyasına `{command, args}` girişi ekle; aynı adlı eski girişi ez.

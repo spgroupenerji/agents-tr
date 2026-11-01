@@ -1,6 +1,6 @@
 ---
 description: "Ajan platformları ve kural dosyaları için resmî dokümantasyon bağlantıları."
-version: "v202610310429"
+version: "v202611011444"
 ---
 
 # Dokümantasyon

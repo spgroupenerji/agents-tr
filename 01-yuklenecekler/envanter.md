@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğunun kurulum envanteri: tür, kurulum yöntemi ve doğrulama."
-version: "v202611011408"
+version: "v202611011444"
 ---
 
 # Kurulum Envanteri

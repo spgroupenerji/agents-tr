@@ -1,6 +1,6 @@
 ---
 description: "Desteklenen ajan platformlarının global kural, skill ve MCP kurulum matrisi."
-version: "v202611011408"
+version: "v202611011444"
 ---
 
 # Platform Matrisi

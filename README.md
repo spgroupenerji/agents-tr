@@ -1,11 +1,11 @@
 ---
 description: "SP GROUP ajan anayasası deposunun giriş belgesi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama."
-version: "v202611011412"
+version: "v202611011444"
 ---
 
 # SP GROUP Ajan Anayasası (AGENTS-tr)
 
-SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa tek dosyada (`AGENTS-tr.md`) tanımlanır; yardımcı belgeler konu adlı dizinlerde (`yuklenecekler/`, `dokumantasyon/`, `denenecekler/`) sürümlenir. Sürüm damgası, katalog ve release tag'i bu depoda birlikte tutulur. Ajan platformları anayasayı oturum bağlamına yükler; depo, anayasanın ve yardımcı belgelerin sürümlü kaynağıdır.
+SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa tek dosyada (`AGENTS-tr.md`) tanımlanır; yardımcı belgeler konu adlı dizinlerde (`01-yuklenecekler/`, `02-dokumantasyon/`, `03-denenecekler/`) sürümlenir. Sürüm damgası, katalog ve release tag'i bu depoda birlikte tutulur. Ajan platformları anayasayı oturum bağlamına yükler; depo, anayasanın ve yardımcı belgelerin sürümlü kaynağıdır.
 
 ## Özellikler
 
@@ -22,29 +22,29 @@ SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa 
 
 | Belge | Sürüm | Kapsam |
 | --- | --- | --- |
-| [`README.md`](README.md) | v202611011412 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
+| [`README.md`](README.md) | v202611011444 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
 | [`AGENTS-tr.md`](AGENTS-tr.md) | v202610310226 | Ajan anayasası: ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
-| [`KURULUM.md`](KURULUM.md) | v202611011408 | Ajan gömme ve kurulum protokolü: platform tespiti, yedekleme, anayasayı sıfırdan yazma, envanter kurulumu, kaynak indeksi ve doğrulama |
-| [`platformlar.md`](platformlar.md) | v202611011408 | 10 platformluk kurulum matrisi: tespit işareti, global kural dosyası, skill dizini, MCP yapılandırması, kaynak indeksi hedefi ve doğrulama |
-| [`yuklenecekler/`](yuklenecekler/) | v202611011408 | Zorunlu yüklenen araç kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme, metin, araştırma |
-| [`yuklenecekler/linkler.md`](yuklenecekler/linkler.md) | v202611011411 | Zorunlu kataloğun sade bağlantı listesi |
-| [`yuklenecekler/envanter.md`](yuklenecekler/envanter.md) | v202611011408 | Kurulum envanteri: 50 bağlantının türü, platformdan bağımsız kurulum yöntemi ve doğrulama ölçütü |
-| [`dokumantasyon/`](dokumantasyon/) | v202610310429 | Ajan platformları ve kural dosyaları için resmî dokümantasyon: DeepSeek Harness, ZCode, Antigravity, OpenCode, VS Code, Qoder, WorkBuddy, Cline, ChatGPT/Codex ve Gemini CLI |
-| [`dokumantasyon/linkler.md`](dokumantasyon/linkler.md) | v202611011411 | Resmî dokümantasyonun sade bağlantı listesi |
-| [`denenecekler/`](denenecekler/) | v202610310421 | Manuel havuz: henüz denenmemiş araç, servis ve kaynak listeleri; kurulum protokolü bu dizine dokunmaz |
-| [`denenecekler/linkler.md`](denenecekler/linkler.md) | v202611011411 | Manuel havuzun sade bağlantı listesi |
+| [`KURULUM.md`](KURULUM.md) | v202611011444 | Ajan gömme ve kurulum protokolü: platform tespiti, yedekleme, anayasayı sıfırdan yazma, envanter kurulumu, kaynak indeksi ve doğrulama |
+| [`platformlar.md`](platformlar.md) | v202611011444 | 10 platformluk kurulum matrisi: tespit işareti, global kural dosyası, skill dizini, MCP yapılandırması, kaynak indeksi hedefi ve doğrulama |
+| [`01-yuklenecekler/`](01-yuklenecekler/) | v202611011444 | Zorunlu yüklenen araç kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme, metin, araştırma |
+| [`01-yuklenecekler/linkler.md`](01-yuklenecekler/linkler.md) | v202611011444 | Zorunlu kataloğun sade bağlantı listesi |
+| [`01-yuklenecekler/envanter.md`](01-yuklenecekler/envanter.md) | v202611011444 | Kurulum envanteri: 50 bağlantının türü, platformdan bağımsız kurulum yöntemi ve doğrulama ölçütü |
+| [`02-dokumantasyon/`](02-dokumantasyon/) | v202611011444 | Ajan platformları ve kural dosyaları için resmî dokümantasyon: DeepSeek Harness, ZCode, Antigravity, OpenCode, VS Code, Qoder, WorkBuddy, Cline, ChatGPT/Codex ve Gemini CLI |
+| [`02-dokumantasyon/linkler.md`](02-dokumantasyon/linkler.md) | v202611011444 | Resmî dokümantasyonun sade bağlantı listesi |
+| [`03-denenecekler/`](03-denenecekler/) | v202611011444 | Manuel havuz: henüz denenmemiş araç, servis ve kaynak listeleri; kurulum protokolü bu dizine dokunmaz |
+| [`03-denenecekler/linkler.md`](03-denenecekler/linkler.md) | v202611011444 | Manuel havuzun sade bağlantı listesi |
 
 Katalog tablosu, depodaki her belgenin yayın sürümünü listeler; damga belgenin frontmatter'ı, katalog satırı ve aynı adlı release tag'inde birebir aynıdır.
 
-Belgeler konu adlı dizinlerde tutulur; her dizinin `README.md` dosyası o belgenin sayfasıdır (GitHub'da dizin açıldığında render edilir). Kök `README.md` belge içeriğini kopyalamaz, yalnızca bağlantı verir. Her dizinde ayrıca `linkler.md` sade bağlantı listesi bulunur; README ile aynı bağlantı dizisini taşır.
+Belgeler numaralı konu dizinlerinde tutulur; her dizinin `README.md` dosyası o belgenin sayfasıdır (GitHub'da dizin açıldığında render edilir). Kök `README.md` belge içeriğini kopyalamaz, yalnızca bağlantı verir. Her dizinde ayrıca `linkler.md` sade bağlantı listesi bulunur; README ile aynı bağlantı dizisini taşır.
 
 ## Kurulum
 
 Belge derleme gerektirmez. İki yol vardır.
 
-**Ajanla kurulum (önerilen):** Depo bağlantısını ajana verip "buradakileri yükle" demek yeterlidir. Ajan [KURULUM.md](KURULUM.md) protokolünü uygular: platformunu tespit eder, mevcut global kural dosyasını `<ad>.yedek-<damga>` olarak yedekler, `AGENTS-tr.md` içeriğini global kural dosyasına sıfırdan yazar ve `yuklenecekler/` envanterindeki araçları global kurar. Protokol tam otomatiktir; `denenecekler/` dizinine dokunmaz.
+**Ajanla kurulum (önerilen):** Depo bağlantısını ajana verip "buradakileri yükle" demek yeterlidir. Ajan [KURULUM.md](KURULUM.md) protokolünü uygular: platformunu tespit eder, mevcut global kural dosyasını `<ad>.yedek-<damga>` olarak yedekler, `AGENTS-tr.md` içeriğini global kural dosyasına sıfırdan yazar ve `01-yuklenecekler/` envanterindeki araçları global kurar. Protokol tam otomatiktir; `03-denenecekler/` dizinine dokunmaz.
 
-**Manuel kurulum:** `AGENTS-tr.md` içeriğini platformun beklediği global kural dosyasına kopyala; `yuklenecekler/envanter.md` satırlarını sırayla kur.
+**Manuel kurulum:** `AGENTS-tr.md` içeriğini platformun beklediği global kural dosyasına kopyala; `01-yuklenecekler/envanter.md` satırlarını sırayla kur.
 
 ```powershell
 Copy-Item -Force .\AGENTS-tr.md "$HOME\.dsh\AGENTS.md"
@@ -94,13 +94,13 @@ Projedeki yerel kural bu anayasa ile çelişirse §10.1 uyarınca anayasa kazan�
 | `AGENTS-tr.md` | Türkçe ajan anayasası (frontmatter ve 11 bölüm) |
 | `KURULUM.md` | Ajan gömme ve kurulum protokolü (icra talimatı) |
 | `platformlar.md` | 10 platformun global kural, skill ve MCP kurulum matrisi |
-| `yuklenecekler/README.md` | Zorunlu yüklenen araç kataloğu (açıklamalı) |
-| `yuklenecekler/linkler.md` | Kataloğun sade bağlantı listesi |
-| `yuklenecekler/envanter.md` | Kurulum envanteri: her linkin türü, kurulum yöntemi ve doğrulaması |
-| `dokumantasyon/README.md` | Ajan ve CLI dokümantasyonu (açıklamalı) |
-| `dokumantasyon/linkler.md` | Dokümantasyonun sade bağlantı listesi |
-| `denenecekler/README.md` | Manuel havuz: henüz denenmemiş araç ve kaynaklar (açıklamalı) |
-| `denenecekler/linkler.md` | Denenmemişlerin gruplu sade bağlantı listesi |
+| `01-yuklenecekler/README.md` | Zorunlu yüklenen araç kataloğu (açıklamalı) |
+| `01-yuklenecekler/linkler.md` | Kataloğun sade bağlantı listesi |
+| `01-yuklenecekler/envanter.md` | Kurulum envanteri: her linkin türü, kurulum yöntemi ve doğrulaması |
+| `02-dokumantasyon/README.md` | Ajan ve CLI dokümantasyonu (açıklamalı) |
+| `02-dokumantasyon/linkler.md` | Dokümantasyonun sade bağlantı listesi |
+| `03-denenecekler/README.md` | Manuel havuz: henüz denenmemiş araç ve kaynaklar (açıklamalı) |
+| `03-denenecekler/linkler.md` | Denenmemişlerin gruplu sade bağlantı listesi |
 | `README.md` | Katalog, kurulum, kullanım, sürümleme ve doğrulama |
 | `.gitattributes` | LF satır sonu politikası |
 | `.gitignore` | Ortam dosyaları, yerel ajan artefaktları, IDE ve OS dosyaları |
