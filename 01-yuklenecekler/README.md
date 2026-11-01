@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğu: her zaman kurulan araçlar ve bölüm bölüm başvuru kaynakları."
-version: "v202611011444"
+version: "v202611012145"
 ---
 
 # Ajan Araçları Kataloğu
@@ -115,3 +115,9 @@ Web'de araştırma yaparken, arama görünürlüğünü ve pazarlama içeriğini
 - https://github.com/Auriti-Labs/geo-optimizer-skill - Sitenizin ChatGPT, Perplexity, Gemini ve Google AI Overviews tarafından alıntılanıp alıntılanmadığını 0-100 puanlayan açık kaynak GEO/AEO denetim aracı; CLI, Python ve MCP.
 - https://github.com/AminForou/mcp-gsc - Google Search Console verisini doğal dille sorgulamak için MCP sunucusu; Claude Desktop, Cursor, Codex CLI gibi istemcilerle çalışır.
 - https://github.com/eyaprak/skills/tree/main/seo-expert - Uçtan uca SEO içerik üretim hattı: trend analizi, derin araştırma, ana hat planlama, kalite kapılı yazım ve yayına hazır HTML çıktısı.
+
+## 10. 3B Simülatör ve Makine Anlatımı
+
+Bir makinenin nasıl çalıştığını sökülebilir 3B sayfayla anlatmak veya o sayfayı 60 fps videoya kaydetmek gerektiğinde buraya bak.
+
+- https://github.com/elvarofficial/teardown - Herhangi bir makineyi (motor, iniş takımı, yürüme mekanizması, pompa, şanzıman) tek çevrimdışı HTML sayfasında çalışan, panelleri aynı modelden beslenen, parçaları sökülebilen ve boşta kendi kendine tur atan 3B simülatöre çeviren; ardından turu kare kare 60 fps videoya ve eşzamanlı prosedürel sese kaydeden Claude Code becerisi.

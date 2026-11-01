@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğunun kurulum envanteri: tür, kurulum yöntemi ve doğrulama."
-version: "v202611011444"
+version: "v202611012145"
 ---
 
 # Kurulum Envanteri
@@ -59,9 +59,10 @@ Bu tablo, ajan kurulum protokolü tarafından icra edilir: her satır bir bağla
 | 48 | geo-optimizer | https://github.com/Auriti-Labs/geo-optimizer-skill | CLI | `uvx --from geo-optimizer-skill geo audit --url https://site` (PyPI 4.19.9) · MCP: `geo-mcp` · beceri: depodaki `SKILL.md` skill dizinine kopyalanır | `uvx --from geo-optimizer-skill geo --help` çalışır · MCP listesinde geo-mcp |
 | 49 | mcp-gsc | https://github.com/AminForou/mcp-gsc | MCP | `uvx mcp-search-console` (PyPI 0.4.1) + Google Search Console OAuth veya servis hesabı JSON'u · MCP girdisi `{command: uvx, args: [mcp-search-console]}` | MCP listesinde mcp-gsc · GSC sorgu aracı yanıt verir (kimlik bilgisi zorunlu) |
 | 50 | seo-expert | https://github.com/eyaprak/skills/tree/main/seo-expert | skill | `git clone --depth 1 https://github.com/eyaprak/skills` + `seo-expert/` klasörünü (SKILL.md + scripts) skill dizinine kopyala | Skill dizininde `seo-expert/SKILL.md` ve `scripts/quality-gate.mjs` |
+| 51 | teardown | https://github.com/elvarofficial/teardown | skill | `git clone --depth 1 https://github.com/elvarofficial/teardown` + tüm depo klasörünü skill dizinine kopyala · kurulu klasörde `npm install && npx playwright install chromium` (önkoşul: Node 20+, video için ffmpeg, ses için Python 3) | Skill dizininde `SKILL.md` ve `sims/` · `node_modules/three` kurulu · `node sims/build.mjs v8-live` çalışır ve `teardown-out/dist/v8-live.html` üretir |
 
 ## Doğrulama Yöntemi
 
-- Kaynaklar: GitHub Contents ve Trees API (50/50 depo 200 yanıtı), depo README kurulum bölümleri, npm registry sürümleri, PyPI JSON API.
-- Tür dağılımı: 28 skill, 10 MCP, 7 CLI, 3 kütüphane, 1 site, 1 veri.
+- Kaynaklar: GitHub Contents ve Trees API (51/51 depo 200 yanıtı), depo README kurulum bölümleri, npm registry sürümleri, PyPI JSON API.
+- Tür dağılımı: 29 skill, 10 MCP, 7 CLI, 3 kütüphane, 1 site, 1 veri.
 - Doğrulanmalı: yalnızca 21. satır; verilen `anthropics/claude-code` bağlantısı 404 döndü, güncel kaynak `anthropics/skills` deposundaki `skills/frontend-design` klasörü.

@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğunun sade bağlantı listesi; açıklamalı belge README.md dosyasındadır."
-version: "v202611011444"
+version: "v202611012145"
 ---
 
 # Bağlantılar
@@ -57,3 +57,4 @@ version: "v202611011444"
 - https://github.com/Auriti-Labs/geo-optimizer-skill
 - https://github.com/AminForou/mcp-gsc
 - https://github.com/eyaprak/skills/tree/main/seo-expert
+- https://github.com/elvarofficial/teardown
