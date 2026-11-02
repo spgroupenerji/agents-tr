@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğunun sade bağlantı listesi; açıklamalı belge README.md dosyasındadır."
-version: "v202611012145"
+version: "v202611020329"
 ---
 
 # Bağlantılar
@@ -58,3 +58,5 @@ version: "v202611012145"
 - https://github.com/AminForou/mcp-gsc
 - https://github.com/eyaprak/skills/tree/main/seo-expert
 - https://github.com/elvarofficial/teardown
+- https://github.com/guillaumemeyer/watermarks-remover
+- https://github.com/nateherkai/scroll-craft

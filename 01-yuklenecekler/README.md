@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğu: her zaman kurulan araçlar ve bölüm bölüm başvuru kaynakları."
-version: "v202611012145"
+version: "v202611020329"
 ---
 
 # Ajan Araçları Kataloğu
@@ -121,3 +121,15 @@ Web'de araştırma yaparken, arama görünürlüğünü ve pazarlama içeriğini
 Bir makinenin nasıl çalıştığını sökülebilir 3B sayfayla anlatmak veya o sayfayı 60 fps videoya kaydetmek gerektiğinde buraya bak.
 
 - https://github.com/elvarofficial/teardown - Herhangi bir makineyi (motor, iniş takımı, yürüme mekanizması, pompa, şanzıman) tek çevrimdışı HTML sayfasında çalışan, panelleri aynı modelden beslenen, parçaları sökülebilen ve boşta kendi kendine tur atan 3B simülatöre çeviren; ardından turu kare kare 60 fps videoya ve eşzamanlı prosedürel sese kaydeden Claude Code becerisi.
+
+## 11. Filigran ve İçerik Temizliği
+
+Sahip olunan içerikteki AI köken izlerini kaldırmak veya yayına hazır metni temizlemek gerektiğinde buraya bak.
+
+- https://github.com/guillaumemeyer/watermarks-remover - Çok üreticili AI köken izlerini kaldıran gizlilik odaklı uygulama ve ajan becerisi: görünmez Unicode (A katmanı), yeniden yazımla istatistiksel metin filigranı (B katmanı) ve PNG/JPEG/PDF/DOCX/MP4 gibi dosyalarda C2PA/EXIF/XMP üst verisi; iki beceri (`remove-ai-marks`, `clean-user-facing-text`) ve `127.0.0.1:8765` üzerindeki yerel HTTP hizmetiyle çalışır.
+
+## 12. Kaydırmalı Web Siteleri
+
+Kaydırmayla açılan sinematik tanıtım sayfası üretmek ve sonucu gerçek tarayıcıda doğrulamak gerektiğinde buraya bak.
+
+- https://github.com/nateherkai/scroll-craft - Kaydırma zaman çizelgesine bağlı premium tanıtım sayfaları üreten ajan becerisi: sekiz birbirini dışlayan sayfa grameri, bağımsız derinlik düzlemleri, zorunlu imza etkileşimi, tek mühendislik zirvesi ve kaydırma karelerini gerçek tarayıcıda doğrulayan kontrol hattı; `plugins/nateherk-design/skills/scroll-craft/` klasörü olduğu gibi kopyalanır.

@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğunun kurulum envanteri: tür, kurulum yöntemi ve doğrulama."
-version: "v202611012145"
+version: "v202611020329"
 ---
 
 # Kurulum Envanteri
@@ -60,9 +60,11 @@ Bu tablo, ajan kurulum protokolü tarafından icra edilir: her satır bir bağla
 | 49 | mcp-gsc | https://github.com/AminForou/mcp-gsc | MCP | `uvx mcp-search-console` (PyPI 0.4.1) + Google Search Console OAuth veya servis hesabı JSON'u · MCP girdisi `{command: uvx, args: [mcp-search-console]}` | MCP listesinde mcp-gsc · GSC sorgu aracı yanıt verir (kimlik bilgisi zorunlu) |
 | 50 | seo-expert | https://github.com/eyaprak/skills/tree/main/seo-expert | skill | `git clone --depth 1 https://github.com/eyaprak/skills` + `seo-expert/` klasörünü (SKILL.md + scripts) skill dizinine kopyala | Skill dizininde `seo-expert/SKILL.md` ve `scripts/quality-gate.mjs` |
 | 51 | teardown | https://github.com/elvarofficial/teardown | skill | `git clone --depth 1 https://github.com/elvarofficial/teardown` + tüm depo klasörünü skill dizinine kopyala · kurulu klasörde `npm install && npx playwright install chromium` (önkoşul: Node 20+, video için ffmpeg, ses için Python 3) | Skill dizininde `SKILL.md` ve `sims/` · `node_modules/three` kurulu · `node sims/build.mjs v8-live` çalışır ve `teardown-out/dist/v8-live.html` üretir |
+| 52 | watermarks-remover | https://github.com/guillaumemeyer/watermarks-remover | skill | `git clone --depth 1 https://github.com/guillaumemeyer/watermarks-remover` + `py install_skill.py --skill remove-ai-marks --target codex` ve `--skill clean-user-facing-text --target codex` · hizmet: `py service/scripts/server.py --host 127.0.0.1 --port 8765` (Python 3.10+ stdlib) | Skill dizinlerinde `remove-ai-marks/SKILL.md` ve `clean-user-facing-text/SKILL.md` · `GET http://127.0.0.1:8765/health` 200 `{"ok": true}` · istemci `WATERMARKS_SERVICE_URL` ile hizmete bağlanır |
+| 53 | scroll-craft | https://github.com/nateherkai/scroll-craft | skill | `git clone --depth 1 https://github.com/nateherkai/scroll-craft` + `plugins/nateherk-design/skills/scroll-craft/` klasörünü (SKILL.md, engine, references, scripts, templates) skill dizinine kopyala + `npm i playwright-core` · önkoşul: Node 18+, tam ffmpeg (libwebp), Chrome | `node scripts/doctor.mjs` geçer (ffmpeg 588 filtre, libwebp, playwright-core, Chrome) · `node scripts/workspace.mjs --ensure` çalışma alanını ve boş `FINGERPRINTS.md` kaydını kurar |
 
 ## Doğrulama Yöntemi
 
-- Kaynaklar: GitHub Contents ve Trees API (51/51 depo 200 yanıtı), depo README kurulum bölümleri, npm registry sürümleri, PyPI JSON API.
-- Tür dağılımı: 29 skill, 10 MCP, 7 CLI, 3 kütüphane, 1 site, 1 veri.
+- Kaynaklar: GitHub Contents ve Trees API (53/53 depo 200 yanıtı), depo README kurulum bölümleri, npm registry sürümleri, PyPI JSON API.
+- Tür dağılımı: 31 skill, 10 MCP, 7 CLI, 3 kütüphane, 1 site, 1 veri.
 - Doğrulanmalı: yalnızca 21. satır; verilen `anthropics/claude-code` bağlantısı 404 döndü, güncel kaynak `anthropics/skills` deposundaki `skills/frontend-design` klasörü.
