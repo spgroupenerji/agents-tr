@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğu: her zaman kurulan araçlar ve bölüm bölüm başvuru kaynakları."
-version: "v202611020329"
+version: "v202611040432"
 ---
 
 # Ajan Araçları Kataloğu
@@ -74,7 +74,6 @@ Kodla video üretirken üç katman: ajan becerisi (6.1), altta çalışan motor 
 
 ### 6.1 Ajan Yetenekleri
 
-- https://github.com/eyaprak/skills - YouTube videolarında gösterilen Claude Code becerilerinin toplandığı depo; `seo-expert` becerisi buradan indirildi.
 - https://github.com/nateherkai/herk-edit-kit - Codex veya Claude Code ile video, Reels ve YouTube Shorts kurgusu; HyperFrames + GSAP tabanlı, 15 beceri ve 406 motion-graphics kartı.
 - https://github.com/eyaprak/skills/tree/main/hyperframes-studio - HyperFrames ile 16:9 açılış hook'u, 9:16 Shorts veya animasyonlu slidedeck üreten hepsi bir arada studio; koyu tema, tek marka rengi ve self-hosted Manrope + JetBrains Mono fontlarla oynatılabilir kompozisyon çıkarır.
 - https://github.com/omergocmen/anything2explainer - Herhangi bir konuyu seslendirmeli, altyazılı ve bölüm çubuklu kara tuval animasyon anlatım videosuna çeviren Claude Code/Codex becerisi.
