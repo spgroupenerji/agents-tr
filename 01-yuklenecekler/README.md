@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğu: her zaman kurulan araçlar ve bölüm bölüm başvuru kaynakları."
-version: "v202611040714"
+version: "v202611040730"
 ---
 
 # Ajan Araçları Kataloğu
@@ -15,7 +15,7 @@ Bu dördü, ajan oturumlarında en sık başvurduğum temel araçlar; diğer bö
 - https://github.com/obra/superpowers - Ajanı hemen koda daldırmayıp beyin fırtınası, şartname, planlama ve TDD adımlarından geçiren metodoloji çerçevesi.
 - https://github.com/spgroupenerji/skills - SP GROUP ajan yeteneklerinin deposu; yetenek kataloğu depodaki `README.md` dosyasındadır.
 - https://github.com/upstash/context7 - Kütüphane ve framework dokümantasyonunu sürüm bazlı MCP üzerinden vererek uydurma API kullanımını engelleyen platform.
-- https://github.com/ChromeDevTools/chrome-devtools-mcp - Ajanların Chrome'u MCP üzerinden kontrol etmesini, DOM ve ağ trafiğini denetlemesini sağlayan resmî Chrome DevTools aracı; kurulumda kullanılacak tarayıcı profil dizinini ister.
+- https://github.com/ChromeDevTools/chrome-devtools-mcp - Ajanların Chrome'u MCP üzerinden kontrol etmesini, DOM ve ağ trafiğini denetlemesini sağlayan resmî Chrome DevTools aracı. Kurulumda ajan kullanıcıya kullanılacak Chrome yolunu, ayrı/izole profil kullanıp kullanmayacağını ve remote debugging portunu sorar; güncel Chrome sürümleri (136+) varsayılan profilde remote debugging'e izin vermediği için ayrı profil önerilir.
 
 ## 1. Metodoloji ve Süreç
 

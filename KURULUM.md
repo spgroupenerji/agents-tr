@@ -1,6 +1,6 @@
 ---
 description: "Ajan gömme ve kurulum protokolü: depo bağlantısı verildiğinde anayasayı ve zorunlu araçları platformun global ortamına kuran icra adımları."
-version: "v202611040437"
+version: "v202611040730"
 ---
 
 # Ajan Gömme ve Kurulum Protokolü
@@ -45,7 +45,7 @@ Kural dosyası yolu platforma göre değişir; [platformlar.md](platformlar.md) 
 1. [01-yuklenecekler/envanter.md](01-yuklenecekler/envanter.md) dosyasını oku.
 2. Her satırı türüne göre kur:
    - `skill`: depoyu geçici dizine klonla (`git clone --depth 1`), `SKILL.md` ve eşlik eden dosyaları platformun skill dizinine `<ad>/` altına kopyala, geçici dizini sil.
-   - `MCP`: platformun MCP yapılandırma dosyasına `{command, args}` girişi ekle; aynı adlı eski girişi ez.
+   - `MCP`: platformun MCP yapılandırma dosyasına `{command, args}` girişi ekle; aynı adlı eski girişi ez. Chrome DevTools MCP satırında kullanıcıya sormadan yapılandırma yazma: (1) kullanılacak Chrome yolu, (2) ayrı/izole profil tercihi (Chrome 136+ varsayılan profilde remote debugging'e izin vermez; `--user-data-dir` zorunludur) ve (3) remote debugging portu sorulur; cevap envanterdeki biçime göre uygulanır ve seçilen port `/json/version` ile doğrulanır.
    - `CLI`: envanterdeki kurulum komutunu çalıştır, ardından `command -v` ile doğrula.
    - `kütüphane`, `site`, `veri`: kurulum yok; Aşama 4'e bırak.
 3. Envanterde kurulum alanı `doğrulanmalı` olan satırı **kurma**; rapora "atlandı" olarak yaz.
