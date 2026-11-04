@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğunun kurulum envanteri: tür, kurulum yöntemi ve doğrulama."
-version: "v202611040432"
+version: "v202611040714"
 ---
 
 # Kurulum Envanteri
@@ -37,7 +37,7 @@ Bu tablo, ajan kurulum protokolü tarafından icra edilir: her satır bir bağla
 | 26 | open-code-review (ocr) | https://github.com/alibaba/open-code-review | CLI | `npm i -g @alibaba-group/open-code-review` (1.13.3) · alternatif `install.sh` veya release ikilisi · ardından `ocr config provider` ve `ocr config model` | `ocr --version` çalışır · `ocr config model` LLM yapılandırmasını gösterir |
 | 27 | REA | https://github.com/morluto/rea | MCP | `npx rea-agents setup` (MCP ve ajan yapılandırmasını yazar) · kalıcı: `npm i -g rea-agents` | `npx rea-agents --version` (6.8.0) · MCP listesinde rea |
 | 28 | leanrea | https://github.com/aicodeking/leanrea | skill | `npx skills add aicodeking/leanrea -g` (`-g` kullanıcı düzeyi; `-a '*'` tüm ajanlar) | `npx skills list` çıktısında leanrea · skill dizininde `leanrea/SKILL.md` |
-| 29 | Strix | https://github.com/usestrix/strix | CLI | `pipx install strix-agent` (PyPI 1.7.0) veya README'deki `curl` kurulum betiği (`https://strix.ai/install`) | `strix --version` çalışır · `strix --help` LLM anahtarı istemini gösterir |
+| 29 | Strix | https://github.com/usestrix/strix | CLI | `pipx install strix-agent` (PyPI 1.7.0) veya README'deki `curl` kurulum betiği (`https://strix.ai/install`) + `git clone --depth 1 https://github.com/usestrix/strix` ve `skills/` altındaki 9 ajan becerisini skill dizinine kopyala | `strix --version` çalışır · skill dizininde 9 `SKILL.md`: api-security-testing, application-security-testing, ci-security-scanning-with-strix, find-security-vulnerabilities-in-code, fix-security-vulnerabilities-with-strix, managed-pentesting-with-strix, owasp-top-10-testing, penetration-testing-with-strix, web-app-penetration-testing |
 | 30 | replica-skill | https://github.com/Jakeschincariol/replica-skill | skill | `git clone --depth 1 https://github.com/Jakeschincariol/replica-skill` + kökteki 11 beceri klasörünü skill dizinine kopyala · veya `/plugin marketplace add Jakeschincariol/replica-skill` | Skill dizininde 11 adet `SKILL.md` (replica-recon, replica-build …) |
 | 31 | herk-edit-kit | https://github.com/nateherkai/herk-edit-kit | skill | `git clone --depth 1` + `npm ci` + `npm run setup` + `.agents/skills/` altındaki 30 beceriyi skill dizinine kopyala · render için `npx hyperframes` | `npm test` geçer · skill dizininde cut-silences, edit-video vb. · `npx hyperframes --version` |
 | 32 | hyperframes-studio | https://github.com/eyaprak/skills/tree/main/hyperframes-studio | skill | `git clone --depth 1 https://github.com/eyaprak/skills` + `hyperframes-studio/` klasörünü (SKILL.md + templates) skill dizinine kopyala | Skill dizininde `hyperframes-studio/SKILL.md` ve `assets/templates/{hook,shorts,slidedeck}` |

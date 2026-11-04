@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğu: her zaman kurulan araçlar ve bölüm bölüm başvuru kaynakları."
-version: "v202611040432"
+version: "v202611040714"
 ---
 
 # Ajan Araçları Kataloğu
@@ -65,7 +65,7 @@ Kod incelemesi, güvenlik testi veya ikili/uygulama çözümlemesi gerektiğinde
 - https://github.com/alibaba/open-code-review - Deterministik kurallar ile LLM ajanını birleştirerek satır bazlı hata ve güvenlik açığı (NPE, thread-safety, XSS, SQL injection) tespit eden inceleme aracı.
 - https://github.com/morluto/rea - İkili dosya, uygulama ve çalışma zamanı davranışını yerelde analiz eden, Ghidra/JADX/apktool/binwalk gibi araçları tek MCP altında toplayan tersine mühendislik sunucusu.
 - https://github.com/aicodeking/leanrea - REA'nın MCP katmanını atıp 8 KB'lık tek `SKILL.md` ile ajana hedef türüne göre en hızlı komutu (otool, jadx, binwalk vb.) seçtiren alternatif.
-- https://github.com/usestrix/strix - Açık kaynak yapay zekâ sızma testi aracı; uygulamanın açıklarını bulup düzeltmeye yardım eder.
+- https://github.com/usestrix/strix - Açık kaynak yapay zekâ sızma testi aracı; uygulamanın açıklarını bulup düzeltmeye yardım eder. Ajan becerisi paketi: depodaki `skills/` altındaki 9 beceri (api-security-testing, application-security-testing, ci-security-scanning-with-strix, find-security-vulnerabilities-in-code, fix-security-vulnerabilities-with-strix, managed-pentesting-with-strix, owasp-top-10-testing, penetration-testing-with-strix, web-app-penetration-testing) ajan skill dizinine kopyalanır.
 - https://github.com/Jakeschincariol/replica-skill - Herhangi bir uygulamayı tersine mühendislikle klonlayıp yeniden kuran, hatalarını ayıklayan on bir ücretsiz Claude becerisi.
 
 ## 6. Video ve Hareketli Grafik

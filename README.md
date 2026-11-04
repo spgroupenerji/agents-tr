@@ -1,6 +1,6 @@
 ---
 description: "SP GROUP ajan anayasası deposunun giriş belgesi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama."
-version: "v202611040446"
+version: "v202611040714"
 ---
 
 # SP GROUP Ajan Anayasası (AGENTS-tr)
@@ -23,14 +23,14 @@ SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa 
 
 | Belge | Sürüm | Kapsam |
 | --- | --- | --- |
-| [`README.md`](README.md) | v202611040446 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
+| [`README.md`](README.md) | v202611040714 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
 | [`AGENTS-tr.md`](AGENTS-tr.md) | v202611040446 | Ajan anayasası (Türkçe kaynak): ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
 | [`AGENTS-en.md`](AGENTS-en.md) | v202611040446 | Anayasanın birebir İngilizce çevirisi; platformların global kural dosyasına yüklenen sürüm |
 | [`KURULUM.md`](KURULUM.md) | v202611040437 | Ajan gömme ve kurulum protokolü: platform tespiti, yedekleme, anayasayı sıfırdan yazma, envanter kurulumu, kaynak indeksi ve doğrulama |
 | [`platformlar.md`](platformlar.md) | v202611040439 | 10 platformluk kurulum matrisi: tespit işareti, global kural dosyası, skill dizini, MCP yapılandırması, kaynak indeksi hedefi ve doğrulama |
-| [`01-yuklenecekler/`](01-yuklenecekler/) | v202611040432 | Zorunlu yüklenen araç kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme ve simülatör, filigran temizliği, kaydırmalı web, metin, araştırma |
+| [`01-yuklenecekler/`](01-yuklenecekler/) | v202611040714 | Zorunlu yüklenen araç kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme ve simülatör, filigran temizliği, kaydırmalı web, metin, araştırma |
 | [`01-yuklenecekler/linkler.md`](01-yuklenecekler/linkler.md) | v202611040432 | Zorunlu kataloğun sade bağlantı listesi |
-| [`01-yuklenecekler/envanter.md`](01-yuklenecekler/envanter.md) | v202611040432 | Kurulum envanteri: 52 bağlantının türü, platformdan bağımsız kurulum yöntemi ve doğrulama ölçütü |
+| [`01-yuklenecekler/envanter.md`](01-yuklenecekler/envanter.md) | v202611040714 | Kurulum envanteri: 52 bağlantının türü, platformdan bağımsız kurulum yöntemi ve doğrulama ölçütü |
 | [`02-dokumantasyon/`](02-dokumantasyon/) | v202611011444 | Ajan platformları ve kural dosyaları için resmî dokümantasyon: DeepSeek Harness, ZCode, Antigravity, OpenCode, VS Code, Qoder, WorkBuddy, Cline, ChatGPT/Codex ve Gemini CLI |
 | [`02-dokumantasyon/linkler.md`](02-dokumantasyon/linkler.md) | v202611011444 | Resmî dokümantasyonun sade bağlantı listesi |
 | [`03-denenecekler/`](03-denenecekler/) | v202611040347 | Manuel havuz: henüz denenmemiş araç, servis ve kaynak listeleri; kurulum protokolü bu dizine dokunmaz |
