@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğunun sade bağlantı listesi; açıklamalı belge README.md dosyasındadır."
-version: "v202611040432"
+version: "v202611050112"
 ---
 
 # Bağlantılar
@@ -32,6 +32,7 @@ version: "v202611040432"
 - https://github.com/nutlope/hallmark
 - https://github.com/meodai/skill.color-expert
 - https://github.com/borghei/Claude-Skills/blob/main/engineering/design-auditor/SKILL.md
+- https://github.com/heydamir/unslop
 - https://github.com/alibaba/open-code-review
 - https://github.com/morluto/rea
 - https://github.com/aicodeking/leanrea

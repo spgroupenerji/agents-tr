@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğu: her zaman kurulan araçlar ve bölüm bölüm başvuru kaynakları."
-version: "v202611040730"
+version: "v202611050112"
 ---
 
 # Ajan Araçları Kataloğu
@@ -57,6 +57,7 @@ Web arayüzü üretirken estetik kararlar, tasarım sistemi veya canvas efektler
 - https://github.com/nutlope/hallmark - Together AI'nin tasarım becerisi: 50 temalı malzeme kataloğundan üç tema seçip sayfayı ziyaretçinin işine göre kurar, sonucu gerçek tarayıcıda makine üretimi izlerine karşı lint eder.
 - https://github.com/meodai/skill.color-expert - Renk bilimi için ajan becerisi: renk uzayları, APCA/WCAG erişilebilirliği, palet üretimi, pigment karışımı ve tarihsel renk kuramını kapsayan 180'den fazla referans dosyası; Claude Code, Codex, Cursor ve Copilot ile çalışır.
 - https://github.com/borghei/Claude-Skills/blob/main/engineering/design-auditor/SKILL.md - Arayüz tasarımını 12 kategoride puanlayan, yapay zekâ slop kalıplarını ve WCAG renk uyumunu yakalayan, tasarım token'ı uyumunu ölçen ajan becerisi; borghei/Claude-Skills deposundaki 383 beceriden biri.
+- https://github.com/heydamir/unslop - Vibecoded/yapay zekâ görünümlü arayüzü slop bulgularından tasarıma çeviren Claude Code/Codex becerisi (Damir Sokolovsky, CC BY 4.0): boşluk, renk, ikon, metin, tipografi, yerleşim, detay, görsel ve hareketi sırayla düzeltir; canlı site görüntüsü ve story videosu için Playwright + Chromium, video için ffmpeg ister.
 
 ## 5. İnceleme, Güvenlik ve Tersine Mühendislik
 
