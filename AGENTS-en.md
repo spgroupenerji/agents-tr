@@ -1,6 +1,6 @@
 ---
 description: "Constitution: Aggressive Coding Strategy Optimizing Token Efficiency and Security; stability, context engineering, zero spaghetti/dead code, mandatory tool discipline."
-version: "v202610310226"
+version: "v202611040446"
 alwaysApply: true
 ---
 
@@ -96,3 +96,4 @@ Task flow: Understand → Plan → Map → Verify → Select Strategy → Implem
 11.3. Propagation: The exact same stamp must be identical across all version-bearing surfaces: artifact/file name, in-app version, About view, and release record on desktop; About/info page, release record, catalog entry, and matching git tag on web/panels and documents. Push the tag to the remote repository.
 11.4. Lifecycle: Never retroactively alter a published stamp; every release receives a new stamp; do not close a release until stamp equality across all surfaces is verified; fix any stamp error via a new build or release.
 11.5. Scope and prohibition: Every piece of software, application, site/panel, desktop artifact, skill, and this constitution is bound by this rule; keep mechanical details within the relevant platform skill. Prohibited: unstamped releases, mismatched stamps across surfaces, secondary version sources, and fabricated versions.
+11.6. Translation parity: Every change to `AGENTS-tr.md` must be translated verbatim into English and written correctly into `AGENTS-en.md` in the same release; both files must carry the same stamp and the same section/rule numbers. Global rule files are populated with the content of `AGENTS-en.md`.

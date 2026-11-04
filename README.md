@@ -1,6 +1,6 @@
 ---
 description: "SP GROUP ajan anayasası deposunun giriş belgesi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama."
-version: "v202611040439"
+version: "v202611040446"
 ---
 
 # SP GROUP Ajan Anayasası (AGENTS-tr)
@@ -23,9 +23,9 @@ SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa 
 
 | Belge | Sürüm | Kapsam |
 | --- | --- | --- |
-| [`README.md`](README.md) | v202611040439 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
-| [`AGENTS-tr.md`](AGENTS-tr.md) | v202610310226 | Ajan anayasası (Türkçe kaynak): ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
-| [`AGENTS-en.md`](AGENTS-en.md) | v202610310226 | Anayasanın birebir İngilizce çevirisi; platformların global kural dosyasına yüklenen sürüm |
+| [`README.md`](README.md) | v202611040446 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
+| [`AGENTS-tr.md`](AGENTS-tr.md) | v202611040446 | Ajan anayasası (Türkçe kaynak): ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
+| [`AGENTS-en.md`](AGENTS-en.md) | v202611040446 | Anayasanın birebir İngilizce çevirisi; platformların global kural dosyasına yüklenen sürüm |
 | [`KURULUM.md`](KURULUM.md) | v202611040437 | Ajan gömme ve kurulum protokolü: platform tespiti, yedekleme, anayasayı sıfırdan yazma, envanter kurulumu, kaynak indeksi ve doğrulama |
 | [`platformlar.md`](platformlar.md) | v202611040439 | 10 platformluk kurulum matrisi: tespit işareti, global kural dosyası, skill dizini, MCP yapılandırması, kaynak indeksi hedefi ve doğrulama |
 | [`01-yuklenecekler/`](01-yuklenecekler/) | v202611040432 | Zorunlu yüklenen araç kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme ve simülatör, filigran temizliği, kaydırmalı web, metin, araştırma |
@@ -39,6 +39,8 @@ SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa 
 Katalog tablosu, depodaki her belgenin yayın sürümünü listeler; damga belgenin frontmatter'ı, katalog satırı ve aynı adlı release tag'inde birebir aynıdır.
 
 Belgeler numaralı konu dizinlerinde tutulur; her dizinin `README.md` dosyası o belgenin sayfasıdır (GitHub'da dizin açıldığında render edilir). Kök `README.md` belge içeriğini kopyalamaz, yalnızca bağlantı verir. Her dizinde ayrıca `linkler.md` sade bağlantı listesi bulunur; README ile aynı bağlantı dizisini taşır.
+
+Depo kökünde `AGENTS.md` adı bilinçli olarak kullanılmaz; kullanılan bazı araçlar kök `AGENTS.md` dosyasını kendiliğinden oluşturur veya okur ve bu ad çakışma yaratır. İngilizce çeviri bu nedenle `AGENTS-en.md` adındadır; kurulumda içeriği, aracın global kural dosyasına olduğu gibi yapıştırılır.
 
 ## Kurulum
 
@@ -127,6 +129,7 @@ Her belge geçerli frontmatter ile başlamalı, `version` alanı `vYYYYMMDDHHMM`
 
 ```powershell
 $kok = (Get-Location).Path
+if (Test-Path (Join-Path $kok 'AGENTS.md')) { throw "Depo kökünde AGENTS.md olmamalı; araç çakışması riski" }
 $belgeler = Get-ChildItem -Recurse -Filter *.md | Where-Object { $_.FullName -notlike "*\.git\*" } | Where-Object { (Get-Content -LiteralPath $_.FullName -TotalCount 1) -eq '---' }
 foreach ($belge in $belgeler) {
   $bulunan = Select-String -Path $belge.FullName -Pattern '^version:\s*"(.+)"$' -List
@@ -177,7 +180,7 @@ Write-Output 'Doğrulama geçti'
 
 ## Sürümleme ve Bakım
 
-- `AGENTS-tr.md` Türkçe kaynaktır, `AGENTS-en.md` birebir İngilizce çevirisidir; her içerik değişikliği aynı yayında iki dosyaya uygulanır, iki dosya aynı damgayı taşır ve global kurulum İngilizce dosyadan yapılır.
+- `AGENTS-tr.md` Türkçe kaynaktır; her değişiklik aynı yayında birebir İngilizceye çevrilip `AGENTS-en.md` dosyasına doğru biçimde yazılır. İki dosya aynı damgayı ve aynı bölüm/kural numaralarını taşır; global kural dosyasına İngilizce içerik yapıştırılır.
 - Her belge tek sürüm damgasıyla yönetilir: `vYYYYMMDDHHMM` (yıl-ay-gün-saat-dakika, Türkiye saati UTC+3); belge her değiştiğinde damgası yükseltilir ve katalog satırı aynı yayında güncellenir.
 - Damga; belgenin frontmatter'ı, README katalog satırı ve aynı adlı release tag'inde birebir aynı olur; her yayında tag oluşturulup uzak depoya gönderilir.
 - Katalog tablosu, belge sürümleriyle her değişiklikte eşitlenir.

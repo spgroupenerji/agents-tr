@@ -1,6 +1,6 @@
 ---
 description: "Anayasa: Token Verimliliğini ve Güvenliği Optimize Eden Agresif Kodlama Stratejisi; stabilite, bağlam mühendisliği, sıfır spagetti/ölü kod, zorunlu araç disiplini."
-version: "v202610310226"
+version: "v202611040446"
 alwaysApply: true
 ---
 
@@ -96,3 +96,4 @@ Görev akışı: Anla → Planla → Haritala → Doğrula → Strateji Seç →
 11.3. Yayılım: Aynı damga sürüm taşıyan tüm yüzeylerde birebir aynıdır: masaüstünde artefakt/dosya adı, uygulama içi sürüm, Hakkında ve release kaydı; web/panel ve belgede Hakkında/bilgi sayfası, release kaydı, katalog satırı ve aynı adlı git tag'i. Tag uzak depoya gönderilir.
 11.4. Yaşam döngüsü: Yayınlanmış damga geriye dönük değiştirilmez; her yayın yeni damga alır; eşitlik doğrulanmadan yayın kapanmaz; damga hatası yeni derleme veya yayınla düzeltilir.
 11.5. Kapsam ve yasak: Her yazılım, uygulama, site/panel, masaüstü artefaktı, skill ve bu anayasa bu kurala tabidir; mekanik ayrıntı ilgili platform becerisinde tutulur. Yasak: damgasız yayın, yüzeyler arasında farklı damga, ikinci sürüm kaynağı, sürüm uydurma.
+11.6. Çeviri eşitliği: `AGENTS-tr.md` dosyasındaki her değişiklik aynı yayında birebir İngilizceye çevrilip doğru biçimde `AGENTS-en.md` dosyasına yazılır; iki dosya aynı damgayı ve aynı bölüm/kural numaralarını taşır. Global kural dosyalarına `AGENTS-en.md` içeriği yapıştırılır.
