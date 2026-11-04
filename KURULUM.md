@@ -1,16 +1,17 @@
 ---
 description: "Ajan gömme ve kurulum protokolü: depo bağlantısı verildiğinde anayasayı ve zorunlu araçları platformun global ortamına kuran icra adımları."
-version: "v202611011444"
+version: "v202611040437"
 ---
 
 # Ajan Gömme ve Kurulum Protokolü
 
 > Bu dosya bir ajana verilen **icra talimatıdır**. Kullanıcı bu deponun bağlantısını verip "buradakileri yükle" dediğinde ajan bu protokolü uygular.
-> Anayasa: [AGENTS-tr.md](AGENTS-tr.md) · Envanter: [01-yuklenecekler/envanter.md](01-yuklenecekler/envanter.md) · Platform matrisi: [platformlar.md](platformlar.md)
+> Anayasa kaynağı: [AGENTS-tr.md](AGENTS-tr.md) (Türkçe) · Global kurulum kaynağı: [AGENTS-en.md](AGENTS-en.md) (birebir İngilizce çeviri) · Envanter: [01-yuklenecekler/envanter.md](01-yuklenecekler/envanter.md) · Platform matrisi: [platformlar.md](platformlar.md)
 
 ## 0. Kapsam ve değişmezler
 
-- **Yüklenenler:** `AGENTS-tr.md` anayasası + `01-yuklenecekler/` envanterindeki araçlar.
+- **Yüklenenler:** `AGENTS-tr.md` anayasasının birebir İngilizce çevirisi olan `AGENTS-en.md` + `01-yuklenecekler/` envanterindeki araçlar.
+- **Çeviri eşitliği:** `AGENTS-tr.md` Türkçe kaynaktır, `AGENTS-en.md` onun birebir çevirisidir; iki dosya aynı damgayı ve aynı bölüm/kural numaralarını taşır. Global kural dosyasına İngilizce dosyanın içeriği yazılır.
 - **`03-denenecekler/` kapsam dışıdır:** okunmaz, değiştirilmez, yüklenmez. Bu dizin kullanıcının manuel havuzudur; kullanıcı denediği aracı kendisi `01-yuklenecekler/` dizinine taşır ve o an zorunlu yüklenenlere girer.
 - **Depo salt kaynaktır:** kurulum sırasında depo dosyaları değiştirilmez; değişiklik depoda yapılıp kurulum yenilenir.
 - **Tam otomatik:** onay sorulmaz. Yalnızca platform tespiti belirsizse, yedek alınamıyorsa veya geri dönüşü zor bir çakışma varsa durulur ve raporlanır.
@@ -30,11 +31,11 @@ version: "v202611011444"
 2. Yedek alınamazsa kuruluma devam etme; nedeni raporla.
 3. Yedek yolu Aşama 5 raporuna yazılır.
 
-## 3. Aşama 2 — Anayasayı sıfırdan yaz
+## 3. Aşama 2 — Anayasayı (İngilizce çeviriyi) sıfırdan yaz
 
-1. `AGENTS-tr.md` içeriğini oku.
-2. Hedef global kural dosyasını **tamamen yeniden yaz**: eski içerikten hiçbir satır kalmaz; ekleme, çıkarma veya uyarlama yapılmaz, birebir kopyadır.
-3. Doğrula: kaynak ve hedef için SHA256 eşit; satır sayısı eşit; hedef dosyada eski sürümden kalan işaret yok.
+1. `AGENTS-en.md` içeriğini oku (Türkçe `AGENTS-tr.md`'nin birebir İngilizce çevirisi).
+2. Hedef global kural dosyasını **tamamen yeniden yaz**: eski içerikten hiçbir satır kalmaz; ekleme, çıkarma veya uyarlama yapılmaz, birebir kopyadır; kaynak `AGENTS-en.md` dosyasıdır.
+3. Doğrula: `AGENTS-en.md` ile hedef için SHA256 eşit; satır sayısı eşit; hedef dosyada eski sürümden kalan işaret yok.
 4. Doğrulama başarısızsa yedeği geri yükle, dur ve raporla.
 
 Kural dosyası yolu platforma göre değişir; [platformlar.md](platformlar.md) **Global kural dosyası** sütunundaki yolu kullan.
@@ -66,7 +67,8 @@ Aşağıdakileri ölç ve sonucu kullanıcıya düz metin olarak ver:
 
 | Ölçüt | Beklenen |
 | --- | --- |
-| Global kural dosyası SHA256 | `AGENTS-tr.md` ile eşit |
+| Global kural dosyası SHA256 | `AGENTS-en.md` ile eşit |
+| Çeviri eşitliği | `AGENTS-tr.md` ↔ `AGENTS-en.md` damga, bölüm ve kural numaraları eşit |
 | Kural dosyasında eski kalıntı | yok |
 | Kurulan skill sayısı | envanterdeki skill satırı − atlanan |
 | MCP girişleri | envanterdeki MCP satırıyla eşleşir |

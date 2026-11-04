@@ -1,11 +1,11 @@
 ---
 description: "Desteklenen ajan platformlarının global kural, skill ve MCP kurulum matrisi."
-version: "v202611011444"
+version: "v202611040437"
 ---
 
 # Platform Matrisi
 
-Kurulum protokolü bu tabloyu okur. Ajan önce **Tespit işareti** sütunundan kendi platformunu bulur; sonra `AGENTS-tr.md` içeriğini **Global kural dosyası** sütunundaki tam yola yazar, katalog yeteneklerini **Skill dizini** altına kurar, **MCP yapılandırması** dosyasına sunucu satırlarını ekler ve Aşama 4'te kütüphane, site ve veri bağlantılarını **Kaynak indeksi hedefi** yolunda toplar. `doğrulanmalı` etiketli hücre, yolun resmî belgeyle değil yalnız bu makinenin yerel izleriyle doğrulandığını söyler; protokol o hücreyi kullanmadan önce platformun güncel belgesini okur. Tabloda `<ad>` kurulacak yeteneğin dizin adı, `<sunucu>` ve `<araç>` ise MCP sunucusu ile aracının adıdır.
+Kurulum protokolü bu tabloyu okur. Ajan önce **Tespit işareti** sütunundan kendi platformunu bulur; sonra `AGENTS-en.md` içeriğini (`AGENTS-tr.md`'nin birebir İngilizce çevirisi) **Global kural dosyası** sütunundaki tam yola yazar, katalog yeteneklerini **Skill dizini** altına kurar, **MCP yapılandırması** dosyasına sunucu satırlarını ekler ve Aşama 4'te kütüphane, site ve veri bağlantılarını **Kaynak indeksi hedefi** yolunda toplar. `doğrulanmalı` etiketli hücre, yolun resmî belgeyle değil yalnız bu makinenin yerel izleriyle doğrulandığını söyler; protokol o hücreyi kullanmadan önce platformun güncel belgesini okur. Tabloda `<ad>` kurulacak yeteneğin dizin adı, `<sunucu>` ve `<araç>` ise MCP sunucusu ile aracının adıdır.
 
 | Platform | Tespit işareti | Global kural dosyası | Skill dizini | MCP yapılandırması | Kaynak indeksi hedefi | Doğrulama |
 | --- | --- | --- | --- | --- | --- | --- |

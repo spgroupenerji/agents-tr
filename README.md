@@ -1,11 +1,11 @@
 ---
 description: "SP GROUP ajan anayasası deposunun giriş belgesi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama."
-version: "v202611040432"
+version: "v202611040437"
 ---
 
 # SP GROUP Ajan Anayasası (AGENTS-tr)
 
-SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa tek dosyada (`AGENTS-tr.md`) tanımlanır; yardımcı belgeler konu adlı dizinlerde (`01-yuklenecekler/`, `02-dokumantasyon/`, `03-denenecekler/`) sürümlenir. Sürüm damgası, katalog ve release tag'i bu depoda birlikte tutulur. Ajan platformları anayasayı oturum bağlamına yükler; depo, anayasanın ve yardımcı belgelerin sürümlü kaynağıdır.
+SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa Türkçe kaynakta (`AGENTS-tr.md`) tanımlanır, birebir İngilizce çevirisi (`AGENTS-en.md`) global kurulumda kullanılır; yardımcı belgeler konu adlı dizinlerde (`01-yuklenecekler/`, `02-dokumantasyon/`, `03-denenecekler/`) sürümlenir. Sürüm damgası, katalog ve release tag'i bu depoda birlikte tutulur. Ajan platformları anayasayı oturum bağlamına yükler; depo, anayasanın ve yardımcı belgelerin sürümlü kaynağıdır.
 
 ## Özellikler
 
@@ -17,15 +17,17 @@ SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa 
 - Git üzerinde LF satır sonu politikası (`.gitattributes`); Windows'ta CRLF karışması önlenir
 - Güvenli varsayılanlar: depoya secret girmez, dış veri talimat olarak yürütülmez
 - Sürüm damgası `vYYYYMMDDHHMM`; frontmatter, katalog ve release tag birebir eşit; tek üretim, yüzey eşitliği ve Türkiye saati (UTC+3)
+- Türkçe kaynak + birebir İngilizce çeviri; global kural dosyasına İngilizce sürüm yüklenir, yanıt dili Türkçe kalır
 
 ## Belge Kataloğu
 
 | Belge | Sürüm | Kapsam |
 | --- | --- | --- |
-| [`README.md`](README.md) | v202611040432 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
-| [`AGENTS-tr.md`](AGENTS-tr.md) | v202610310226 | Ajan anayasası: ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
-| [`KURULUM.md`](KURULUM.md) | v202611011444 | Ajan gömme ve kurulum protokolü: platform tespiti, yedekleme, anayasayı sıfırdan yazma, envanter kurulumu, kaynak indeksi ve doğrulama |
-| [`platformlar.md`](platformlar.md) | v202611011444 | 10 platformluk kurulum matrisi: tespit işareti, global kural dosyası, skill dizini, MCP yapılandırması, kaynak indeksi hedefi ve doğrulama |
+| [`README.md`](README.md) | v202611040437 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
+| [`AGENTS-tr.md`](AGENTS-tr.md) | v202610310226 | Ajan anayasası (Türkçe kaynak): ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
+| [`AGENTS-en.md`](AGENTS-en.md) | v202610310226 | Anayasanın birebir İngilizce çevirisi; platformların global kural dosyasına yüklenen sürüm |
+| [`KURULUM.md`](KURULUM.md) | v202611040437 | Ajan gömme ve kurulum protokolü: platform tespiti, yedekleme, anayasayı sıfırdan yazma, envanter kurulumu, kaynak indeksi ve doğrulama |
+| [`platformlar.md`](platformlar.md) | v202611040437 | 10 platformluk kurulum matrisi: tespit işareti, global kural dosyası, skill dizini, MCP yapılandırması, kaynak indeksi hedefi ve doğrulama |
 | [`01-yuklenecekler/`](01-yuklenecekler/) | v202611040432 | Zorunlu yüklenen araç kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme ve simülatör, filigran temizliği, kaydırmalı web, metin, araştırma |
 | [`01-yuklenecekler/linkler.md`](01-yuklenecekler/linkler.md) | v202611040432 | Zorunlu kataloğun sade bağlantı listesi |
 | [`01-yuklenecekler/envanter.md`](01-yuklenecekler/envanter.md) | v202611040432 | Kurulum envanteri: 52 bağlantının türü, platformdan bağımsız kurulum yöntemi ve doğrulama ölçütü |
@@ -42,12 +44,12 @@ Belgeler numaralı konu dizinlerinde tutulur; her dizinin `README.md` dosyası o
 
 Belge derleme gerektirmez. İki yol vardır.
 
-**Ajanla kurulum (önerilen):** Depo bağlantısını ajana verip "buradakileri yükle" demek yeterlidir. Ajan [KURULUM.md](KURULUM.md) protokolünü uygular: platformunu tespit eder, mevcut global kural dosyasını `<ad>.yedek-<damga>` olarak yedekler, `AGENTS-tr.md` içeriğini global kural dosyasına sıfırdan yazar ve `01-yuklenecekler/` envanterindeki araçları global kurar. Protokol tam otomatiktir; `03-denenecekler/` dizinine dokunmaz.
+**Ajanla kurulum (önerilen):** Depo bağlantısını ajana verip "buradakileri yükle" demek yeterlidir. Ajan [KURULUM.md](KURULUM.md) protokolünü uygular: platformunu tespit eder, mevcut global kural dosyasını `<ad>.yedek-<damga>` olarak yedekler, `AGENTS-en.md` içeriğini (Türkçe `AGENTS-tr.md`'nin birebir İngilizce çevirisi) global kural dosyasına sıfırdan yazar ve `01-yuklenecekler/` envanterindeki araçları global kurar. Protokol tam otomatiktir; `03-denenecekler/` dizinine dokunmaz.
 
-**Manuel kurulum:** `AGENTS-tr.md` içeriğini platformun beklediği global kural dosyasına kopyala; `01-yuklenecekler/envanter.md` satırlarını sırayla kur.
+**Manuel kurulum:** `AGENTS-en.md` içeriğini platformun beklediği global kural dosyasına kopyala; `01-yuklenecekler/envanter.md` satırlarını sırayla kur.
 
 ```powershell
-Copy-Item -Force .\AGENTS-tr.md "$HOME\.dsh\AGENTS.md"
+Copy-Item -Force .\AGENTS-en.md "$HOME\.dsh\AGENTS.md"
 ```
 
 Global kural dosyası yolu platforma göre değişir; [platformlar.md](platformlar.md) tablosuna bak. Güncellemede önce `git pull`, sonra ajanla veya manuel kopyalamayla yenile; depo ile kopya arasındaki fark sürüm damgasından izlenir.
@@ -91,7 +93,8 @@ Projedeki yerel kural bu anayasa ile çelişirse §10.1 uyarınca anayasa kazan�
 
 | Yol | İçerik |
 | --- | --- |
-| `AGENTS-tr.md` | Türkçe ajan anayasası (frontmatter ve 11 bölüm) |
+| `AGENTS-tr.md` | Türkçe ajan anayasası kaynağı (frontmatter ve 11 bölüm) |
+| `AGENTS-en.md` | Anayasanın birebir İngilizce çevirisi; global kural dosyasına yüklenen sürüm |
 | `KURULUM.md` | Ajan gömme ve kurulum protokolü (icra talimatı) |
 | `platformlar.md` | 10 platformun global kural, skill ve MCP kurulum matrisi |
 | `01-yuklenecekler/README.md` | Zorunlu yüklenen araç kataloğu (açıklamalı) |
@@ -120,7 +123,7 @@ git status --short
 git diff --check
 ```
 
-Her belge geçerli frontmatter ile başlamalı, `version` alanı `vYYYYMMDDHHMM` biçiminde olmalı, katalog ile release tag'i aynı damgayı taşımalı, her dizinde README ile `linkler.md` aynı bağlantı dizisini taşımalı ve göreli iç linkler çözülmelidir. Damga ve link tutarlılığını denetlemek için:
+Her belge geçerli frontmatter ile başlamalı, `version` alanı `vYYYYMMDDHHMM` biçiminde olmalı, katalog ile release tag'i aynı damgayı taşımalı, her dizinde README ile `linkler.md` aynı bağlantı dizisini taşımalı ve göreli iç linkler çözülmelidir. `AGENTS-tr.md` ile `AGENTS-en.md` aynı damgayı, aynı bölüm ve kural numaralarını taşımalı; İngilizce çeviride Türkçe iletişim kuralı korunmalıdır. Damga ve link tutarlılığını denetlemek için:
 
 ```powershell
 $kok = (Get-Location).Path
@@ -135,6 +138,19 @@ foreach ($belge in $belgeler) {
   if (-not (Select-String -Path .\README.md -Pattern $desen)) { throw "Katalog satırı eksik veya damga farklı: $goreli -> $damga" }
   if (-not (git tag --list $damga)) { throw "Release tag eksik: $damga" }
 }
+$anayasaTr = Get-Content -Raw -Encoding UTF8 -LiteralPath (Join-Path $kok 'AGENTS-tr.md')
+$anayasaEn = Get-Content -Raw -Encoding UTF8 -LiteralPath (Join-Path $kok 'AGENTS-en.md')
+$trDamga = [regex]::Match($anayasaTr, '(?m)^version:\s*"(.+)"$').Groups[1].Value
+$enDamga = [regex]::Match($anayasaEn, '(?m)^version:\s*"(.+)"$').Groups[1].Value
+if ($trDamga -ne $enDamga) { throw "Çeviri damgası kaynakla eşleşmiyor: $trDamga -> $enDamga" }
+$trKural = ([regex]::Matches($anayasaTr, '(?m)^(\d+\.\d+)\.\s') | ForEach-Object { $_.Groups[1].Value }) -join ','
+$enKural = ([regex]::Matches($anayasaEn, '(?m)^(\d+\.\d+)\.\s') | ForEach-Object { $_.Groups[1].Value }) -join ','
+if ($trKural -ne $enKural) { throw "Çeviri kural numaraları kaynakla eşleşmiyor" }
+$trBolum = ([regex]::Matches($anayasaTr, '(?m)^## (\d+)\.') | ForEach-Object { $_.Groups[1].Value }) -join ','
+$enBolum = ([regex]::Matches($anayasaEn, '(?m)^## (\d+)\.') | ForEach-Object { $_.Groups[1].Value }) -join ','
+if ($trBolum -ne $enBolum) { throw "Çeviri bölüm numaraları kaynakla eşleşmiyor" }
+if ($anayasaTr -notmatch 'Türkçe iletişim') { throw "Türkçe kaynakta Türkçe iletişim kuralı yok" }
+if ($anayasaEn -notmatch 'communicate with me in Turkish') { throw "İngilizce çeviride Türkçe iletişim kuralı yok" }
 Get-ChildItem -Directory | Where-Object { $_.Name -notlike '.*' } | ForEach-Object {
   $dizin = $_
   $readme = Join-Path $dizin.FullName 'README.md'
@@ -161,6 +177,7 @@ Write-Output 'Doğrulama geçti'
 
 ## Sürümleme ve Bakım
 
+- `AGENTS-tr.md` Türkçe kaynaktır, `AGENTS-en.md` birebir İngilizce çevirisidir; her içerik değişikliği aynı yayında iki dosyaya uygulanır, iki dosya aynı damgayı taşır ve global kurulum İngilizce dosyadan yapılır.
 - Her belge tek sürüm damgasıyla yönetilir: `vYYYYMMDDHHMM` (yıl-ay-gün-saat-dakika, Türkiye saati UTC+3); belge her değiştiğinde damgası yükseltilir ve katalog satırı aynı yayında güncellenir.
 - Damga; belgenin frontmatter'ı, README katalog satırı ve aynı adlı release tag'inde birebir aynı olur; her yayında tag oluşturulup uzak depoya gönderilir.
 - Katalog tablosu, belge sürümleriyle her değişiklikte eşitlenir.
