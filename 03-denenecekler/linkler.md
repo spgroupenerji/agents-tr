@@ -1,6 +1,6 @@
 ---
 description: "Manuel havuzun sade bağlantı listesi; açıklamalı belge README.md dosyasındadır."
-version: "v202611011444"
+version: "v202611040347"
 ---
 
 # Bağlantılar
@@ -23,6 +23,8 @@ version: "v202611011444"
 - https://github.com/kaankiziltug/logo-design-skill
 - https://github.com/multica-ai/andrej-karpathy-skills
 - https://github.com/Mahanaicoach/google-maps-scraper-kit
+- https://github.com/vercel-labs/skills
+- https://github.com/mattpocock/skills
 
 ## 3. Katalog ve Liste Kaynakları
 

@@ -1,6 +1,6 @@
 ---
 description: "Henüz denenmemiş araç, servis ve kaynak listeleri."
-version: "v202611011444"
+version: "v202611040347"
 ---
 
 # Denemediklerim
@@ -23,6 +23,8 @@ version: "v202611011444"
 - https://github.com/kaankiziltug/logo-design-skill - Claude, Gemini CLI, Codex gibi ajanlara logo tasarım disiplini kazandıran beceri; 1.400'den fazla logo referansı, SVG üretimi ve test araçları içerir.
 - https://github.com/multica-ai/andrej-karpathy-skills - Karpathy'nin LLM kodlama tuzakları gözlemlerinden türetilmiş tek `CLAUDE.md` dosyası; Claude Code davranışını düzeltir.
 - https://github.com/Mahanaicoach/google-maps-scraper-kit - Yerel Docker'da çalışan ücretsiz Google Maps kazıyıcı; telefon, e-posta, web sitesi ve sosyal hesapları CSV'ye aktarır, Claude Code becerisi içerir.
+- https://github.com/vercel-labs/skills - Ajan becerileri ekosisteminin resmî CLI'ı (`npx skills`); 80'den fazla ajanın beceri dizinine kurulum, güncelleme, listeleme ve kaldırma yapar, skills.sh dizininden arama sunar.
+- https://github.com/mattpocock/skills - Matt Pocock'un günlük mühendislik akışından derlediği 38 becerilik koleksiyon; grill ve grilling ile gereksinim netleştirme, alan sözlüğü, TDD, kod incelemesi, triage ve spec/bilet akışlarını kapsar.
 
 ## 3. Katalog ve Liste Kaynakları
 
