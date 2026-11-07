@@ -1,6 +1,6 @@
 ---
 description: "SP GROUP ajan anayasası deposunun giriş belgesi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama."
-version: "v202611080101"
+version: "v202611080135"
 ---
 
 # SP GROUP Ajan Anayasası (AGENTS-tr)
@@ -23,9 +23,9 @@ SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa 
 
 | Belge | Sürüm | Kapsam |
 | --- | --- | --- |
-| [`README.md`](README.md) | v202611080101 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
-| [`AGENTS-tr.md`](AGENTS-tr.md) | v202611080101 | Ajan anayasası (Türkçe kaynak): ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
-| [`AGENTS-en.md`](AGENTS-en.md) | v202611080101 | Anayasanın birebir İngilizce çevirisi; platformların global kural dosyasına yüklenen sürüm |
+| [`README.md`](README.md) | v202611080135 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
+| [`AGENTS-tr.md`](AGENTS-tr.md) | v202611080135 | Ajan anayasası (Türkçe kaynak): ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
+| [`AGENTS-en.md`](AGENTS-en.md) | v202611080135 | Anayasanın birebir İngilizce çevirisi; platformların global kural dosyasına yüklenen sürüm |
 | [`KURULUM.md`](KURULUM.md) | v202611072050 | Ajan gömme ve kurulum protokolü: platform tespiti, yedekleme, anayasayı sıfırdan yazma, envanter kurulumu, kaynak indeksi, doğrulama ve kopyala-kullan hazır prompt |
 | [`platformlar.md`](platformlar.md) | v202611040439 | 10 platformluk kurulum matrisi: tespit işareti, global kural dosyası, skill dizini, MCP yapılandırması, kaynak indeksi hedefi ve doğrulama |
 | [`01-yuklenecekler/`](01-yuklenecekler/) | v202611072220 | Zorunlu yüklenen araç kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme ve simülatör, filigran temizliği, kaydırmalı web, metin, araştırma |
@@ -85,7 +85,7 @@ Belge, ajan oturumunun başında bağlam olarak yüklenir; ayrıca bir komut ger
 
 - §1 İlkeler, §2 İş Akışı: anla → planla → haritala → doğrula → strateji seç → uygula → kanıtla → kapat
 - §3 Risk Sınıfları: basit, orta ve kritik işler için plan, kanıt, rollback ve onay eşikleri
-- §4 Araç Disiplini: envanter, taban araçlar, benzersiz kanıt, araç tamamlayıcılığı, etkinleştirme, bağlam bütçesi ve progressive disclosure
+- §4 Araç Disiplini: envanter, taban araçlar, benzersiz kanıt, araç önceliği, okuma yedeği, etkinleştirme, bağlam bütçesi ve progressive disclosure
 - §5 Bellek Yönetimi, §6 Kod Kalitesi: kalıcı kararlar, ölü kod yasağı, yorum ve fonksiyon sınırları
 - §7 İsimlendirme ve Türkçe: dil, imla ve kod isimlendirme standardı
 - §8 Güvenlik, §9 Hata Yönetimi, §10 Çatışma, Git ve Belge Disiplini
