@@ -1,6 +1,6 @@
 ---
 description: "SP GROUP ajan anayasası deposunun giriş belgesi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama."
-version: "v202611050112"
+version: "v202611072050"
 ---
 
 # SP GROUP Ajan Anayasası (AGENTS-tr)
@@ -23,10 +23,10 @@ SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa 
 
 | Belge | Sürüm | Kapsam |
 | --- | --- | --- |
-| [`README.md`](README.md) | v202611050112 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
+| [`README.md`](README.md) | v202611072050 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
 | [`AGENTS-tr.md`](AGENTS-tr.md) | v202611040446 | Ajan anayasası (Türkçe kaynak): ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
 | [`AGENTS-en.md`](AGENTS-en.md) | v202611040446 | Anayasanın birebir İngilizce çevirisi; platformların global kural dosyasına yüklenen sürüm |
-| [`KURULUM.md`](KURULUM.md) | v202611040730 | Ajan gömme ve kurulum protokolü: platform tespiti, yedekleme, anayasayı sıfırdan yazma, envanter kurulumu, kaynak indeksi ve doğrulama |
+| [`KURULUM.md`](KURULUM.md) | v202611072050 | Ajan gömme ve kurulum protokolü: platform tespiti, yedekleme, anayasayı sıfırdan yazma, envanter kurulumu, kaynak indeksi, doğrulama ve kopyala-kullan hazır prompt |
 | [`platformlar.md`](platformlar.md) | v202611040439 | 10 platformluk kurulum matrisi: tespit işareti, global kural dosyası, skill dizini, MCP yapılandırması, kaynak indeksi hedefi ve doğrulama |
 | [`01-yuklenecekler/`](01-yuklenecekler/) | v202611050112 | Zorunlu yüklenen araç kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme ve simülatör, filigran temizliği, kaydırmalı web, metin, araştırma |
 | [`01-yuklenecekler/linkler.md`](01-yuklenecekler/linkler.md) | v202611050112 | Zorunlu kataloğun sade bağlantı listesi |
@@ -46,7 +46,9 @@ Depo kökünde `AGENTS.md` adı bilinçli olarak kullanılmaz; kullanılan bazı
 
 Belge derleme gerektirmez. İki yol vardır.
 
-**Ajanla kurulum (önerilen):** Depo bağlantısını ajana verip "buradakileri yükle" demek yeterlidir. Ajan [KURULUM.md](KURULUM.md) protokolünü uygular: platformunu tespit eder, mevcut global kural dosyasını `<ad>.yedek-<damga>` olarak yedekler, `AGENTS-en.md` içeriğini (Türkçe `AGENTS-tr.md`'nin birebir İngilizce çevirisi) global kural dosyasına sıfırdan yazar ve `01-yuklenecekler/` envanterindeki araçları global kurar. Protokol tam otomatiktir; `03-denenecekler/` dizinine dokunmaz.
+**Ajanla kurulum (önerilen):** Depo bağlantısını ajana verip "buradakileri yükle" demek yeterlidir. Ajan [KURULUM.md](KURULUM.md) protokolünü uygular: platformunu tespit eder, mevcut global kural dosyasını `<ad>.yedek-<damga>` olarak yedekler, `AGENTS-en.md` içeriğini (Türkçe `AGENTS-tr.md`'nin birebir İngilizce çevirisi) global kural dosyasına sıfırdan yazar ve `01-yuklenecekler/` envanterindeki araçları mevcut durumu tespit ederek kurar veya günceller. Protokol tam otomatiktir; `03-denenecekler/` dizinine dokunmaz.
+
+**Kopyala-kullan hazır prompt:** [KURULUM.md](KURULUM.md) §9 bölümündeki istemi olduğu gibi kopyala, `Depo:` satırındaki bağlantıyı kendi depo bağlantınla değiştir ve ajana ver. İstem mevcut kurulumu tespit etmeyi, eksik araçları kurmayı, güncel olmayanları güncellemeyi ve şüphede kalan adımları `02-dokumantasyon/` resmî belgesinden doğrulamayı zorunlu kılar.
 
 **Manuel kurulum:** `AGENTS-en.md` içeriğini platformun beklediği global kural dosyasına kopyala; `01-yuklenecekler/envanter.md` satırlarını sırayla kur.
 
