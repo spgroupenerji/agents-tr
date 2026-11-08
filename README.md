@@ -1,6 +1,6 @@
 ---
 description: "SP GROUP ajan anayasası deposunun giriş belgesi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama."
-version: "v202611080135"
+version: "v202611081751"
 ---
 
 # SP GROUP Ajan Anayasası (AGENTS-tr)
@@ -23,20 +23,20 @@ SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa 
 
 | Belge | Sürüm | Kapsam |
 | --- | --- | --- |
-| [`README.md`](README.md) | v202611080135 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
+| [`README.md`](README.md) | v202611081751 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
 | [`AGENTS-tr.md`](AGENTS-tr.md) | v202611080135 | Ajan anayasası (Türkçe kaynak): ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
 | [`AGENTS-en.md`](AGENTS-en.md) | v202611080135 | Anayasanın birebir İngilizce çevirisi; platformların global kural dosyasına yüklenen sürüm |
 | [`KURULUM.md`](KURULUM.md) | v202611072050 | Ajan gömme ve kurulum protokolü: platform tespiti, yedekleme, anayasayı sıfırdan yazma, envanter kurulumu, kaynak indeksi, doğrulama ve kopyala-kullan hazır prompt |
-| [`platformlar.md`](platformlar.md) | v202611040439 | 10 platformluk kurulum matrisi: tespit işareti, global kural dosyası, skill dizini, MCP yapılandırması, kaynak indeksi hedefi ve doğrulama |
+| [`platformlar.md`](platformlar.md) | v202611040439 | platform kurulum matrisi: tespit işareti, global kural dosyası, skill dizini, MCP yapılandırması, kaynak indeksi hedefi ve doğrulama |
 | [`01-yuklenecekler/`](01-yuklenecekler/) | v202611072220 | Zorunlu yüklenen araç kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme ve simülatör, filigran temizliği, kaydırmalı web, metin, araştırma |
 | [`01-yuklenecekler/linkler.md`](01-yuklenecekler/linkler.md) | v202611072220 | Zorunlu kataloğun sade bağlantı listesi |
-| [`01-yuklenecekler/envanter.md`](01-yuklenecekler/envanter.md) | v202611072220 | Kurulum envanteri: 54 bağlantının türü, platformdan bağımsız kurulum yöntemi ve doğrulama ölçütü |
+| [`01-yuklenecekler/envanter.md`](01-yuklenecekler/envanter.md) | v202611081751 | Kurulum envanteri: envanterdeki bağlantıların türü, platformdan bağımsız kurulum yöntemi ve doğrulama ölçütü |
 | [`02-dokumantasyon/`](02-dokumantasyon/) | v202611011444 | Ajan platformları ve kural dosyaları için resmî dokümantasyon: DeepSeek Harness, ZCode, Antigravity, OpenCode, VS Code, Qoder, WorkBuddy, Cline, ChatGPT/Codex ve Gemini CLI |
 | [`02-dokumantasyon/linkler.md`](02-dokumantasyon/linkler.md) | v202611011444 | Resmî dokümantasyonun sade bağlantı listesi |
 | [`03-denenecekler/`](03-denenecekler/) | v202611072220 | Manuel havuz: henüz denenmemiş araç, servis ve kaynak listeleri; kurulum protokolü bu dizine dokunmaz |
 | [`03-denenecekler/linkler.md`](03-denenecekler/linkler.md) | v202611072220 | Manuel havuzun sade bağlantı listesi |
 
-Katalog tablosu, depodaki her belgenin yayın sürümünü listeler; damga belgenin frontmatter'ı, katalog satırı ve aynı adlı release tag'inde birebir aynıdır.
+Katalog tablosu, depodaki her belgenin yayın sürümünü listeler; damga belgenin frontmatter'ı, katalog satırı ve aynı adlı release tag'inde birebir aynıdır. Belge, beceri, platform ve bağlantı sayıları sabit değildir; kurulum ve doğrulama sayıları depodaki dosya ve dizinlerden çalışma anında türetir.
 
 Belgeler numaralı konu dizinlerinde tutulur; her dizinin `README.md` dosyası o belgenin sayfasıdır (GitHub'da dizin açıldığında render edilir). Kök `README.md` belge içeriğini kopyalamaz, yalnızca bağlantı verir. Her dizinde ayrıca `linkler.md` sade bağlantı listesi bulunur; README ile aynı bağlantı dizisini taşır.
 
@@ -100,7 +100,7 @@ Projedeki yerel kural bu anayasa ile çelişirse §10.1 uyarınca anayasa kazan�
 | `AGENTS-tr.md` | Türkçe ajan anayasası kaynağı (frontmatter ve 11 bölüm) |
 | `AGENTS-en.md` | Anayasanın birebir İngilizce çevirisi; global kural dosyasına yüklenen sürüm |
 | `KURULUM.md` | Ajan gömme ve kurulum protokolü (icra talimatı) |
-| `platformlar.md` | 10 platformun global kural, skill ve MCP kurulum matrisi |
+| `platformlar.md` | Platformların global kural, skill ve MCP kurulum matrisi |
 | `01-yuklenecekler/README.md` | Zorunlu yüklenen araç kataloğu (açıklamalı) |
 | `01-yuklenecekler/linkler.md` | Kataloğun sade bağlantı listesi |
 | `01-yuklenecekler/envanter.md` | Kurulum envanteri: her linkin türü, kurulum yöntemi ve doğrulaması |
