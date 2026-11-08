@@ -1,6 +1,6 @@
 ---
 description: "Henüz denenmemiş araç, servis ve kaynak listeleri."
-version: "v202611072220"
+version: "v202611081805"
 ---
 
 # Denemediklerim
@@ -26,6 +26,7 @@ version: "v202611072220"
 - https://github.com/vercel-labs/skills - Ajan becerileri ekosisteminin resmî CLI'ı (`npx skills`); 80'den fazla ajanın beceri dizinine kurulum, güncelleme, listeleme ve kaldırma yapar, skills.sh dizininden arama sunar.
 - https://github.com/mattpocock/skills - Matt Pocock'un günlük mühendislik akışından derlediği 38 becerilik koleksiyon; grill ve grilling ile gereksinim netleştirme, alan sözlüğü, TDD, kod incelemesi, triage ve spec/bilet akışlarını kapsar.
 - https://github.com/affaan-m/ecc - Ajan çatısı işletim sistemi: 71 ajan, 314 beceri, hook, kural, hafıza ve AgentShield güvenlik taramasını Claude Code, Codex, OpenCode, Cursor ve Gemini için tek çatıda toplar; `ecc@ecc` eklentisi veya `ecc-universal` npm paketiyle kurulur (henüz denenmedi).
+- https://github.com/promptfoo/promptfoo - LLM istemlerini, ajanları ve RAG'leri test eden; kırmızı takım/sızma testi taraması ve model karşılaştırması yapan açık kaynak CLI; bildirimsel YAML yapılandırması ve CI/CD entegrasyonu sunar (henüz denenmedi).
 
 ## 3. Katalog ve Liste Kaynakları
 

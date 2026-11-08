@@ -1,6 +1,6 @@
 ---
 description: "Manuel havuzun sade bağlantı listesi; açıklamalı belge README.md dosyasındadır."
-version: "v202611072220"
+version: "v202611081805"
 ---
 
 # Bağlantılar
@@ -26,6 +26,7 @@ version: "v202611072220"
 - https://github.com/vercel-labs/skills
 - https://github.com/mattpocock/skills
 - https://github.com/affaan-m/ecc
+- https://github.com/promptfoo/promptfoo
 
 ## 3. Katalog ve Liste Kaynakları
 
