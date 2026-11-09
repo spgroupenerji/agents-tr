@@ -1,6 +1,6 @@
 ---
 description: "Henüz denenmemiş araç, servis ve kaynak listeleri."
-version: "v202611081805"
+version: "v202611100219"
 ---
 
 # Denemediklerim
@@ -17,6 +17,7 @@ version: "v202611081805"
 ## 2. Beceri, Prompt ve Hazır Araç Depoları
 
 - https://prompt-motion.com - Claude Opus 5.5 ile üretilmiş motion videolarının prompt ve becerilerini kategorilere ayıran koleksiyon sitesi (ürün arayüzü, kinetik tipografi, partikül, grafik, müzik vb.).
+- https://smokich.gosem.dev/stil/ - Claude ile video stilleri: 11 hazır stil (kâğıt poster, kesik kâğıt, konstrüktivist, bilim atlası, risograf, izometrik çizim, düz vektör, kinetik tipografi, sıvı cam, ASCII atlas, parçacık) arasından seçim yapıp konu, biçim, storyboard, ses ve efekt ayarlarıyla Claude Code'a yapıştırılacak İngilizce üretim istemini oluşturan Türkçe koleksiyon sitesi.
 - https://github.com/nidhinjs/prompt-master - Claude için prompt yazma becerisi: her yapay zekâ aracına doğru istemi kurar, bağlam ve hafızayı korur.
 - https://github.com/f/prompts.chat - Topluluktan prompt paylaşma ve toplama arşivi; kurum içinde kendi sunucunuzda barındırma seçeneği de var.
 - https://github.com/omergocmen/aislopmeter - Bir web sitesindeki jenerik yapay zekâ içeriğini puanlayıp adım adım düzelten MCP sunucusu ve CLI; Türkçe destekli.

@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğunun sade bağlantı listesi; açıklamalı belge README.md dosyasındadır."
-version: "v202611072220"
+version: "v202611100219"
 ---
 
 # Bağlantılar
@@ -45,6 +45,7 @@ version: "v202611072220"
 - https://github.com/cth9191/animate
 - https://github.com/greensock/gsap-skills
 - https://github.com/LottieFiles/motion-design-skill
+- https://github.com/leodavincs/kalem
 - https://github.com/motiondivision/motion
 - https://github.com/heygen-com/hyperframes
 - https://github.com/remotion-dev/remotion

@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğu: her zaman kurulan araçlar ve bölüm bölüm başvuru kaynakları."
-version: "v202611072220"
+version: "v202611100219"
 ---
 
 # Ajan Araçları Kataloğu
@@ -82,6 +82,7 @@ Kodla video üretirken üç katman: ajan becerisi (6.1), altta çalışan motor 
 - https://github.com/cth9191/animate - Her stilde (piksel sanatı, kesme kâğıt vb.) prosedürel animasyon: hikâye, görsel ve storyboard kontrolleri içeren tek dosya canvas videoları.
 - https://github.com/greensock/gsap-skills - GSAP'in resmî AI becerileri; zaman çizelgesi ve animasyonu doğru API ile kullandırır.
 - https://github.com/LottieFiles/motion-design-skill - Zamanlama, easing, koreografi ve Disney'in 12 animasyon prensibini ajanlara aktaran evrensel prensip deposu.
+- https://github.com/leodavincs/kalem - Claude Code ile kodla video üretme becerisi: videoyu 4-8 sahneye böler, her sahne için doğru motoru seçer (Paper.js, PixiJS, HyperFrames, Three.js, Manim, levha), sahneleri geçişlerle birleştirir ve kareye kilitli efekt sesi ekler; beğenilen videoyu sahne sahne İngilizce isteme çeviren `referans` becerisini de içerir (MIT).
 
 ### 6.2 Render Motorları ve Animasyon Kütüphaneleri
 

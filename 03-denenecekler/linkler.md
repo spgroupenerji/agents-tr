@@ -1,6 +1,6 @@
 ---
 description: "Manuel havuzun sade bağlantı listesi; açıklamalı belge README.md dosyasındadır."
-version: "v202611081805"
+version: "v202611100219"
 ---
 
 # Bağlantılar
@@ -17,6 +17,7 @@ version: "v202611081805"
 ## 2. Beceri, Prompt ve Hazır Araç Depoları
 
 - https://prompt-motion.com
+- https://smokich.gosem.dev/stil/
 - https://github.com/nidhinjs/prompt-master
 - https://github.com/f/prompts.chat
 - https://github.com/omergocmen/aislopmeter
