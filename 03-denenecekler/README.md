@@ -1,6 +1,6 @@
 ---
 description: "Henüz denenmemiş araç, servis ve kaynak listeleri."
-version: "v202611100422"
+version: "v202611100440"
 ---
 
 # Denemediklerim
@@ -15,6 +15,10 @@ version: "v202611100422"
 - https://github.com/HKUDS/CLI-Anything - Grafik arayüzlü yazılımların kodunu analiz edip ajanların doğrudan kullanabileceği CLI araçlarına dönüştürür.
 - https://github.com/vercel-labs/agent-desktop - Ajanlara ekran görüntüsü ve piksel eşleme olmadan bilgisayar kullanımı veren CLI ve C kütüphanesi: masaüstü uygulamasının erişilebilirlik ağacını referanslı JSON olarak okur, ajandaki döngü tıklama/yazmayı bu referanslarla yürütür; macOS, Windows ve Linux (Apache-2.0, Vercel Labs).
 - https://github.com/microsoft/TokenEconomizer - Kodlama ajanlarının maliyetini deneyimden öğrenerek düşüren eklenti: mikro-beceriler, kullanılmayan araçları budama ve hata döngüsü müdahalesi; Claude Code, Codex, Copilot CLI, Pi ile deneysel opencode/Cursor/Grok/Hermes/Antigravity destekler; DSH ve ZCode desteklenmediği, Antigravity desteği yalnız deneysel/sınırlı olduğu için aday havuzda (Apache-2.0, Microsoft Research); denenirse Trail-Code MCP'sini kapatmamak için `te config set toolprune=propose --global`.
+- https://github.com/nikolai-vysotskyi/trace-mcp - Framework'e duyarlı kod zekâsı MCP sunucusu: 91 framework entegrasyonu ve 81 dili kod grafiğine çıkarır; PR incelemesinde girdi token'ını %72,7 azaltırken anlama paritesi sunduğunu iddia eder (MIT, TypeScript; üretici iddiası).
+- https://github.com/redhat-et/ripwire - Kodlama ajanları için sıfır bağımlılıklı C++23 CLI ve MCP sunucusu: depoyu okumadan arama, blast radius, çalıştırılacak testler ve kalite farkı çıkarımı; imzalar gövdeden %74,7 daha az bayt (Apache-2.0; üretici iddiası).
+- https://github.com/oraios/serena - Ajanı IDE'ye çeviren kodlama MCP araç seti: dil sunucuları üzerinden anlamsal arama, sembol düzeyinde okuma ve düzenleme yetenekleri (Python; lisans doğrulanmalı).
+- https://github.com/DeusData/codebase-memory-mcp - Geliştiriciler ve ajanlar için yerel kod zekâsı: kodu, dokümanları ve altyapıyı kalıcı bir grafikte birleştirir; CBM Lens, MCP araçları, ajan entegrasyonları ve değişime duyarlı test seçimi sunar (MIT).
 
 ## 2. Beceri, Prompt ve Hazır Araç Depoları
 
