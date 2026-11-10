@@ -1,6 +1,6 @@
 ---
 description: "Manuel havuzun sade bağlantı listesi; açıklamalı belge README.md dosyasındadır."
-version: "v202611100452"
+version: "v202611100654"
 ---
 
 # Bağlantılar
@@ -15,9 +15,6 @@ version: "v202611100452"
 - https://github.com/HKUDS/CLI-Anything
 - https://github.com/vercel-labs/agent-desktop
 - https://github.com/microsoft/TokenEconomizer
-- https://github.com/nikolai-vysotskyi/trace-mcp
-- https://github.com/redhat-et/ripwire
-- https://github.com/oraios/serena
 - https://github.com/DeusData/codebase-memory-mcp
 - https://github.com/kage-core/Kage
 

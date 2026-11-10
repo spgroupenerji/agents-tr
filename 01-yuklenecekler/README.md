@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğu: her zaman kurulan araçlar ve bölüm bölüm başvuru kaynakları."
-version: "v202611100422"
+version: "v202611100654"
 ---
 
 # Ajan Araçları Kataloğu
@@ -29,7 +29,9 @@ Yeni bir işe başlarken, kodu sadeleştirirken veya bir isteği derinleştirirk
 
 Bir sembolü değiştirmeden önce bağımlılıkları, çağrı yollarını ve etki alanını çıkarmak için buraya bak.
 
-- https://github.com/trailhq/Trail-Code - Kod tabanının haritasını çıkarıp ekip kararlarını (öğrenimleri) bu haritaya bağlayan, MCP ve hook'larla ajan istemine doğru dosya ve fonksiyonları enjekte eden bağlam katmanı (eski adı graft).
+- https://github.com/redhat-et/ripwire - Kodlama ajanları için sıfır bağımlılıklı C++23 CLI: depoyu okumadan `--for` ile doğru dosyaları bulur, blast radius ve çalıştırılacak testleri çıkarır, `--edit-check`/`--quality-delta`/`--test-gate` ile kalite kapısı kurar; MCP sunucusu opsiyoneldir (Apache-2.0).
+- https://github.com/oraios/serena - Dil sunucuları (LSP) üzerinden anlamsal arama, sembol düzeyinde okuma, düzenleme ve refactor yapan MCP araç seti; 40+ dil (PHP, Python, Rust, TypeScript, JavaScript, CSS/SCSS, Vue, Svelte dahil) destekler (GPL-3.0 çekirdek, SolidLSP MIT).
+- https://github.com/nikolai-vysotskyi/trace-mcp - Framework'e duyarlı kod zekâsı MCP sunucusu: 91 framework entegrasyonu ve 81 dili kod grafiğine çıkarır; PHP↔React/Vue, route ve ORM gibi çapraz dil kenarlarını bilir; PR incelemesinde girdi token'ını %72,7 azalttığını iddia eder (MIT; üretici iddiası).
 
 ## 3. Dokümantasyon, Sıkıştırma ve Hafıza
 

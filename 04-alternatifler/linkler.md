@@ -1,6 +1,6 @@
 ---
 description: "Alternatif araç havuzunun sade bağlantı listesi; açıklamalı belge README.md dosyasındadır."
-version: "v202611100409"
+version: "v202611100654"
 ---
 
 # Bağlantılar
@@ -9,6 +9,7 @@ version: "v202611100409"
 
 ## 1. Kod Zekâsı ve Grafik Alternatifleri
 
+- https://github.com/trailhq/Trail-Code
 - https://github.com/abhigyanpatwari/GitNexus
 - https://github.com/colbymchenry/codegraph
 - https://github.com/Graphify-Labs/graphify
