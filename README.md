@@ -1,6 +1,6 @@
 ---
 description: "SP GROUP ajan anayasası deposunun giriş belgesi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama."
-version: "v202611100307"
+version: "v202611100409"
 ---
 
 # SP GROUP Ajan Anayasası (AGENTS-tr)
@@ -23,18 +23,20 @@ SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa 
 
 | Belge | Sürüm | Kapsam |
 | --- | --- | --- |
-| [`README.md`](README.md) | v202611100307 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
+| [`README.md`](README.md) | v202611100409 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
 | [`AGENTS-tr.md`](AGENTS-tr.md) | v202611080135 | Ajan anayasası (Türkçe kaynak): ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
 | [`AGENTS-en.md`](AGENTS-en.md) | v202611080135 | Anayasanın birebir İngilizce çevirisi; platformların global kural dosyasına yüklenen sürüm |
 | [`KURULUM.md`](KURULUM.md) | v202611072050 | Ajan gömme ve kurulum protokolü: platform tespiti, yedekleme, anayasayı sıfırdan yazma, envanter kurulumu, kaynak indeksi, doğrulama ve kopyala-kullan hazır prompt |
 | [`platformlar.md`](platformlar.md) | v202611040439 | platform kurulum matrisi: tespit işareti, global kural dosyası, skill dizini, MCP yapılandırması, kaynak indeksi hedefi ve doğrulama |
-| [`01-yuklenecekler/`](01-yuklenecekler/) | v202611100307 | Zorunlu yüklenen araç kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme ve simülatör, filigran temizliği, kaydırmalı web, metin, araştırma |
-| [`01-yuklenecekler/linkler.md`](01-yuklenecekler/linkler.md) | v202611100307 | Zorunlu kataloğun sade bağlantı listesi |
-| [`01-yuklenecekler/envanter.md`](01-yuklenecekler/envanter.md) | v202611100307 | Kurulum envanteri: envanterdeki bağlantıların türü, platformdan bağımsız kurulum yöntemi ve doğrulama ölçütü |
+| [`01-yuklenecekler/`](01-yuklenecekler/) | v202611100409 | Zorunlu yüklenen araç kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme ve simülatör, filigran temizliği, kaydırmalı web, metin, araştırma |
+| [`01-yuklenecekler/linkler.md`](01-yuklenecekler/linkler.md) | v202611100409 | Zorunlu kataloğun sade bağlantı listesi |
+| [`01-yuklenecekler/envanter.md`](01-yuklenecekler/envanter.md) | v202611100409 | Kurulum envanteri: envanterdeki bağlantıların türü, platformdan bağımsız kurulum yöntemi ve doğrulama ölçütü |
 | [`02-dokumantasyon/`](02-dokumantasyon/) | v202611011444 | Ajan platformları ve kural dosyaları için resmî dokümantasyon: DeepSeek Harness, ZCode, Antigravity, OpenCode, VS Code, Qoder, WorkBuddy, Cline, ChatGPT/Codex ve Gemini CLI |
 | [`02-dokumantasyon/linkler.md`](02-dokumantasyon/linkler.md) | v202611011444 | Resmî dokümantasyonun sade bağlantı listesi |
 | [`03-denenecekler/`](03-denenecekler/) | v202611100307 | Manuel havuz: henüz denenmemiş araç, servis ve kaynak listeleri; kurulum protokolü bu dizine dokunmaz |
 | [`03-denenecekler/linkler.md`](03-denenecekler/linkler.md) | v202611100307 | Manuel havuzun sade bağlantı listesi |
+| [`04-alternatifler/`](04-alternatifler/) | v202611100409 | Alternatif araç havuzu: zorunlu katalogdan çıkarılan kod zekâsı ve grafik araçları; kurulum protokolü bu dizine dokunmaz |
+| [`04-alternatifler/linkler.md`](04-alternatifler/linkler.md) | v202611100409 | Alternatif havuzun sade bağlantı listesi |
 
 Katalog tablosu, depodaki her belgenin yayın sürümünü listeler; damga belgenin frontmatter'ı, katalog satırı ve aynı adlı release tag'inde birebir aynıdır. Belge, beceri, platform ve bağlantı sayıları sabit değildir; kurulum ve doğrulama sayıları depodaki dosya ve dizinlerden çalışma anında türetir.
 
@@ -46,7 +48,7 @@ Depo kökünde `AGENTS.md` adı bilinçli olarak kullanılmaz; kullanılan bazı
 
 Belge derleme gerektirmez. İki yol vardır.
 
-**Ajanla kurulum (önerilen):** Depo bağlantısını ajana verip "buradakileri yükle" demek yeterlidir. Ajan [KURULUM.md](KURULUM.md) protokolünü uygular: platformunu tespit eder, mevcut global kural dosyasını `<ad>.yedek-<damga>` olarak yedekler, `AGENTS-en.md` içeriğini (Türkçe `AGENTS-tr.md`'nin birebir İngilizce çevirisi) global kural dosyasına sıfırdan yazar ve `01-yuklenecekler/` envanterindeki araçları mevcut durumu tespit ederek kurar veya günceller. Protokol tam otomatiktir; `03-denenecekler/` dizinine dokunmaz.
+**Ajanla kurulum (önerilen):** Depo bağlantısını ajana verip "buradakileri yükle" demek yeterlidir. Ajan [KURULUM.md](KURULUM.md) protokolünü uygular: platformunu tespit eder, mevcut global kural dosyasını `<ad>.yedek-<damga>` olarak yedekler, `AGENTS-en.md` içeriğini (Türkçe `AGENTS-tr.md`'nin birebir İngilizce çevirisi) global kural dosyasına sıfırdan yazar ve `01-yuklenecekler/` envanterindeki araçları mevcut durumu tespit ederek kurar veya günceller. Protokol tam otomatiktir; `03-denenecekler/` ve `04-alternatifler/` dizinlerine dokunmaz.
 
 **Kopyala-kullan hazır prompt:** [KURULUM.md](KURULUM.md) §9 bölümündeki istemi olduğu gibi kopyala, `Depo:` satırındaki bağlantıyı kendi depo bağlantınla değiştir ve ajana ver. İstem mevcut kurulumu tespit etmeyi, eksik araçları kurmayı, güncel olmayanları güncellemeyi ve şüphede kalan adımları `02-dokumantasyon/` resmî belgesinden doğrulamayı zorunlu kılar.
 
@@ -108,6 +110,8 @@ Projedeki yerel kural bu anayasa ile çelişirse §10.1 uyarınca anayasa kazan�
 | `02-dokumantasyon/linkler.md` | Dokümantasyonun sade bağlantı listesi |
 | `03-denenecekler/README.md` | Manuel havuz: henüz denenmemiş araç ve kaynaklar (açıklamalı) |
 | `03-denenecekler/linkler.md` | Denenmemişlerin gruplu sade bağlantı listesi |
+| `04-alternatifler/README.md` | Zorunlu katalogdan çıkarılan alternatif araçlar (açıklamalı) |
+| `04-alternatifler/linkler.md` | Alternatiflerin sade bağlantı listesi |
 | `README.md` | Katalog, kurulum, kullanım, sürümleme ve doğrulama |
 | `.gitattributes` | LF satır sonu politikası |
 | `.gitignore` | Ortam dosyaları, yerel ajan artefaktları, IDE ve OS dosyaları |

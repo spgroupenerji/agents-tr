@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğu: her zaman kurulan araçlar ve bölüm bölüm başvuru kaynakları."
-version: "v202611100307"
+version: "v202611100409"
 ---
 
 # Ajan Araçları Kataloğu
@@ -29,16 +29,16 @@ Yeni bir işe başlarken, kodu sadeleştirirken veya bir isteği derinleştirirk
 
 Bir sembolü değiştirmeden önce bağımlılıkları, çağrı yollarını ve etki alanını çıkarmak için buraya bak.
 
-- https://github.com/abhigyanpatwari/GitNexus - Kod tabanını yerel bilgi grafiğine çıkarıp bağımlılık ve "blast radius" sorgularını MCP/CLI üzerinden yanıtlayan, sunucu kurulumu gerektirmeyen motor.
-- https://github.com/colbymchenry/codegraph - SQLite tabanlı yerel bilgi grafiğini kod değiştikçe otomatik senkronize ederek sembol ve akış sorgularını MCP'den sunan, tamamen yerel motor.
 - https://github.com/trailhq/Trail-Code - Kod tabanının haritasını çıkarıp ekip kararlarını (öğrenimleri) bu haritaya bağlayan, MCP ve hook'larla ajan istemine doğru dosya ve fonksiyonları enjekte eden bağlam katmanı (eski adı graft).
-- https://github.com/Graphify-Labs/graphify - Kod, doküman, SQL şeması ve PDF'leri yerel AST ayrıştırmasıyla sorgulanabilir bilgi grafiğine çeviren, her kenarı açıklayan, vektör deposu kullanmayan beceri/MCP.
+
+> **Not:** Trail-Code, kancalarla her mesajda kod haritasını ajana otomatik verdiği için ajan bazen `trail_find_code` gibi MCP araçlarını 5 oturum boyunca elle çağırmayabilir. TokenEconomizer bunu "kullanılmayan araç" sanıp Trail-Code MCP'sini kapatmasın diye, kurulumdan sonra `te config set toolprune=propose --global` komutuyla budama modunu onaylı (propose) yap.
 
 ## 3. Dokümantasyon, Sıkıştırma ve Hafıza
 
 Büyük araç çıktısını küçültürken, belgeyi okunabilir hâle getirirken veya oturumlar arası bağlam taşırken buraya bak; güncel kütüphane dokümantasyonunun kendisi için 0. bölümdeki Context7.
 
 - https://github.com/mksglu/context-mode - Araç çıktısını sandbox'ta filtreleyip oturum hafızasını kalıcılaştıran, MCP ve hook'larla platformlar arası yönlendirme yapan bağlam penceresi iyileştiricisi (üretici iddiası: %98'e varan azaltma).
+- https://github.com/microsoft/TokenEconomizer - Kodlama ajanlarının maliyetini deneyimden öğrenerek düşüren eklenti: mikro-becerilerle depo bilgisini oturumlar arası taşır, kullanılmayan araçları budar ve tekrar eden hata döngülerine müdahale eder; Claude Code, Codex, Copilot CLI, Pi ve deneysel opencode/Cursor/Grok/Hermes/Antigravity kancalarıyla çalışır (Apache-2.0, Microsoft Research).
 - https://github.com/microsoft/markitdown - Dosya ve ofis belgelerini Markdown'a çevirerek okuma token maliyetini düşüren resmî Microsoft aracı.
 - https://github.com/thedotmack/claude-mem - Oturum gözlemlerini yakalayıp semantik olarak sıkıştıran ve ilgili bağlamı sonraki oturumlara enjekte eden kalıcı hafıza sistemi.
 
