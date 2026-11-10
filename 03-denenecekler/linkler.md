@@ -1,6 +1,6 @@
 ---
 description: "Manuel havuzun sade bağlantı listesi; açıklamalı belge README.md dosyasındadır."
-version: "v202611100219"
+version: "v202611100307"
 ---
 
 # Bağlantılar
@@ -13,6 +13,7 @@ version: "v202611100219"
 - https://github.com/tashfeenahmed/freellmapi
 - https://github.com/decolua/9router
 - https://github.com/HKUDS/CLI-Anything
+- https://github.com/vercel-labs/agent-desktop
 
 ## 2. Beceri, Prompt ve Hazır Araç Depoları
 
@@ -42,6 +43,7 @@ version: "v202611100219"
 - https://whatships.com/
 - https://mcp.orphex.co/?utm_source=orphex.co&utm_medium=referral
 - https://github.com/MG1937/ASC
+- https://github.com/sherlock-project/sherlock
 
 ## 5. Ön Yüz, Tasarım ve Performans Araçları
 

@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğu: her zaman kurulan araçlar ve bölüm bölüm başvuru kaynakları."
-version: "v202611100219"
+version: "v202611100307"
 ---
 
 # Ajan Araçları Kataloğu
@@ -58,6 +58,7 @@ Web arayüzü üretirken estetik kararlar, tasarım sistemi veya canvas efektler
 - https://github.com/meodai/skill.color-expert - Renk bilimi için ajan becerisi: renk uzayları, APCA/WCAG erişilebilirliği, palet üretimi, pigment karışımı ve tarihsel renk kuramını kapsayan 180'den fazla referans dosyası; Claude Code, Codex, Cursor ve Copilot ile çalışır.
 - https://github.com/borghei/Claude-Skills/blob/main/engineering/design-auditor/SKILL.md - Arayüz tasarımını 12 kategoride puanlayan, yapay zekâ slop kalıplarını ve WCAG renk uyumunu yakalayan, tasarım token'ı uyumunu ölçen ajan becerisi; borghei/Claude-Skills deposundaki 383 beceriden biri.
 - https://github.com/heydamir/unslop - Vibecoded/yapay zekâ görünümlü arayüzü slop bulgularından tasarıma çeviren Claude Code/Codex becerisi (Damir Sokolovsky, CC BY 4.0): boşluk, renk, ikon, metin, tipografi, yerleşim, detay, görsel ve hareketi sırayla düzeltir; canlı site görüntüsü ve story videosu için Playwright + Chromium, video için ffmpeg ister.
+- https://github.com/meta/astryx - Meta'nın açık kaynak tasarım sistemi: React 19 + StyleX üzerinde 150+ erişilebilir bileşen, tema paketleri ve `astryx` CLI'ı; CLI bileşen dokümanı, şablon, token ve codemod işlerini insan ve ajanın aynı JSON API'den kullanmasını sağlar (MIT, beta).
 
 ## 5. İnceleme, Güvenlik ve Tersine Mühendislik
 
@@ -100,6 +101,7 @@ Görselden veya Blender'dan kod tabanlı 3B model ve sahne üretirken buraya bak
 
 - https://github.com/img2threejs/img2threejs - Referans görseldeki nesneyi fotogrametri veya hazır varlık kullanmadan, kalite kapılı ve animasyona hazır prosedürel Three.js koduyla yeniden inşa eden beceri.
 - https://github.com/ahujasid/mcp-for-blender - Blender'ı MCP üzerinden ajana bağlayan sunucu ve eklenti: istemli 3B modelleme, sahne kurma ve manipülasyon (eski adı blender-mcp).
+- https://github.com/arjun988/blender-skills - Cursor, Claude Code, Kiro ve Codex için 94 uzman Blender becerisi: blockout'tan motor ihracına üretim hattı; `blender-director` isteği modelleme, UV, materyal, rigging, LOD ve export becerilerine yönlendirir, adımlar Blender MCP üzerinden Blender'da yürütülür (MIT).
 
 ## 8. Metin ve Üslup
 

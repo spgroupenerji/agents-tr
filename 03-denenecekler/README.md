@@ -1,6 +1,6 @@
 ---
 description: "Henüz denenmemiş araç, servis ve kaynak listeleri."
-version: "v202611100219"
+version: "v202611100307"
 ---
 
 # Denemediklerim
@@ -13,6 +13,7 @@ version: "v202611100219"
 - https://github.com/tashfeenahmed/freellmapi - 34 ücretsiz LLM sağlayıcısını tek `/v1` uç noktasında toplayan geçit; akıllı yönlendirme, otomatik yedekleme ve şifreli anahtar saklama sunar.
 - https://github.com/decolua/9router - Claude Code, Codex, Cursor, Cline gibi araçları 40+ ücretsiz sağlayıcıya bağlayan yönlendirici; otomatik yedekleme ve token tasarrufu.
 - https://github.com/HKUDS/CLI-Anything - Grafik arayüzlü yazılımların kodunu analiz edip ajanların doğrudan kullanabileceği CLI araçlarına dönüştürür.
+- https://github.com/vercel-labs/agent-desktop - Ajanlara ekran görüntüsü ve piksel eşleme olmadan bilgisayar kullanımı veren CLI ve C kütüphanesi: masaüstü uygulamasının erişilebilirlik ağacını referanslı JSON olarak okur, ajandaki döngü tıklama/yazmayı bu referanslarla yürütür; macOS, Windows ve Linux (Apache-2.0, Vercel Labs).
 
 ## 2. Beceri, Prompt ve Hazır Araç Depoları
 
@@ -42,6 +43,7 @@ version: "v202611100219"
 - https://whatships.com/ - X'te paylaşılan 2.000'den fazla startup lansman videosunu orijinal gönderilere bağlayarak listeleyen dizin.
 - https://mcp.orphex.co/?utm_source=orphex.co&utm_medium=referral - Dijital pazarlama bütçe ve teklif yönetimini Claude, ChatGPT ve Copilot üzerinden otomatikleştiren MCP servisi.
 - https://github.com/MG1937/ASC - R8 derleyici optimizasyonunu decompiler ilkesi olarak kullanan hızlı ve hafif Android APK çözücü; ajanlar ve mobil araştırmacılar için tasarlandı, Rust sürümü (rust_ASC) 16 iş parçacığıyla 383 MB'lık APK'yı 4 saniyede açıyor (üretici iddiası).
+- https://github.com/sherlock-project/sherlock - Bir kullanıcı adını 400+ sosyal ağda arayarak hesap izi çıkaran Python OSINT/CTI CLI'ı; Docker, pipx/pip veya uv ile kurulur, bulunan hesapları dosyaya yazar (MIT).
 
 ## 5. Ön Yüz, Tasarım ve Performans Araçları
 
