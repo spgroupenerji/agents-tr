@@ -1,6 +1,6 @@
 ---
 description: "Manuel havuzun sade bağlantı listesi; açıklamalı belge README.md dosyasındadır."
-version: "v202611100443"
+version: "v202611100452"
 ---
 
 # Bağlantılar
@@ -19,6 +19,7 @@ version: "v202611100443"
 - https://github.com/redhat-et/ripwire
 - https://github.com/oraios/serena
 - https://github.com/DeusData/codebase-memory-mcp
+- https://github.com/kage-core/Kage
 
 ## 2. Beceri, Prompt ve Hazır Araç Depoları
 

@@ -1,6 +1,6 @@
 ---
 description: "Henüz denenmemiş araç, servis ve kaynak listeleri."
-version: "v202611100440"
+version: "v202611100452"
 ---
 
 # Denemediklerim
@@ -19,6 +19,7 @@ version: "v202611100440"
 - https://github.com/redhat-et/ripwire - Kodlama ajanları için sıfır bağımlılıklı C++23 CLI ve MCP sunucusu: depoyu okumadan arama, blast radius, çalıştırılacak testler ve kalite farkı çıkarımı; imzalar gövdeden %74,7 daha az bayt (Apache-2.0; üretici iddiası).
 - https://github.com/oraios/serena - Ajanı IDE'ye çeviren kodlama MCP araç seti: dil sunucuları üzerinden anlamsal arama, sembol düzeyinde okuma ve düzenleme yetenekleri (Python; lisans doğrulanmalı).
 - https://github.com/DeusData/codebase-memory-mcp - Geliştiriciler ve ajanlar için yerel kod zekâsı: kodu, dokümanları ve altyapıyı kalıcı bir grafikte birleştirir; CBM Lens, MCP araçları, ajan entegrasyonları ve değişime duyarlı test seçimi sunar (MIT).
+- https://github.com/kage-core/Kage - Kodlama ajanları için kalıcı ve doğrulanmış hafıza: kararları, runbook'ları ve hata kök nedenlerini depoda Google Open Knowledge Format'ında düz Markdown olarak tutar, her hatırayı gerçek kodla doğrular ve git üzerinden ekiple paylaşır; MCP sunucusu `npx -y @kage-core/kage-graph-mcp install` ile kurulur (GPL-3.0).
 
 ## 2. Beceri, Prompt ve Hazır Araç Depoları
 
