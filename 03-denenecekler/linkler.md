@@ -1,6 +1,6 @@
 ---
 description: "Manuel havuzun sade bağlantı listesi; açıklamalı belge README.md dosyasındadır."
-version: "v202611100307"
+version: "v202611100422"
 ---
 
 # Bağlantılar
@@ -14,6 +14,7 @@ version: "v202611100307"
 - https://github.com/decolua/9router
 - https://github.com/HKUDS/CLI-Anything
 - https://github.com/vercel-labs/agent-desktop
+- https://github.com/microsoft/TokenEconomizer
 
 ## 2. Beceri, Prompt ve Hazır Araç Depoları
 

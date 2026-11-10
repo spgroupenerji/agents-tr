@@ -1,6 +1,6 @@
 ---
 description: "Henüz denenmemiş araç, servis ve kaynak listeleri."
-version: "v202611100307"
+version: "v202611100422"
 ---
 
 # Denemediklerim
@@ -14,6 +14,7 @@ version: "v202611100307"
 - https://github.com/decolua/9router - Claude Code, Codex, Cursor, Cline gibi araçları 40+ ücretsiz sağlayıcıya bağlayan yönlendirici; otomatik yedekleme ve token tasarrufu.
 - https://github.com/HKUDS/CLI-Anything - Grafik arayüzlü yazılımların kodunu analiz edip ajanların doğrudan kullanabileceği CLI araçlarına dönüştürür.
 - https://github.com/vercel-labs/agent-desktop - Ajanlara ekran görüntüsü ve piksel eşleme olmadan bilgisayar kullanımı veren CLI ve C kütüphanesi: masaüstü uygulamasının erişilebilirlik ağacını referanslı JSON olarak okur, ajandaki döngü tıklama/yazmayı bu referanslarla yürütür; macOS, Windows ve Linux (Apache-2.0, Vercel Labs).
+- https://github.com/microsoft/TokenEconomizer - Kodlama ajanlarının maliyetini deneyimden öğrenerek düşüren eklenti: mikro-beceriler, kullanılmayan araçları budama ve hata döngüsü müdahalesi; Claude Code, Codex, Copilot CLI, Pi ile deneysel opencode/Cursor/Grok/Hermes/Antigravity destekler; DSH ve ZCode desteklenmediği, Antigravity desteği yalnız deneysel/sınırlı olduğu için aday havuzda (Apache-2.0, Microsoft Research); denenirse Trail-Code MCP'sini kapatmamak için `te config set toolprune=propose --global`.
 
 ## 2. Beceri, Prompt ve Hazır Araç Depoları
 

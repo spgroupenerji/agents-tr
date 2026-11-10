@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğunun sade bağlantı listesi; açıklamalı belge README.md dosyasındadır."
-version: "v202611100409"
+version: "v202611100422"
 ---
 
 # Bağlantılar
@@ -16,7 +16,6 @@ version: "v202611100409"
 - https://github.com/DannyMac180/skills/tree/main/be-ambitious
 - https://github.com/trailhq/Trail-Code
 - https://github.com/mksglu/context-mode
-- https://github.com/microsoft/TokenEconomizer
 - https://github.com/microsoft/markitdown
 - https://github.com/thedotmack/claude-mem
 - https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
