@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğu: her zaman kurulan araçlar ve bölüm bölüm başvuru kaynakları."
-version: "v202611140615"
+version: "v202611140625"
 ---
 
 # Ajan Araçları Kataloğu
@@ -144,4 +144,4 @@ Oyun geliştirme işlerinde motoru parmak izinden tanıyıp doğru beceri setini
 
 - https://github.com/gamedev-skills/awesome-gamedev-agent-skills - 79 oyun geliştirme becerisi ve bir yönlendirici: Godot, Unity, Unreal, Ebitengine, Bevy, Phaser, PixiJS, three.js, Defold, LÖVE, pygame ve Roblox için motor-tespitli beceri seti; isteği motor parmak izinden (`project.godot`, `Assets/`+`ProjectVersion.txt`, `*.uproject`, `package.json`, `Cargo.toml`, `game.project`) tanır ve yalnız gereken 2-3 beceriyi yükler. 15 disiplin, 9 tür, 5 iş akışı becerisi ve `gamedev-router` içerir; 366 kör testte doğru becerinin %98,7 yüklendiğini iddia eder (üretici ölçümü, Apache-2.0).
 
-Araç rolleri, olay ve depo sahipliği: [arac-rolleri.md](arac-rolleri.md).
+Araç rolleri, olay ve depo sahipliği: [arac-rolleri.md](arac-rolleri.md). Hafıza katmanları ve saklama: [hafiza-politikasi.md](hafiza-politikasi.md).
