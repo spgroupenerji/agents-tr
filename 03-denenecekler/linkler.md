@@ -1,6 +1,6 @@
 ---
 description: "Manuel havuzun sade bağlantı listesi; açıklamalı belge README.md dosyasındadır."
-version: "v202611140510"
+version: "v202611140516"
 ---
 
 # Bağlantılar
@@ -38,6 +38,8 @@ version: "v202611140510"
 - https://github.com/public-apis/public-apis
 - https://github.com/sindresorhus/awesome
 - https://github.com/morluto/awesome-reverse-engineering
+- https://github.com/chatwoot/chatwoot
+- https://github.com/grafana/grafana
 
 ## 4. Hazır Uygulama ve Servisler
 

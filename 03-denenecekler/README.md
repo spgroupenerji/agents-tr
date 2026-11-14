@@ -1,6 +1,6 @@
 ---
 description: "Henüz denenmemiş araç, servis ve kaynak listeleri."
-version: "v202611140510"
+version: "v202611140516"
 ---
 
 # Denemediklerim
@@ -38,6 +38,8 @@ version: "v202611140510"
 - https://github.com/public-apis/public-apis - Kategori kategori ücretsiz API'lerin ortak listesi; yeni bir servis ararken ilk bakılacak yer.
 - https://github.com/sindresorhus/awesome - Hemen her konuda "en iyiler" listelerinin dizini; alt listelere açılan ana kapı.
 - https://github.com/morluto/awesome-reverse-engineering - İkili dosya, uygulama, firmware, dosya formatı ve protokol çözümleme araçlarıyla öğrenme kaynaklarının seçilmiş listesi.
+- https://github.com/chatwoot/chatwoot - Intercom, Zendesk ve Salesforce Service Cloud'a açık kaynak alternatif müşteri destek platformu: canlı sohbet, e-posta ve WhatsApp/Telegram gibi kanalları tek gelen kutusunda toplar; Docker imajıyla PostgreSQL ve Redis üzerinde kendi sunucunuzda barındırılır (çekirdek MIT, `enterprise/` dizini ayrı ticari lisans — GitHub lisansı NOASSERTION).
+- https://github.com/grafana/grafana - Metrik, log ve izleri Prometheus, Loki, Elasticsearch, InfluxDB, PostgreSQL gibi kaynaklardan sorgulayıp pano, uyarı ve paylaşılabilir görselleştirmeler üreten açık kaynak gözlemlenebilirlik platformu; Docker veya ikili dosyayla kendi sunucunuzda çalışır (AGPL-3.0).
 
 ## 4. Hazır Uygulama ve Servisler
 
