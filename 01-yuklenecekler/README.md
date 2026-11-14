@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğu: her zaman kurulan araçlar ve bölüm bölüm başvuru kaynakları."
-version: "v202611140430"
+version: "v202611140454"
 ---
 
 # Ajan Araçları Kataloğu
@@ -84,6 +84,7 @@ Kodla video üretirken üç katman: ajan becerisi (6.1), altta çalışan motor 
 - https://github.com/greensock/gsap-skills - GSAP'in resmî AI becerileri; zaman çizelgesi ve animasyonu doğru API ile kullandırır.
 - https://github.com/LottieFiles/motion-design-skill - Zamanlama, easing, koreografi ve Disney'in 12 animasyon prensibini ajanlara aktaran evrensel prensip deposu.
 - https://github.com/leodavincs/kalem - Claude Code ile kodla video üretme becerisi: videoyu 4-8 sahneye böler, her sahne için doğru motoru seçer (Paper.js, PixiJS, HyperFrames, Three.js, Manim, levha), sahneleri geçişlerle birleştirir ve kareye kilitli efekt sesi ekler; beğenilen videoyu sahne sahne İngilizce isteme çeviren `referans` becerisini de içerir (MIT).
+- https://github.com/latent-spaces/brag - Bir projeyi tek komutla kısa, paylaşılabilir bir lansman videosuna çeviren ajan becerisi: hikâyeyi, tonu ve gösterilecek anları kendisi kurar, üretimi Hyperframes'e devreder; proje kodunu doğrudan okur, canlı URL veya ekran görüntüsü istemez ve `brag-output/` altında plan, kompozisyon brifi, paylaşım metni ve `brag.mp4` üretir. `brag-slim` varyantı Hyperframes ve paketlenmiş varlık olmadan tek dosyayla aynı işi yapar (MIT; Node 22+, FFmpeg ve `npx hyperframes` gerekir).
 
 ### 6.2 Render Motorları ve Animasyon Kütüphaneleri
 
