@@ -85,6 +85,31 @@ for (const d of mdDosyalari) {
   }
 }
 
+if (process.argv.includes('--cevre')) {
+  const ev = process.env.USERPROFILE || '';
+  const cfg = join(ev, '.dsh', 'cordis.patch.yml');
+  if (existsSync(cfg)) {
+    const t = readFileSync(cfg, 'utf8');
+    const aktif = [...t.matchAll(/^\s{8}serverName:\s*(\S+)/gm)].map((m) => m[1]);
+    const kapali = [...t.matchAll(/^#\s+serverName:\s*(\S+)/gm)].map((m) => m[1]);
+    const tekrar = [...new Set(aktif.filter((x, i) => aktif.indexOf(x) !== i))];
+    if (tekrar.length) hata('Aynı MCP sunucusu iki kez tanımlı: ' + tekrar.join(', '));
+    if (t.includes("args: ['/c', 'context-mode']")) hata("context-mode başlatma komutu 'server' alt komutunu içermiyor");
+    console.log('MCP aktif=' + aktif.length + ' (' + aktif.join(', ') + ') kapalı=' + (kapali.join(', ') || 'yok'));
+  }
+  const pidDosya = join(ev, '.trace', 'daemon.pid');
+  if (existsSync(pidDosya)) {
+    const pid = Number(readFileSync(pidDosya, 'utf8').trim());
+    try {
+      process.kill(pid, 0);
+      console.log('UYARI: trace daemon çalışıyor (pid ' + pid + '); bütçe kuralı tek daemon.');
+    } catch {
+      console.log('trace daemon kapalı.');
+    }
+  }
+  console.log('Ortam denetimi bitti.');
+}
+
 if (hatalar.length) {
   console.error('Doğrulama başarısız (' + hatalar.length + '):');
   for (const h of hatalar) console.error(' - ' + h);

@@ -1,6 +1,6 @@
 ---
 description: "Anayasa: Token Verimliliğini ve Güvenliği Optimize Eden Agresif Kodlama Stratejisi; stabilite, bağlam mühendisliği, sıfır spagetti/ölü kod, zorunlu araç disiplini."
-version: "v202611140549"
+version: "v202611140615"
 alwaysApply: true
 ---
 
@@ -47,7 +47,7 @@ Görev akışı: Anla → Planla → Haritala → Doğrula → Strateji Seç →
 4.8. Araç erişilebilirliği: Araç yüklenmiyorsa, indeks yoksa veya MCP düşükse iş araçsız yürütülmez; bu doğrudan kalite kaybıdır. Sırayla başlat, indeksle veya senkronize et, kur ya da güncelle; her denemeyi komut ve çıkış koduyla kanıtla. Onarım kullanıcı kararı gerektiriyorsa ya da kanıtlı biçimde başarısızsa tek cümleyle beyan et ("şu araçlar çalışmıyor, önce onarıyorum") ve karar iste; sessizce manuel okumaya düşmek yasaktır. Alt kademe araç yalnız kullanıcı onayıyla ve tek cümlelik yedek beyanıyla devreye girer.
 4.9. Subagent koordinasyonu: Paralelleştirilebilir, bağımsız ve bağlam-izole görevlerde subagent kullan: dosya tarama, test üretimi, dokümantasyon çıkarma, çoklu çözüm adayı hazırlama. Ana ajan orkestratör kalır; her subagent odaklı bağlam alır, yapılandırılmış sonuç döner. Subagent'lar arası bağlam sızıntısı olmaz; sonuçlar ana bağlamda birleştirilir.
 
-4.10. Taban araçlar: Her görevde zorunludur, atlanmaz ve en hafif geçerli sorguyla yalnız kendi benzersiz kanıtı için çalıştırılır. Roller: keşif ve etki, hafıza, bağlam sıkıştırma, doküman doğrulama. Her rolün aracı agents-tr zorunlu kataloğundan çalışma anında seçilir; bu madde araç adı taşımaz ve araç değişince güncellenmez. Rol başına tek araç; aynı benzersiz kanıtı üreten ikinci araç çağrılmaz. Keşif ve etki rolü dosya:satır konumunu ve ilişkiyi nokta atışı verir, tam dosya okumadan önce çalışır. Diğer araçlar yalnız görev rolü gerektiriyorsa çağrılır.
+4.10. Taban araçlar: Her görevde zorunludur, atlanmaz ve en hafif geçerli sorguyla yalnız kendi benzersiz kanıtı için çalıştırılır. Roller: keşif ve etki, hafıza, bağlam sıkıştırma, doküman doğrulama. Her rolün aracı agents-tr zorunlu kataloğundan çalışma anında seçilir; bu madde araç adı taşımaz ve araç değişince güncellenmez. Rol başına tek araç; aynı benzersiz kanıtı üreten ikinci araç çağrılmaz. Keşif ve etki rolü dosya:satır konumunu ve ilişkiyi nokta atışı verir, tam dosya okumadan önce çalışır. Diğer araçlar yalnız görev rolü gerektiriyorsa çağrılır. Aynı olayın ve aynı verinin tek sahibi olur; ikinci araç yalnız gözlemci kalır, çakışan yazıcı devre dışı bırakılır.
 
 4.11. Bağlam bütçesi: Her araç çağrısından önce sor: hangi benzersiz kanıt, en ucuz yeterli sorgu, çıktı odağımı bozar mı? Yanıtı olmayan çağrı yapılmaz. Ham çıktı taşınmaz; özet ile dosya:satır/referans taşınır; aynı kanıt tekrar üretilmez. Bağlam büyürse bağlam sıkıştırma aracı veya subagent kullanılır. Ekonomi zorunlu kanıtı veya kaliteyi kısmaz.
 

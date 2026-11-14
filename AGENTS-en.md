@@ -1,6 +1,6 @@
 ---
 description: "Constitution: Aggressive Coding Strategy Optimizing Token Efficiency and Security; stability, context engineering, zero spaghetti/dead code, mandatory tool discipline."
-version: "v202611140549"
+version: "v202611140615"
 alwaysApply: true
 ---
 
@@ -47,7 +47,7 @@ Task flow: Understand → Plan → Map → Verify → Select Strategy → Implem
 4.8. Tool availability: If a tool does not load, the index is missing, or the MCP is down, the work is not run without tools; that is a direct quality loss. Start, index or sync, install or update in order; prove every attempt with the command and exit code. If repair needs a user decision or provably fails, say it in one sentence ("these tools are down; I am repairing them first") and ask for the call; silently dropping to manual reading is forbidden. A lower-tier tool enters only with the user's approval and a one-sentence fallback declaration.
 4.9. Subagent coordination: Use subagents for parallelizable, independent, and context-isolated tasks: file scanning, test generation, documentation extraction, and preparing multiple candidate solutions. The main agent remains the orchestrator; each subagent receives focused context and returns structured results. No context leakage occurs between subagents; results are merged in the main context.
 
-4.10. Base tools: Mandatory in every task, never skipped, run with the lightest valid query solely for their own unique evidence. Roles: discovery and impact, memory, context compression, documentation verification. Each role's tool is chosen at runtime from the agents-tr mandatory catalog; this rule carries no tool names and is not updated when a tool changes. One tool per role; a second tool producing the same unique evidence is not called. The discovery and impact role pinpoints file:line and relationships and runs before reading a whole file. Other tools are called only when a task role requires them.
+4.10. Base tools: Mandatory in every task, never skipped, run with the lightest valid query solely for their own unique evidence. Roles: discovery and impact, memory, context compression, documentation verification. Each role's tool is chosen at runtime from the agents-tr mandatory catalog; this rule carries no tool names and is not updated when a tool changes. One tool per role; a second tool producing the same unique evidence is not called. The discovery and impact role pinpoints file:line and relationships and runs before reading a whole file. Other tools are called only when a task role requires them. The same event and the same data have a single owner; a second tool stays observer-only, and a conflicting writer is disabled.
 
 4.11. Context budget: Before every tool call, ask: which unique evidence, the cheapest sufficient query, will the output break my focus? A call without an answer is not made. Raw output is not carried; summaries and file:line/references are carried; the same evidence is not produced twice. If the context grows, use a context-compression tool or a subagent. Economy does not cut mandatory evidence or quality.
 
