@@ -1,6 +1,6 @@
 ---
 description: "Constitution: Aggressive Coding Strategy Optimizing Token Efficiency and Security; stability, context engineering, zero spaghetti/dead code, mandatory tool discipline."
-version: "v202611080135"
+version: "v202611140450"
 alwaysApply: true
 ---
 
@@ -93,6 +93,7 @@ Task flow: Understand → Plan → Map → Verify → Select Strategy → Implem
 ## 10. Conflict, Git, and Document Discipline
 10.1. Priority: This constitution > active skill/tool configuration > general model knowledge. In case of conflict, this constitution prevails.
 10.2. Commit messages must match the repository style, remain concise, and be verb-oriented.
+10.3. Downloaded and automatically generated content is not tracked: package-manager directories (`node_modules/`, `vendor/`, `.venv/`) and the files or directories that tools, skills, or MCP servers create on their own in the project root (local copies, caches, temporary configuration) are closed with `.gitignore`; what is tracked is the file that declares or installs this content (`package.json` and its lockfile, `Cargo.toml`/`Cargo.lock`, `requirements.txt`, install scripts), and libraries are installed from it in one command.
 
 ## 11. Versioning and Release
 11.1. Format: Every versioned delivery carries a `vYYYYMMDDHHMM` stamp; lowercase `v` followed by twelve digits (year-month-day-hour-minute), unseparated, ASCII, and sortable.

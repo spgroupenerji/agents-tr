@@ -1,6 +1,6 @@
 ---
 description: "Anayasa: Token Verimliliğini ve Güvenliği Optimize Eden Agresif Kodlama Stratejisi; stabilite, bağlam mühendisliği, sıfır spagetti/ölü kod, zorunlu araç disiplini."
-version: "v202611080135"
+version: "v202611140450"
 alwaysApply: true
 ---
 
@@ -93,6 +93,7 @@ Görev akışı: Anla → Planla → Haritala → Doğrula → Strateji Seç →
 ## 10. Çatışma, Git ve Belge Disiplini
 10.1. Öncelik: Bu anayasa > etkin skill/araç yapılandırması > model genel bilgisi. Çelişkide anayasa kazanır.
 10.2. Commit mesajı depo üslubuna uygun, kısa ve fiil odaklıdır.
+10.3. İndirilen ve otomatik üretilen içerik takip edilmez: paket yöneticisi dizinleri (`node_modules/`, `vendor/`, `.venv/`) ve araç, beceri veya MCP'lerin ana dizinde kendiliğinden oluşturduğu dosya ve dizinler (yerel kopyalar, önbellekler, geçici yapılandırmalar) `.gitignore` ile kapatılır; takip edilen, bu içeriği tanımlayan veya indiren dosyadır (`package.json` ve kilit dosyası, `Cargo.toml`/`Cargo.lock`, `requirements.txt`, kurulum betiği) ve kütüphaneler oradan tek komutla kurulur.
 
 ## 11. Sürümleme ve Yayın
 11.1. Biçim: Her sürümlenen teslim `vYYYYMMDDHHMM` damgası taşır; küçük v ve on iki hane (yıl-ay-gün-saat-dakika), ayırıcısız, ASCII, sıralanabilir.
