@@ -1,12 +1,12 @@
 ---
 id: 202611140630-hafiza-katmanlari
 baslik: "Hafiza katmanlari"
-tarih: 2026-11-14T06:30:10+03:00
+tarih: 2026-11-14T06:30:40+03:00
 durum: aktif
 tur: mimari
 ust: ""
 kaynak: "oturum: agents-tr"
-kod: ["01-yuklenecekler/hafiza-politikasi.md@c19bd86","araclar/karar.mjs@c19bd86"]
+kod: ["01-yuklenecekler/hafiza-politikasi.md@f7e0704","araclar/karar.mjs@f7e0704"]
 ---
 
 # Hafiza katmanlari
