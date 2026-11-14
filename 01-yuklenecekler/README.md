@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğu: her zaman kurulan araçlar ve bölüm bölüm başvuru kaynakları."
-version: "v202611100654"
+version: "v202611140430"
 ---
 
 # Ajan Araçları Kataloğu
@@ -58,6 +58,7 @@ Web arayüzü üretirken estetik kararlar, tasarım sistemi veya canvas efektler
 - https://github.com/borghei/Claude-Skills/blob/main/engineering/design-auditor/SKILL.md - Arayüz tasarımını 12 kategoride puanlayan, yapay zekâ slop kalıplarını ve WCAG renk uyumunu yakalayan, tasarım token'ı uyumunu ölçen ajan becerisi; borghei/Claude-Skills deposundaki 383 beceriden biri.
 - https://github.com/heydamir/unslop - Vibecoded/yapay zekâ görünümlü arayüzü slop bulgularından tasarıma çeviren Claude Code/Codex becerisi (Damir Sokolovsky, CC BY 4.0): boşluk, renk, ikon, metin, tipografi, yerleşim, detay, görsel ve hareketi sırayla düzeltir; canlı site görüntüsü ve story videosu için Playwright + Chromium, video için ffmpeg ister.
 - https://github.com/meta/astryx - Meta'nın açık kaynak tasarım sistemi: React 19 + StyleX üzerinde 150+ erişilebilir bileşen, tema paketleri ve `astryx` CLI'ı; CLI bileşen dokümanı, şablon, token ve codemod işlerini insan ve ajanın aynı JSON API'den kullanmasını sağlar (MIT, beta).
+- https://github.com/GoogleChrome/modern-web-guidance - Google Chrome, Microsoft Edge, Mozilla Firefox ve MDN ekiplerinin birlikte yürüttüğü, güncel web platformu uzmanlığını ve Baseline uyumluluk verisini kodlama ajanına taşıyan beceri takımı: `modern-web-guidance` becerisi HTML/CSS/istemci JavaScript işlerinde yerel ve çevrimdışı CLI (`search`, `retrieve`, `legacy-scan`) üzerinden 209 Markdown kılavuzdan ilgiliyi bağlama getirir, `chrome-extensions` becerisi Manifest V3 uzantı üretimini kapsar; Claude Code, Codex, Cursor ve Gemini eklentileri ile `npx skills add` üzerinden kurulur (Apache-2.0).
 
 ## 5. İnceleme, Güvenlik ve Tersine Mühendislik
 
