@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğu: her zaman kurulan araçlar ve bölüm bölüm başvuru kaynakları."
-version: "v202611140503"
+version: "v202611140549"
 ---
 
 # Ajan Araçları Kataloğu
@@ -37,7 +37,7 @@ Bir sembolü değiştirmeden önce bağımlılıkları, çağrı yollarını ve 
 
 Büyük araç çıktısını küçültürken, belgeyi okunabilir hâle getirirken veya oturumlar arası bağlam taşırken buraya bak; güncel kütüphane dokümantasyonunun kendisi için 0. bölümdeki Context7.
 
-- https://github.com/mksglu/context-mode - Araç çıktısını sandbox'ta filtreleyip oturum hafızasını kalıcılaştıran, MCP ve hook'larla platformlar arası yönlendirme yapan bağlam penceresi iyileştiricisi (üretici iddiası: %98'e varan azaltma).
+- https://github.com/mksglu/context-mode - Araç çıktısını sandbox'ta filtreleyip bağlamı hafifleten, MCP ve hook'larla platformlar arası yönlendirme yapan bağlam sıkıştırma katmanı (üretici iddiası: %98'e varan azaltma).
 - https://github.com/microsoft/markitdown - Dosya ve ofis belgelerini Markdown'a çevirerek okuma token maliyetini düşüren resmî Microsoft aracı.
 - https://github.com/thedotmack/claude-mem - Oturum gözlemlerini yakalayıp semantik olarak sıkıştıran ve ilgili bağlamı sonraki oturumlara enjekte eden kalıcı hafıza sistemi.
 

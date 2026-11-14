@@ -1,6 +1,6 @@
 ---
 description: "SP GROUP ajan anayasası deposunun giriş belgesi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama."
-version: "v202611140516"
+version: "v202611140549"
 ---
 
 # SP GROUP Ajan Anayasası (AGENTS-tr)
@@ -23,14 +23,14 @@ SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa 
 
 | Belge | Sürüm | Kapsam |
 | --- | --- | --- |
-| [`README.md`](README.md) | v202611140516 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
-| [`AGENTS-tr.md`](AGENTS-tr.md) | v202611140450 | Ajan anayasası (Türkçe kaynak): ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
-| [`AGENTS-en.md`](AGENTS-en.md) | v202611140450 | Anayasanın birebir İngilizce çevirisi; platformların global kural dosyasına yüklenen sürüm |
+| [`README.md`](README.md) | v202611140549 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
+| [`AGENTS-tr.md`](AGENTS-tr.md) | v202611140549 | Ajan anayasası (Türkçe kaynak): ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
+| [`AGENTS-en.md`](AGENTS-en.md) | v202611140549 | Anayasanın birebir İngilizce çevirisi; platformların global kural dosyasına yüklenen sürüm |
 | [`KURULUM.md`](KURULUM.md) | v202611072050 | Ajan gömme ve kurulum protokolü: platform tespiti, yedekleme, anayasayı sıfırdan yazma, envanter kurulumu, kaynak indeksi, doğrulama ve kopyala-kullan hazır prompt |
 | [`platformlar.md`](platformlar.md) | v202611040439 | platform kurulum matrisi: tespit işareti, global kural dosyası, skill dizini, MCP yapılandırması, kaynak indeksi hedefi ve doğrulama |
-| [`01-yuklenecekler/`](01-yuklenecekler/) | v202611140503 | Zorunlu yüklenen araç kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme ve simülatör, filigran temizliği, kaydırmalı web, metin, araştırma, oyun geliştirme |
+| [`01-yuklenecekler/`](01-yuklenecekler/) | v202611140549 | Zorunlu yüklenen araç kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme ve simülatör, filigran temizliği, kaydırmalı web, metin, araştırma, oyun geliştirme |
 | [`01-yuklenecekler/linkler.md`](01-yuklenecekler/linkler.md) | v202611140503 | Zorunlu kataloğun sade bağlantı listesi |
-| [`01-yuklenecekler/envanter.md`](01-yuklenecekler/envanter.md) | v202611140503 | Kurulum envanteri: envanterdeki bağlantıların türü, platformdan bağımsız kurulum yöntemi ve doğrulama ölçütü |
+| [`01-yuklenecekler/envanter.md`](01-yuklenecekler/envanter.md) | v202611140549 | Kurulum envanteri: envanterdeki bağlantıların türü, platformdan bağımsız kurulum yöntemi ve doğrulama ölçütü |
 | [`02-dokumantasyon/`](02-dokumantasyon/) | v202611011444 | Ajan platformları ve kural dosyaları için resmî dokümantasyon: DeepSeek Harness, ZCode, Antigravity, OpenCode, VS Code, Qoder, WorkBuddy, Cline, ChatGPT/Codex ve Gemini CLI |
 | [`02-dokumantasyon/linkler.md`](02-dokumantasyon/linkler.md) | v202611011444 | Resmî dokümantasyonun sade bağlantı listesi |
 | [`03-denenecekler/`](03-denenecekler/) | v202611140516 | Manuel havuz: henüz denenmemiş araç, servis ve kaynak listeleri; kurulum protokolü bu dizine dokunmaz |
@@ -115,6 +115,7 @@ Projedeki yerel kural bu anayasa ile çelişirse §10.1 uyarınca anayasa kazan�
 | `README.md` | Katalog, kurulum, kullanım, sürümleme ve doğrulama |
 | `.gitattributes` | LF satır sonu politikası |
 | `.gitignore` | Ortam dosyaları, yerel ajan artefaktları, IDE ve OS dosyaları |
+| `araclar/dogrula.mjs` | Damga, katalog satırı, tag, bağlantı ve TR/EN paritesini denetleyen betik |
 
 ## Güvenlik
 
@@ -131,57 +132,13 @@ git status --short
 git diff --check
 ```
 
-Her belge geçerli frontmatter ile başlamalı, `version` alanı `vYYYYMMDDHHMM` biçiminde olmalı, katalog ile release tag'i aynı damgayı taşımalı, her dizinde README ile `linkler.md` aynı bağlantı dizisini taşımalı ve göreli iç linkler çözülmelidir. `AGENTS-tr.md` ile `AGENTS-en.md` aynı damgayı, aynı bölüm ve kural numaralarını taşımalı; İngilizce çeviride Türkçe iletişim kuralı korunmalıdır. Gizli (`.`) dizinlerdeki yerel çalışma dosyaları doğrulama kapsamı dışındadır. Damga ve link tutarlılığını denetlemek için:
+Her belge geçerli frontmatter ile başlamalı, `version` alanı `vYYYYMMDDHHMM` biçiminde olmalı, katalog ile release tag'i aynı damgayı taşımalı, her dizinde README ile `linkler.md` aynı bağlantı dizisini taşımalı ve göreli iç linkler çözülmelidir. `AGENTS-tr.md` ile `AGENTS-en.md` aynı damgayı, aynı bölüm ve kural numaralarını taşımalı; İngilizce çeviride Türkçe iletişim kuralı korunmalıdır. Gizli (`.`) dizinlerdeki yerel çalışma dosyaları doğrulama kapsamı dışındadır. Damga, bağlantı ve çeviri tutarlılığını denetleyen tek komut:
 
 ```powershell
-$kok = (Get-Location).Path
-if (Test-Path (Join-Path $kok 'AGENTS.md')) { throw "Depo kökünde AGENTS.md olmamalı; araç çakışması riski" }
-$belgeler = Get-ChildItem -Recurse -Filter *.md | Where-Object { $_.FullName.Substring($kok.Length + 1) -notmatch '(^|[\\/])\.' } | Where-Object { (Get-Content -LiteralPath $_.FullName -TotalCount 1) -eq '---' }
-foreach ($belge in $belgeler) {
-  $bulunan = Select-String -Path $belge.FullName -Pattern '^version:\s*"(.+)"$' -List
-  if (-not $bulunan) { throw "Frontmatter sürüm damgası yok: $($belge.FullName)" }
-  $damga = $bulunan.Matches[0].Groups[1].Value
-  if ($damga -notmatch '^v\d{12}$') { throw "Geçersiz sürüm damgası: $($belge.FullName) -> $damga" }
-  $goreli = if ($belge.FullName -eq (Join-Path $kok 'README.md')) { 'README.md' } elseif ($belge.Name -eq 'README.md') { (Split-Path $belge.DirectoryName -Leaf) + '/' } else { $belge.FullName.Substring($kok.Length + 1).Replace('\', '/') }
-  $desen = '^\|.*' + [regex]::Escape($goreli) + '.*\|.*' + [regex]::Escape($damga)
-  if (-not (Select-String -Path .\README.md -Pattern $desen)) { throw "Katalog satırı eksik veya damga farklı: $goreli -> $damga" }
-  if (-not (git tag --list $damga)) { throw "Release tag eksik: $damga" }
-}
-$anayasaTr = Get-Content -Raw -Encoding UTF8 -LiteralPath (Join-Path $kok 'AGENTS-tr.md')
-$anayasaEn = Get-Content -Raw -Encoding UTF8 -LiteralPath (Join-Path $kok 'AGENTS-en.md')
-$trDamga = [regex]::Match($anayasaTr, '(?m)^version:\s*"(.+)"$').Groups[1].Value
-$enDamga = [regex]::Match($anayasaEn, '(?m)^version:\s*"(.+)"$').Groups[1].Value
-if ($trDamga -ne $enDamga) { throw "Çeviri damgası kaynakla eşleşmiyor: $trDamga -> $enDamga" }
-$trKural = ([regex]::Matches($anayasaTr, '(?m)^(\d+\.\d+)\.\s') | ForEach-Object { $_.Groups[1].Value }) -join ','
-$enKural = ([regex]::Matches($anayasaEn, '(?m)^(\d+\.\d+)\.\s') | ForEach-Object { $_.Groups[1].Value }) -join ','
-if ($trKural -ne $enKural) { throw "Çeviri kural numaraları kaynakla eşleşmiyor" }
-$trBolum = ([regex]::Matches($anayasaTr, '(?m)^## (\d+)\.') | ForEach-Object { $_.Groups[1].Value }) -join ','
-$enBolum = ([regex]::Matches($anayasaEn, '(?m)^## (\d+)\.') | ForEach-Object { $_.Groups[1].Value }) -join ','
-if ($trBolum -ne $enBolum) { throw "Çeviri bölüm numaraları kaynakla eşleşmiyor" }
-if ($anayasaTr -notmatch 'Türkçe iletişim') { throw "Türkçe kaynakta Türkçe iletişim kuralı yok" }
-if ($anayasaEn -notmatch 'communicate with me in Turkish') { throw "İngilizce çeviride Türkçe iletişim kuralı yok" }
-Get-ChildItem -Directory | Where-Object { $_.Name -notlike '.*' } | ForEach-Object {
-  $dizin = $_
-  $readme = Join-Path $dizin.FullName 'README.md'
-  $linkler = Join-Path $dizin.FullName 'linkler.md'
-  if ((Test-Path $readme) -and (Test-Path $linkler)) {
-    $okuma = [regex]::Matches((Get-Content -Raw -LiteralPath $readme), 'https?://[^\s)\]]+') | ForEach-Object { $_.Value }
-    $sade = [regex]::Matches((Get-Content -Raw -LiteralPath $linkler), 'https?://[^\s)\]]+') | ForEach-Object { $_.Value }
-    if (($okuma -join '|') -ne ($sade -join '|')) { throw "Bağlantı listesi README ile eşleşmiyor: $($dizin.Name)" }
-  }
-}
-Get-ChildItem -Recurse -Filter *.md | Where-Object { $_.FullName.Substring($kok.Length + 1) -notmatch '(^|[\\/])\.' } | ForEach-Object {
-  $dosya = $_
-  Select-String -Path $dosya.FullName -Pattern '\]\(([^)#][^)]*)\)' -AllMatches | ForEach-Object {
-    foreach ($b in $_.Matches) {
-      $hedef = $b.Groups[1].Value
-      if ($hedef -match '^(https?://|mailto:)') { continue }
-      if (-not (Test-Path (Join-Path $dosya.DirectoryName $hedef))) { throw "Kırık iç link: $($dosya.Name) -> $hedef" }
-    }
-  }
-}
-Write-Output 'Doğrulama geçti'
+node araclar/dogrula.mjs
 ```
+
+Betik hata bulursa çıkış kodu 1'dir; son satırı `Doğrulama geçti` olmalıdır.
 
 ## Sürümleme ve Bakım
 

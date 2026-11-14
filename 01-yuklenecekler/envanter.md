@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğunun kurulum envanteri: tür, kurulum yöntemi ve doğrulama."
-version: "v202611140503"
+version: "v202611140549"
 ---
 
 # Kurulum Envanteri
@@ -19,7 +19,7 @@ Bu tablo, ajan kurulum protokolü tarafından icra edilir: her satır bir bağla
 | 8 | ripwire | https://github.com/redhat-et/ripwire | CLI | Windows: release zip'ini (`ripwire-<sürüm>-windows-x64.zip`) aç, `ripwire.exe`'yi PATH'e ekle ve Git Bash ile `skills/install.sh` çalıştır · kaynaktan: CMake 3.24+ ve C++23 derleyici ile `cmake -S . -B build && cmake --build build -j` · MCP sunucusu opsiyonel, kurulmaz | `ripwire --version` · küçük bir depoda `ripwire . --for="örnek görev"` sıralı dosya listesi döndürür · Windows x64 önizleme: CPU x86-64-v3 (AVX2) olmalı |
 | 9 | Serena | https://github.com/oraios/serena | MCP | `uvx --from git+https://github.com/oraios/serena serena start-mcp-server` komutunu MCP yapılandırmasına stdio girişi olarak ekle · dil sunucuları (pyright, typescript-language-server, rust-analyzer, phpactor) ayrı kurulur | MCP listesinde serena · projede `find_symbol` ve `find_referencing_symbols` çağrıları yanıt verir · Windows'ta PHP referans testi ayrıca doğrulanır (phpactor) |
 | 10 | trace-mcp | https://github.com/nikolai-vysotskyi/trace-mcp | MCP | `npm i -g trace-mcp` + `trace init` (MCP istemcilerini ve yönlendirme kuralını yazar) | `npm ls -g trace-mcp` sürüm gösterir · MCP listesinde trace-mcp · `search` ve `get_request_flow` çağrıları yanıt verir |
-| 11 | context-mode | https://github.com/mksglu/context-mode | MCP | `npm i -g context-mode@latest` + `claude mcp add context-mode -- npx -y context-mode` · Claude Code: `/plugin marketplace add mksglu/context-mode` | `context-mode --version` (1.0.169) · `/context-mode:ctx-doctor` tüm kontrolleri `[x]` gösterir |
+| 11 | context-mode | https://github.com/mksglu/context-mode | MCP | `npm i -g context-mode@latest` + MCP girdisi `{command: context-mode, args: [server]}` (alt komut yoksa sunucu açılmaz) · Claude Code: `/plugin marketplace add mksglu/context-mode` | `context-mode --version` (2.1.7) · `context-mode server` initialize yanıtı verir ve `ctx_execute`/`ctx_search` listelenir |
 | 12 | MarkItDown | https://github.com/microsoft/markitdown | CLI | `pip install 'markitdown[all]'` (veya `uv tool install 'markitdown[all]'`) · MCP ek: `pip install markitdown-mcp` ve `uvx markitdown-mcp` | `markitdown --help` çalışır (PyPI 0.1.9) · MCP listesinde markitdown-mcp (0.0.1a8) |
 | 13 | claude-mem | https://github.com/thedotmack/claude-mem | MCP | `npx claude-mem install` (kurulu IDE/ajanı algılar) · MCP girdisi `{command: npx, args: [-y, claude-mem, mcp]}` | `~/.claude-mem/` dizini oluşur (npm 15.8.0) · MCP listesinde claude-mem |
 | 14 | ui-ux-pro-max | https://github.com/nextlevelbuilder/ui-ux-pro-max-skill | skill | `npm i -g ui-ux-pro-max-cli` + proje kökünde `uipro init --ai claude` · Claude Code: `/plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill` | `uipro --version` (2.15.0) · ajanın skill dizininde ui-ux-pro-max |
