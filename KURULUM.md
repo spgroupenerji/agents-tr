@@ -1,6 +1,6 @@
 ---
 description: "Ajan gömme ve kurulum protokolü: depo bağlantısı verildiğinde anayasayı ve zorunlu araçları platformun global ortamına kuran icra adımları ve kopyala-kullan hazır prompt."
-version: "v202611072050"
+version: "v202611140638"
 ---
 
 # Ajan Gömme ve Kurulum Protokolü
@@ -54,6 +54,15 @@ Kural dosyası yolu platforma göre değişir; [platformlar.md](platformlar.md) 
 5. Yalnızca resmî dağıtım yöntemini kullan (`npm`, `pipx`, `cargo`, `go install`, `git clone`). Doğrudan indirilmiş betiği icra etme.
 6. Bir satırda hata olursa kaydet ve sonraki satıra geç; aynı satırı ikinci kez deneme. Hata listesi Aşama 5 raporuna girer.
 
+### Aşama 3b — Araç sahipliği, hafıza ve kalıntı temizliği
+
+1. [arac-rolleri.md](01-yuklenecekler/arac-rolleri.md) tablosunu uygula: her rolün tek sahibi olur. Aynı rolde iki MCP girdisi varsa zayıf olanı kapat; aynı olayda iki hook varsa ikinciyi kaldır.
+2. Kurulum sırası: çekirdek (claude-mem, trace-mcp, serena, context7, context-mode, ripwire) her zaman açık; chrome-devtools, blender, mcp-gsc, geo-optimizer ve rea yalnız görev anında açılır.
+3. Yapılandırmaya yazmadan önce yedek al; yazımı idempotent yap (aynı anahtarın eski girdisini ez); yazdıktan sonra doğrula.
+4. Görev aracını açma ve kapama: platformun MCP yapılandırmasındaki ilgili bloğu yorumla veya aç, ajanı yeniden başlat. REA 229 araç taşır ve varsayılan olarak kapalıdır.
+5. Hafıza: epizodik gözlem claude-mem'de, kod bağlı karar repo içindeki `docs/kararlar/` kaydında tutulur; saklama kuralları [hafiza-politikasi.md](01-yuklenecekler/hafiza-politikasi.md). Kurulum sonrası `node araclar/hafiza-bakim.mjs` raporunu al.
+6. Kalıntı temizliği: aynı hedefin birden çok yedeği varsa yalnız en yenisini bırak; eski araçların MCP girdilerini, hook'larını ve yapılandırma yedeklerini sil. `.env`, kullanıcı verisi ve çalışma dosyaları silinmez; silinenler listelenir.
+
 ## 5. Aşama 4 — Kaynak indeksi
 
 1. `kütüphane`, `site` ve `veri` türündeki bağlantıları platformun global referans biçimine yaz.
@@ -77,6 +86,11 @@ Aşağıdakileri ölç ve sonucu kullanıcıya düz metin olarak ver:
 | MCP girişleri | envanterdeki MCP satırıyla eşleşir |
 | Kaynak indeksi satırı | envanterdeki kaynak satırıyla eşit |
 | Yedek dosyası | var ve yolu raporlandı |
+| Araç sahipliği | her rolde tek MCP, çakışan yok |
+| Araç yüzeyi | sürekli yük hedefi 180 araç ve altı |
+| Hafıza raporu | `hafiza-bakim.mjs` çalıştı ve sayılar raporlandı |
+| Karar denetimi | `karar.mjs denetle` 0 hata |
+| Kalıntı | eski MCP girdisi ve çoklu yedek yok |
 | Atlanan / hatalı satır | liste halinde |
 
 Rapor; platform adı, kural dosyası yolu, yedek yolu, kurulan/atlanan/hatalı sayıları ve yeniden çalıştırma komutunu içerir. Rapor hassas veri (token, şifre, kişisel veri) taşımaz.
@@ -109,6 +123,9 @@ Kurulum kuralları:
 - 03-denenecekler/ dizinini okuma, değiştirme, kurma.
 - Envanterde kurulum alanı "doğrulanmalı" olan satırı kurma; rapora "atlandı" yaz.
 - İdempotent çalış: protokol tekrar çalıştırıldığında aynı sonucu üretsin.
+- Araç sahipliğini uygula: arac-rolleri.md tablosuna göre her rolde tek sahip; görev araçlarını (rea, blender, chrome, gsc, geo) varsayılan kapalı tut, yalnız o görevde aç.
+- Hafıza katmanlarını kur: claude-mem epizodik, docs/kararlar semantik; kurulum sonrası hafiza-bakim.mjs raporunu ve karar.mjs denetle sonucunu rapora ekle.
+- Kalıntıları temizle: eski MCP girdileri, eski hook'lar ve aynı hedefin çoklu yedekleri silinsin; en yeni tek yedek kalsın; .env ve kullanıcı verisi silinmesin.
 - Raporu Türkçe ver: tespit edilen platform, kural dosyası yolu, yedek yolu, kurulan / güncellenen / atlanan / hatalı satır listesi. Rapor secret, token veya kişisel veri içermesin.
 ```
 
