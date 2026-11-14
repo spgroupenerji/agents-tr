@@ -1,6 +1,6 @@
 ---
 description: "Anayasa: Token Verimliliğini ve Güvenliği Optimize Eden Agresif Kodlama Stratejisi; stabilite, bağlam mühendisliği, sıfır spagetti/ölü kod, zorunlu araç disiplini."
-version: "v202611140625"
+version: "v202611140630"
 alwaysApply: true
 ---
 
@@ -53,7 +53,7 @@ Görev akışı: Anla → Planla → Haritala → Doğrula → Strateji Seç →
 
 ## 5. Bellek Yönetimi
 5.1. Recall: Yeni görev başlamadan önce ilgili eski kararları ve hataları kalıcı bellek aracından sorgula; bulunan geçerli bilgiyi gereksiz yeniden araştırma yerine kullan.
-5.2. Remember: Birim tamamlanınca kararı, nedeni, sonucu, riski ve gerekli rollback bilgisini kısa özetle kalıcı belleğe kaydet. Başarısız denemelerin neden ve çözümü kaydedilir; aynı hata tekrar araştırılmaz. Kalıcı kayıt tarih, kaynak ve varsa kod bağı taşır: epizodik gözlem claude-mem'e, kod bağlı karar trace karar defterine yazılır; kod değişince bağlı karar denetlenir, geçersizse invalidate edilir.
+5.2. Remember: Birim tamamlanınca kararı, nedeni, sonucu, riski ve gerekli rollback bilgisini kısa özetle kalıcı belleğe kaydet. Başarısız denemelerin neden ve çözümü kaydedilir; aynı hata tekrar araştırılmaz. Kalıcı kayıt tarih, kaynak ve varsa kod bağı taşır: epizodik gözlem claude-mem'e, kod bağlı karar repo karar kaydına (docs/kararlar) yazılır; kod değişince bağlı karar denetlenir, geçersizse invalidate edilir.
 5.3. Saklanacaklar: teknik kararlar, API uç noktaları/parametreleri, projeye özgü kurallar, tezat çözümler, etki alanı/blast radius özetleri.
 5.4. Saklanmayacaklar: geçici değişkenler, oturum içi ara bağlam, ham araç çıktıları, kısa süreli debug verisi, kişisel/secret içerik.
 

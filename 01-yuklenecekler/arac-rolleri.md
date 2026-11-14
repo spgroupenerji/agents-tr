@@ -1,6 +1,6 @@
 ---
 description: "Araç rolleri ve sahiplik: tek yazıcı/tek okuyucu, olay ve depo sahipliği, kaynak bütçesi, çakışma kuralları."
-version: "v202611140625"
+version: "v202611140630"
 ---
 
 # Araç Rolleri ve Sahiplik
@@ -12,9 +12,10 @@ Tek yazıcı / tek okuyucu: aynı olayın, aynı verinin ve aynı sorunun tek sa
 | Rol | Sahip | Benzersiz kanıt | Devre dışı |
 | --- | --- | --- | --- |
 | Hafıza (epizodik) | claude-mem | Oturumlar arası gözlem ve bağlam | Karar kaydı olarak kullanılmaz |
-| Karar (semantik) | trace-mcp karar defteri | Kod bağlı karar, geçerlilik, denetim | Gözlem kaydı olarak kullanılmaz |
+| Karar (semantik) | repo karar kaydı (\`docs/kararlar\`) | Kod bağlı karar, tarih ve geçerlilik | trace karar defteri yalnız kod grafiği için |
 | Bağlam sıkıştırma | context-mode | Büyük çıktıyı bağlam dışına taşır | Hook olarak kurulmaz; yalnız çağrı anında |
-| Kod grafiği ve etki | ripwire (CLI) + trace-mcp (talep üzerine) | Blast radius, framework kenarı | trace daemon sürekli çalışmaz |
+| Kod grafiği | \`~/.trace\` | trace-mcp | Evet |
+| Karar | \`docs/kararlar/\` | karar.mjs | Hayır, git ile taşınır |
 | Sembol ve düzenleme | serena | LSP referansı, güvenli düzenleme | — |
 | Doküman | context7 | Sürüm ve API gerçeği | — |
 
@@ -33,7 +34,8 @@ Tek yazıcı / tek okuyucu: aynı olayın, aynı verinin ve aynı sorunun tek sa
 | --- | --- | --- | --- |
 | Gözlem ve karar | `~/.claude-mem` | claude-mem | Hayır, yedeklenir |
 | Araç çıktısı | context-mode | context-mode | Evet |
-| Kod grafiği | `~/.trace` | trace-mcp | Evet |
+| Kod grafiği | \`~/.trace\` | trace-mcp | Evet |
+| Karar | \`docs/kararlar/\` | karar.mjs | Hayır, git ile taşınır |
 | Repo kararı | `.trail/` (pilot) | Trail | Hayır |
 
 ## Kaynak bütçesi

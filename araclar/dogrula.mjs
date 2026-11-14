@@ -27,6 +27,7 @@ const damgaDesen = /^version:\s*"(.+)"$/m;
 if (existsSync(join(KOK, 'AGENTS.md'))) hata('Depo kökünde AGENTS.md olmamalı (araç çakışması)');
 
 for (const d of mdDosyalari) {
+  if (d.startsWith('docs/kararlar/')) continue;
   const metin = oku(d);
   if (!metin.startsWith('---')) continue;
   const m = metin.match(damgaDesen);

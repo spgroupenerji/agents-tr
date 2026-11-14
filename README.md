@@ -1,6 +1,6 @@
 ---
 description: "SP GROUP ajan anayasası deposunun giriş belgesi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama."
-version: "v202611140625"
+version: "v202611140630"
 ---
 
 # SP GROUP Ajan Anayasası (AGENTS-tr)
@@ -23,16 +23,16 @@ SP GROUP projelerinde ajan davranışını sabitleyen Türkçe anayasa. Anayasa 
 
 | Belge | Sürüm | Kapsam |
 | --- | --- | --- |
-| [`README.md`](README.md) | v202611140625 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
-| [`AGENTS-tr.md`](AGENTS-tr.md) | v202611140625 | Ajan anayasası (Türkçe kaynak): ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
-| [`AGENTS-en.md`](AGENTS-en.md) | v202611140625 | Anayasanın birebir İngilizce çevirisi; platformların global kural dosyasına yüklenen sürüm |
+| [`README.md`](README.md) | v202611140630 | Depo girişi: belge kataloğu, ajanla kurulum, platform desteği, sürümleme ve doğrulama |
+| [`AGENTS-tr.md`](AGENTS-tr.md) | v202611140630 | Ajan anayasası (Türkçe kaynak): ilkeler, iş akışı, risk sınıfları, araç disiplini ve kanıt, bellek, kod kalitesi, isimlendirme, güvenlik, hata yönetimi, sürümleme ve yayın, git ve belge disiplini |
+| [`AGENTS-en.md`](AGENTS-en.md) | v202611140630 | Anayasanın birebir İngilizce çevirisi; platformların global kural dosyasına yüklenen sürüm |
 | [`KURULUM.md`](KURULUM.md) | v202611072050 | Ajan gömme ve kurulum protokolü: platform tespiti, yedekleme, anayasayı sıfırdan yazma, envanter kurulumu, kaynak indeksi, doğrulama ve kopyala-kullan hazır prompt |
 | [`platformlar.md`](platformlar.md) | v202611040439 | platform kurulum matrisi: tespit işareti, global kural dosyası, skill dizini, MCP yapılandırması, kaynak indeksi hedefi ve doğrulama |
-| [`01-yuklenecekler/`](01-yuklenecekler/) | v202611140625 | Zorunlu yüklenen araç kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme ve simülatör, filigran temizliği, kaydırmalı web, metin, araştırma, oyun geliştirme |
+| [`01-yuklenecekler/`](01-yuklenecekler/) | v202611140630 | Zorunlu yüklenen araç kataloğu: metodoloji, kod zekâsı, dokümantasyon, arayüz, inceleme ve güvenlik, video, 3B modelleme ve simülatör, filigran temizliği, kaydırmalı web, metin, araştırma, oyun geliştirme |
 | [`01-yuklenecekler/linkler.md`](01-yuklenecekler/linkler.md) | v202611140503 | Zorunlu kataloğun sade bağlantı listesi |
 | [`01-yuklenecekler/envanter.md`](01-yuklenecekler/envanter.md) | v202611140549 | Kurulum envanteri: envanterdeki bağlantıların türü, platformdan bağımsız kurulum yöntemi ve doğrulama ölçütü |
-| [`01-yuklenecekler/arac-rolleri.md`](01-yuklenecekler/arac-rolleri.md) | v202611140625 | Araç rolleri ve sahiplik: tek yazıcı/tek okuyucu, olay ve depo sahipliği, kaynak bütçesi ve çakışma kuralları |
-| [`01-yuklenecekler/hafiza-politikasi.md`](01-yuklenecekler/hafiza-politikasi.md) | v202611140625 | Hafıza politikası: epizodik/semantik katman, kod bağlı karar, tazelik ve saklama kuralları |
+| [`01-yuklenecekler/arac-rolleri.md`](01-yuklenecekler/arac-rolleri.md) | v202611140630 | Araç rolleri ve sahiplik: tek yazıcı/tek okuyucu, olay ve depo sahipliği, kaynak bütçesi ve çakışma kuralları |
+| [`01-yuklenecekler/hafiza-politikasi.md`](01-yuklenecekler/hafiza-politikasi.md) | v202611140630 | Hafıza politikası: epizodik/semantik katman, kod bağlı karar, tazelik ve saklama kuralları |
 | [`02-dokumantasyon/`](02-dokumantasyon/) | v202611011444 | Ajan platformları ve kural dosyaları için resmî dokümantasyon: DeepSeek Harness, ZCode, Antigravity, OpenCode, VS Code, Qoder, WorkBuddy, Cline, ChatGPT/Codex ve Gemini CLI |
 | [`02-dokumantasyon/linkler.md`](02-dokumantasyon/linkler.md) | v202611011444 | Resmî dokümantasyonun sade bağlantı listesi |
 | [`03-denenecekler/`](03-denenecekler/) | v202611140516 | Manuel havuz: henüz denenmemiş araç, servis ve kaynak listeleri; kurulum protokolü bu dizine dokunmaz |

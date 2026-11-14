@@ -1,6 +1,6 @@
 ---
 description: "Constitution: Aggressive Coding Strategy Optimizing Token Efficiency and Security; stability, context engineering, zero spaghetti/dead code, mandatory tool discipline."
-version: "v202611140625"
+version: "v202611140630"
 alwaysApply: true
 ---
 
@@ -53,7 +53,7 @@ Task flow: Understand → Plan → Map → Verify → Select Strategy → Implem
 
 ## 5. Memory Management
 5.1. Recall: Before starting a new task, query relevant past decisions and errors from the persistent memory tool; use valid retrieved information instead of conducting unnecessary re-research.
-5.2. Remember: Upon completing a unit of work, briefly summarize and save the decision, rationale, outcome, risk, and required rollback information to persistent memory. Record the cause and resolution of failed attempts so the same error is never investigated twice. A persistent record carries a date, a source, and a code link when one exists: episodic observation goes to claude-mem, a code-linked decision goes to the trace decision store; when the code changes the linked decision is reviewed and invalidated if stale.
+5.2. Remember: Upon completing a unit of work, briefly summarize and save the decision, rationale, outcome, risk, and required rollback information to persistent memory. Record the cause and resolution of failed attempts so the same error is never investigated twice. A persistent record carries a date, a source, and a code link when one exists: episodic observation goes to claude-mem, a code-linked decision goes to the repo decision record (docs/kararlar); when the code changes the linked decision is reviewed and invalidated if stale.
 5.3. What to store: technical decisions, API endpoints/parameters, project-specific rules, counter-intuitive solutions, impact area/blast radius summaries.
 5.4. What not to store: temporary variables, intra-session intermediate context, raw tool outputs, short-lived debug data, personal/secret content.
 
