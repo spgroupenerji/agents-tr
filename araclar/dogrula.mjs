@@ -91,7 +91,7 @@ if (process.argv.includes('--cevre')) {
   if (existsSync(cfg)) {
     const t = readFileSync(cfg, 'utf8');
     const aktif = [...t.matchAll(/^\s{8}serverName:\s*(\S+)/gm)].map((m) => m[1]);
-    const kapali = [...t.matchAll(/^#\s+serverName:\s*(\S+)/gm)].map((m) => m[1]);
+    const kapali = [...t.matchAll(/^\s*#\s+serverName:\s*(\S+)/gm)].map((m) => m[1]);
     const tekrar = [...new Set(aktif.filter((x, i) => aktif.indexOf(x) !== i))];
     if (tekrar.length) hata('Aynı MCP sunucusu iki kez tanımlı: ' + tekrar.join(', '));
     if (t.includes("args: ['/c', 'context-mode']")) hata("context-mode başlatma komutu 'server' alt komutunu içermiyor");
