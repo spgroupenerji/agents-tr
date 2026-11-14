@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğunun kurulum envanteri: tür, kurulum yöntemi ve doğrulama."
-version: "v202611140454"
+version: "v202611140503"
 ---
 
 # Kurulum Envanteri
@@ -67,6 +67,7 @@ Bu tablo, ajan kurulum protokolü tarafından icra edilir: her satır bir bağla
 | 56 | teardown | https://github.com/elvarofficial/teardown | skill | `git clone --depth 1 https://github.com/elvarofficial/teardown` + tüm depo klasörünü skill dizinine kopyala · kurulu klasörde `npm install && npx playwright install chromium` (önkoşul: Node 20+, video için ffmpeg, ses için Python 3) | Skill dizininde `SKILL.md` ve `sims/` · `node_modules/three` kurulu · `node sims/build.mjs v8-live` çalışır ve `teardown-out/dist/v8-live.html` üretir |
 | 57 | watermarks-remover | https://github.com/guillaumemeyer/watermarks-remover | skill | `git clone --depth 1 https://github.com/guillaumemeyer/watermarks-remover` + `py install_skill.py --skill remove-ai-marks --target codex` ve `--skill clean-user-facing-text --target codex` · hizmet: `py service/scripts/server.py --host 127.0.0.1 --port 8765` (Python 3.10+ stdlib) | Skill dizinlerinde `remove-ai-marks/SKILL.md` ve `clean-user-facing-text/SKILL.md` · `GET http://127.0.0.1:8765/health` 200 `{"ok": true}` · istemci `WATERMARKS_SERVICE_URL` ile hizmete bağlanır |
 | 58 | scroll-craft | https://github.com/nateherkai/scroll-craft | skill | `git clone --depth 1 https://github.com/nateherkai/scroll-craft` + `plugins/nateherk-design/skills/scroll-craft/` klasörünü (SKILL.md, engine, references, scripts, templates) skill dizinine kopyala + `npm i playwright-core` · önkoşul: Node 18+, tam ffmpeg (libwebp), Chrome | `node scripts/doctor.mjs` geçer (ffmpeg 588 filtre, libwebp, playwright-core, Chrome) · `node scripts/workspace.mjs --ensure` çalışma alanını ve boş `FINGERPRINTS.md` kaydını kurar |
+| 59 | awesome-gamedev-agent-skills | https://github.com/gamedev-skills/awesome-gamedev-agent-skills | skill | `npx skills add gamedev-skills/awesome-gamedev-agent-skills` (skills CLI; `-g` global) · Claude Code: `/plugin marketplace add gamedev-skills/awesome-gamedev-agent-skills` (`.claude-plugin/marketplace.json`) · elle: `git clone --depth 1 https://github.com/gamedev-skills/awesome-gamedev-agent-skills` + `skills/<kategori>/<ad>/` altındaki 79 beceri klasörünü ve `router/` klasörünü platform skill dizinine kopyala; router `gamedev-router`, çakışan `godot-export` becerisi `godot-export-game` adıyla kurulur ve router'daki yol atıfları düz yerleşime göre güncellenir | Skill dizininde 79 gamedev becerisi ve `gamedev-router/SKILL.md` (motor tespiti ve yönlendirme tablosu `references/` altında) · DSH kataloğunda `gamedev-router`, `godot-2d-movement`, `unity-physics`, `unreal-niagara`, `roblox-luau`, `phaser-core`, `threejs-scene-setup`, `platformer`, `save-systems` görünür · mevcut Blender `godot-export` becerisi korunur |
 
 ## Doğrulama Yöntemi
 

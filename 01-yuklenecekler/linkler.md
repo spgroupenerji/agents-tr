@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğunun sade bağlantı listesi; açıklamalı belge README.md dosyasındadır."
-version: "v202611140454"
+version: "v202611140503"
 ---
 
 # Bağlantılar
@@ -65,3 +65,4 @@ version: "v202611140454"
 - https://github.com/elvarofficial/teardown
 - https://github.com/guillaumemeyer/watermarks-remover
 - https://github.com/nateherkai/scroll-craft
+- https://github.com/gamedev-skills/awesome-gamedev-agent-skills
