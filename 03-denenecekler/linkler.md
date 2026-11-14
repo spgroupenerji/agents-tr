@@ -1,6 +1,6 @@
 ---
 description: "Manuel havuzun sade bağlantı listesi; açıklamalı belge README.md dosyasındadır."
-version: "v202611100654"
+version: "v202611140510"
 ---
 
 # Bağlantılar
@@ -54,3 +54,8 @@ version: "v202611100654"
 - https://spline.design/
 - https://pagespeed.web.dev/
 - https://svgl.app/
+
+## 6. API Tersine Mühendislik ve Site→API Araçları
+
+- https://github.com/kalil0321/reverse-api-engineer
+- https://github.com/goodnight000/api-anything

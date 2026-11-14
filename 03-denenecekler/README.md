@@ -1,6 +1,6 @@
 ---
 description: "Henüz denenmemiş araç, servis ve kaynak listeleri."
-version: "v202611100654"
+version: "v202611140510"
 ---
 
 # Denemediklerim
@@ -54,3 +54,10 @@ version: "v202611100654"
 - https://spline.design/ - Tarayıcıda çalışan ücretsiz 3B tasarım aracı; ekip ve ajanlar aynı sahnede modelleme, animasyon ve etkileşimli 3B çıktı üretir.
 - https://pagespeed.web.dev/ - Google PageSpeed Insights: sayfa hızı ve Core Web Vitals ölçümü; laboratuvar ve gerçek kullanıcı verisini birlikte verir.
 - https://svgl.app/ - Popüler marka ve teknolojilerin logolarını SVG olarak arayıp kopyalamayı sağlayan logo kütüphanesi; açık ve koyu tema sürümleri vardır.
+
+## 6. API Tersine Mühendislik ve Site→API Araçları
+
+Bir sitenin kendi ağ isteklerinden API istemcisi veya çağrılabilir HTTP API üretmek gerektiğinde buraya bak; katalog ve liste kaynakları §3'te, hazır servisler §4'tedir.
+
+- https://github.com/kalil0321/reverse-api-engineer - Bir siteyi gezerek (ya da ajan gezdirmesiyle) ağ trafiğini HAR olarak yakalayan, yapılandırılmış modelle gerçek uç noktaları okuyup Python, JavaScript, TypeScript, Go, Java, C#, PHP, Ruby, C ve PowerShell'de tipli API istemcisi üreten CLI; agent mode mevcut Playwright/Chrome DevTools MCP'sini veya Vercel `agent-browser` CLI'ı kullanır, manual mode yerel Playwright ister (MIT, Python 3.11+; `uv tool install reverse-api-engineer`, ajan becerisi `npx skills add kalil0321/reverse-api-engineer`).
+- https://github.com/goodnight000/api-anything - Sitesi olmayan API'yi ajanın kendisi öğrenir: sitenin kendi sayfasının gönderdiği isteği bir kez yakalar, çerez/token temizleyerek paylaşılan kataloğa yazar ve sonraki ajanlara tek HTTP isteğiyle JSON döndürür; site değişince kendini onarır. `npx -y api-anything setup` MCP sunucusunu ve becerisini algıladığı ajanlara bağlar (Claude Code, Codex, Cursor, Claude Desktop, Gemini CLI, VS Code), `setup --local-only` her şeyi yerelde tutar (MIT; Node ≥22.13).
