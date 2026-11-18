@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğu: her zaman kurulan araçlar ve bölüm bölüm başvuru kaynakları."
-version: "v202611181601"
+version: "v202611181610"
 ---
 
 # Ajan Araçları Kataloğu
@@ -39,6 +39,7 @@ Büyük araç çıktısını küçültürken, belgeyi okunabilir hâle getirirke
 
 - https://github.com/mksglu/context-mode - Araç çıktısını sandbox'ta filtreleyip bağlamı hafifleten, MCP ve hook'larla platformlar arası yönlendirme yapan bağlam sıkıştırma katmanı (üretici iddiası: %98'e varan azaltma).
 - https://github.com/microsoft/markitdown - Dosya ve ofis belgelerini Markdown'a çevirerek okuma token maliyetini düşüren resmî Microsoft aracı.
+- https://github.com/docling-project/docling-mcp - PDF, taranmış belge ve karmaşık tabloları yerel OCR ile yapılandırılmış Markdown'a çeviren MCP sunucusu (3.5.0, MIT); docx/xlsx/html ve hızlı dönüşümde MarkItDown, büyük belgelerde anchor-first okuma (özet → arama → tek öğe) tercih edilir; grafik açıklaması varsayılan kapalıdır, 100+ sayfada çıktıyı dosyaya yazıp parça parça oku.
 - https://github.com/thedotmack/claude-mem - Oturum gözlemlerini yakalayıp semantik olarak sıkıştıran ve ilgili bağlamı sonraki oturumlara enjekte eden kalıcı hafıza sistemi.
 
 ## 4. Arayüz ve Tasarım

@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğunun sade bağlantı listesi; açıklamalı belge README.md dosyasındadır."
-version: "v202611181601"
+version: "v202611181610"
 ---
 
 # Bağlantılar
@@ -19,6 +19,7 @@ version: "v202611181601"
 - https://github.com/nikolai-vysotskyi/trace-mcp
 - https://github.com/mksglu/context-mode
 - https://github.com/microsoft/markitdown
+- https://github.com/docling-project/docling-mcp
 - https://github.com/thedotmack/claude-mem
 - https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
 - https://github.com/pbakaus/impeccable
