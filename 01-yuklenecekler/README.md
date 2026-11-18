@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğu: her zaman kurulan araçlar ve bölüm bölüm başvuru kaynakları."
-version: "v202611181610"
+version: "v202611181628"
 ---
 
 # Ajan Araçları Kataloğu
@@ -145,5 +145,15 @@ Kaydırmayla açılan sinematik tanıtım sayfası üretmek ve sonucu gerçek ta
 Oyun geliştirme işlerinde motoru parmak izinden tanıyıp doğru beceri setini yüklemek için buraya bak; oyun videosu ve ses §6'da, 3B varlık ve sahne §7'de, oyun dışı arayüz §4'tedir.
 
 - https://github.com/gamedev-skills/awesome-gamedev-agent-skills - 79 oyun geliştirme becerisi ve bir yönlendirici: Godot, Unity, Unreal, Ebitengine, Bevy, Phaser, PixiJS, three.js, Defold, LÖVE, pygame ve Roblox için motor-tespitli beceri seti; isteği motor parmak izinden (`project.godot`, `Assets/`+`ProjectVersion.txt`, `*.uproject`, `package.json`, `Cargo.toml`, `game.project`) tanır ve yalnız gereken 2-3 beceriyi yükler. 15 disiplin, 9 tür, 5 iş akışı becerisi ve `gamedev-router` içerir; 366 kör testte doğru becerinin %98,7 yüklendiğini iddia eder (üretici ölçümü, Apache-2.0).
+
+## 14. Masaüstü Uygulamaları: Ofis, Inkscape, Krita
+
+Ofis belgeleri, vektör ve raster masaüstü işlerini ajan araçlarına bağlamak için buraya bak; 3B sahne §7 Blender MCP'de, belge dönüştürme §3 Docling/MarkItDown'da.
+
+- https://github.com/iOfficeAI/OfficeCLI - Word, Excel ve PowerPoint belgelerini tek ikiliyle okuyup düzenleyen, HTML/PNG render ile görsel denetim döngüsünü kapatan Apache-2.0 CLI/MCP (1.0.162); DSH, OpenCode ve Antigravity'de `officecli mcp` ile tek `officecli` aracı olarak çalışır.
+- https://github.com/aravindev/inkscape_mcp - Inkscape'i canlı veya headless süren 8 araçlı MCP sunucusu (2.0.0, MIT): SVG/vektör düzenleme, boolean, analiz, extension ve PNG rasterize; Windows'ta canlı köprü için dbus-daemon gerekir, headless + PNG denetimi hazırdır.
+- https://github.com/edithatogo/krita-cli - Krita'yı 44 MCP aracıyla boyama, katman, seçim ve filtre işlerine açan CLI + pykrita eklentisi (krita-cli 1.0.1, MCP 4.2.1, MIT); eklenti `%APPDATA%\krita\pykrita` altına kopyalanır ve "Krita MCP Bridge" etkinleştirilir.
+
+Ortak `design-mastery` becerisi `~/.agents/skills/design-mastery` altında durur; Antigravity'ye `~/.gemini/config/skills/design-mastery` junction'ı ile bağlanır, DSH ve OpenCode aynı dizini tarar.
 
 Araç rolleri, olay ve depo sahipliği: [arac-rolleri.md](arac-rolleri.md). Hafıza katmanları ve saklama: [hafiza-politikasi.md](hafiza-politikasi.md).

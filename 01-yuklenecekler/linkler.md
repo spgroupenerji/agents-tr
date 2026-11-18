@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğunun sade bağlantı listesi; açıklamalı belge README.md dosyasındadır."
-version: "v202611181610"
+version: "v202611181628"
 ---
 
 # Bağlantılar
@@ -68,3 +68,6 @@ version: "v202611181610"
 - https://github.com/guillaumemeyer/watermarks-remover
 - https://github.com/nateherkai/scroll-craft
 - https://github.com/gamedev-skills/awesome-gamedev-agent-skills
+- https://github.com/iOfficeAI/OfficeCLI
+- https://github.com/aravindev/inkscape_mcp
+- https://github.com/edithatogo/krita-cli
