@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğu: her zaman kurulan araçlar ve bölüm bölüm başvuru kaynakları."
-version: "v202611140630"
+version: "v202611181601"
 ---
 
 # Ajan Araçları Kataloğu
@@ -70,6 +70,7 @@ Kod incelemesi, güvenlik testi veya ikili/uygulama çözümlemesi gerektiğinde
 - https://github.com/usestrix/strix - Açık kaynak yapay zekâ sızma testi aracı; uygulamanın açıklarını bulup düzeltmeye yardım eder. Ajan becerisi paketi: depodaki `skills/` altındaki 9 beceri (api-security-testing, application-security-testing, ci-security-scanning-with-strix, find-security-vulnerabilities-in-code, fix-security-vulnerabilities-with-strix, managed-pentesting-with-strix, owasp-top-10-testing, penetration-testing-with-strix, web-app-penetration-testing) ajan skill dizinine kopyalanır.
 - https://github.com/Jakeschincariol/replica-skill - Herhangi bir uygulamayı tersine mühendislikle klonlayıp yeniden kuran, hatalarını ayıklayan on bir ücretsiz Claude becerisi.
 - https://github.com/BehiSecc/VibeSec-Skill - Web uygulamalarında güvenli kod yazımı için "bug hunter" bakışı kazandıran beceri: erişim kontrolü ve IDOR, XSS, CSRF, istemci tarafı secret sızıntısı, açık yönlendirme, SSRF, güvensiz dosya yükleme, SQL enjeksiyonu, XXE, yol geçişi ve JWT güvenliğini atlatma teknikleriyle birlikte kapsar; Apache-2.0 lisanslı tek `SKILL.md` dosyası.
+- https://github.com/backnotprop/plannotator - Plan, belge ve diff'leri tarayıcıda satır satır işaretleyip geri bildirimi ajana tek tıkla gönderen yerel inceleme yüzeyi; DSH, Claude Code, Codex, OpenCode ve Gemini CLI eklentileriyle plan çıkışında otomatik açılır, Apache-2.0/MIT.
 
 ## 6. Video ve Hareketli Grafik
 

@@ -1,6 +1,6 @@
 ---
 description: "Zorunlu yüklenen araç kataloğunun sade bağlantı listesi; açıklamalı belge README.md dosyasındadır."
-version: "v202611140503"
+version: "v202611181601"
 ---
 
 # Bağlantılar
@@ -40,6 +40,7 @@ version: "v202611140503"
 - https://github.com/usestrix/strix
 - https://github.com/Jakeschincariol/replica-skill
 - https://github.com/BehiSecc/VibeSec-Skill
+- https://github.com/backnotprop/plannotator
 - https://github.com/nateherkai/herk-edit-kit
 - https://github.com/eyaprak/skills/tree/main/hyperframes-studio
 - https://github.com/omergocmen/anything2explainer
