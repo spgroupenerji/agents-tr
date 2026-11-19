@@ -1,6 +1,6 @@
 ---
 description: "Ajan gömme ve kurulum protokolü: depo bağlantısı verildiğinde anayasayı ve zorunlu araçları platformun global ortamına kuran icra adımları ve kopyala-kullan hazır prompt."
-version: "v202611191008"
+version: "v202611191039"
 ---
 
 # Ajan Gömme ve Kurulum Protokolü
@@ -48,7 +48,7 @@ Kural dosyası yolu platforma göre değişir; [platformlar.md](platformlar.md) 
 2. Her satır için önce **mevcut durumu tespit et**: araç kurulu mu ve sürümü envanterdeki doğrulama ölçütüyle uyumlu mu? Kurulu ve güncel satırı **atla**; kurulu ama eski satırı resmî yöntemle **güncelle**; hiç kurulu olmayan ya da eksik kalan satırı **kur**. Tespit edilen durum Aşama 5 raporuna yazılır.
 3. Her satırı türüne göre **kur veya güncelle**:
    - `skill`: depoyu geçici dizine klonla (`git clone --depth 1`), `SKILL.md` ve eşlik eden dosyaları platformun skill dizinine `<ad>/` altına kopyala, geçici dizini sil.
-   - `MCP`: platformun MCP yapılandırma dosyasına `{command, args}` girişi ekle; aynı adlı eski girişi ez. Chrome DevTools MCP satırında kullanıcıya sormadan yapılandırma yazma: (1) kullanılacak uygulama — mevcut Chrome, izole profil veya harici indirilen Chrome — ve (2) remote debugging portu sorulur; cevap tek tarayıcı config'ine (`uygulama`, `mod`, `port`) yazılır ve seçilen port `/json/version` ile doğrulanır. Varsayılan profilde remote debugging'in kabul edilip edilmediği build'e göre değişir; kurulumda ölçülür, varsayılmaz.
+   - `MCP`: platformun MCP yapılandırma dosyasına `{command, args}` girişi ekle; aynı adlı eski girişi ez. Chrome DevTools MCP satırında kullanıcıya sormadan yapılandırma yazma: (1) kullanılacak uygulama — mevcut Chrome, izole profil veya harici indirilen Chrome — ve (2) remote debugging portu sorulur; cevap tek tarayıcı config'ine (`uygulama`, `mod`, `port`) yazılır ve seçilen port `/json/version` ile doğrulanır. Varsayılan profilde remote debugging'in kabul edilip edilmediği build'e göre değişir; kurulumda ölçülür, varsayılmaz. Seçim `araclar/tarayici/tarayici.ps1` ile `%USERPROFILE%\.agents\tarayici.json` dosyasına yazılır; MCP `araclar/tarayici/sarmala.mjs` ile bu config'e bağlanır. `ac`, `kapat -HedefPid`, `durum` komutları kullanılır; alan dışı PID reddedilir.
    - `CLI`: envanterdeki kurulum komutunu çalıştır, ardından `command -v` ile doğrula.
    - `kütüphane`, `site`, `veri`: kurulum yok; Aşama 4'e bırak.
 4. Envanterde kurulum alanı `doğrulanmalı` olan satırı **kurma**; rapora "atlandı" olarak yaz.

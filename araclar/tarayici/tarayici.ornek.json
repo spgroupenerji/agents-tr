@@ -1,0 +1,10 @@
+{
+    "uygulama":  "C:\\(Uygulama)\\chrome-win64\\chrome.exe",
+    "mod":  "harici",
+    "port":  9222,
+    "portAraligi":  {
+                        "alt":  9222,
+                        "ust":  9240
+                    },
+    "profilKok":  "C:\\Users\\\u003ckullanici\u003e\\.agents\\tarayici-profiller"
+}
