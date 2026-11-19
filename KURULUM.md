@@ -1,6 +1,6 @@
 ---
 description: "Ajan gömme ve kurulum protokolü: depo bağlantısı verildiğinde anayasayı ve zorunlu araçları platformun global ortamına kuran icra adımları ve kopyala-kullan hazır prompt."
-version: "v202611140638"
+version: "v202611191008"
 ---
 
 # Ajan Gömme ve Kurulum Protokolü
@@ -16,8 +16,9 @@ version: "v202611140638"
 - **Depo salt kaynaktır:** kurulum sırasında depo dosyaları değiştirilmez; değişiklik depoda yapılıp kurulum yenilenir.
 - **Tam otomatik:** onay sorulmaz. Yalnızca platform tespiti belirsizse, yedek alınamıyorsa veya geri dönüşü zor bir çakışma varsa durulur ve raporlanır.
 - **İdempotent:** protokol kaç kez çalıştırılırsa çalıştırılsın aynı sonuç üretilir; her çalıştırma yeni bir yedek damgası açar.
-- **Varsayım yasağı:** platform, yol, sürüm, komut veya davranış konusunda şüphe varsa ya da bir adım hata verirse, [02-dokumantasyon/linkler.md](02-dokumantasyon/linkler.md) ve [02-dokumantasyon/README.md](02-dokumantasyon/README.md) içindeki resmî belgeden doğrulanır; doğrulanamıyorsa adım atlanır ve rapora yazılır. Tahminle ilerlenmez.
+- **Varsayım yasağı:** platform, yol, sürüm, komut veya davranış konusunda şüphe varsa ya da bir adım hata verirse, önce aracın kendi kurulum skill'i, yetmezse [02-dokumantasyon/linkler.md](02-dokumantasyon/linkler.md) üzerindeki ana dokümanın yalnız ilgili bölümü okunur; web araması yapılmaz. Doğrulanamıyorsa adım atlanır ve rapora yazılır. Tahminle ilerlenmez.
 - **Dil:** rapor ve kurulum günlüğü Türkçe yazılır.
+- **Bilgi kaynağı:** kurulumda sıra aracın kendi kurulum skill'i → resmî dokümandır. Repodaki ana doküman bağlantısı yalnız doküman bilinmiyorsa tek bölüm için açılır, taranmaz. Kurulum için web araması yapılmaz.
 
 ## 1. Aşama 0 — Platform tespiti
 
@@ -35,7 +36,7 @@ version: "v202611140638"
 ## 3. Aşama 2 — Anayasayı (İngilizce çeviriyi) sıfırdan yaz
 
 1. `AGENTS-en.md` içeriğini oku (Türkçe `AGENTS-tr.md`'nin birebir İngilizce çevirisi).
-2. Hedef global kural dosyasını **tamamen yeniden yaz**: eski içerikten hiçbir satır kalmaz; ekleme, çıkarma veya uyarlama yapılmaz, birebir kopyadır; kaynak `AGENTS-en.md` dosyasıdır.
+2. Hedef global kural dosyasını **tamamen yeniden yaz**: eski içerikten hiçbir satır kalmaz; ekleme, çıkarma veya uyarlama yapılmaz, birebir kopyadır; kaynak `AGENTS-en.md` dosyasıdır. Makineye özel ekleme, ikinci kural katmanı ve not satırı yazılmaz.
 3. Doğrula: `AGENTS-en.md` ile hedef için SHA256 eşit; satır sayısı eşit; hedef dosyada eski sürümden kalan işaret yok.
 4. Doğrulama başarısızsa yedeği geri yükle, dur ve raporla.
 
@@ -47,7 +48,7 @@ Kural dosyası yolu platforma göre değişir; [platformlar.md](platformlar.md) 
 2. Her satır için önce **mevcut durumu tespit et**: araç kurulu mu ve sürümü envanterdeki doğrulama ölçütüyle uyumlu mu? Kurulu ve güncel satırı **atla**; kurulu ama eski satırı resmî yöntemle **güncelle**; hiç kurulu olmayan ya da eksik kalan satırı **kur**. Tespit edilen durum Aşama 5 raporuna yazılır.
 3. Her satırı türüne göre **kur veya güncelle**:
    - `skill`: depoyu geçici dizine klonla (`git clone --depth 1`), `SKILL.md` ve eşlik eden dosyaları platformun skill dizinine `<ad>/` altına kopyala, geçici dizini sil.
-   - `MCP`: platformun MCP yapılandırma dosyasına `{command, args}` girişi ekle; aynı adlı eski girişi ez. Chrome DevTools MCP satırında kullanıcıya sormadan yapılandırma yazma: (1) kullanılacak Chrome yolu, (2) ayrı/izole profil tercihi (Chrome 136+ varsayılan profilde remote debugging'e izin vermez; `--user-data-dir` zorunludur) ve (3) remote debugging portu sorulur; cevap envanterdeki biçime göre uygulanır ve seçilen port `/json/version` ile doğrulanır.
+   - `MCP`: platformun MCP yapılandırma dosyasına `{command, args}` girişi ekle; aynı adlı eski girişi ez. Chrome DevTools MCP satırında kullanıcıya sormadan yapılandırma yazma: (1) kullanılacak uygulama — mevcut Chrome, izole profil veya harici indirilen Chrome — ve (2) remote debugging portu sorulur; cevap tek tarayıcı config'ine (`uygulama`, `mod`, `port`) yazılır ve seçilen port `/json/version` ile doğrulanır. Varsayılan profilde remote debugging'in kabul edilip edilmediği build'e göre değişir; kurulumda ölçülür, varsayılmaz.
    - `CLI`: envanterdeki kurulum komutunu çalıştır, ardından `command -v` ile doğrula.
    - `kütüphane`, `site`, `veri`: kurulum yok; Aşama 4'e bırak.
 4. Envanterde kurulum alanı `doğrulanmalı` olan satırı **kurma**; rapora "atlandı" olarak yaz.

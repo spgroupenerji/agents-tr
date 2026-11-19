@@ -1,6 +1,6 @@
 ---
 description: "Araç rolleri ve sahiplik: tek yazıcı/tek okuyucu, olay ve depo sahipliği, kaynak bütçesi, çakışma kuralları."
-version: "v202611140630"
+version: "v202611191008"
 ---
 
 # Araç Rolleri ve Sahiplik
@@ -12,10 +12,9 @@ Tek yazıcı / tek okuyucu: aynı olayın, aynı verinin ve aynı sorunun tek sa
 | Rol | Sahip | Benzersiz kanıt | Devre dışı |
 | --- | --- | --- | --- |
 | Hafıza (epizodik) | claude-mem | Oturumlar arası gözlem ve bağlam | Karar kaydı olarak kullanılmaz |
-| Karar (semantik) | repo karar kaydı (\`docs/kararlar\`) | Kod bağlı karar, tarih ve geçerlilik | trace karar defteri yalnız kod grafiği için |
+| Karar (semantik) | repo karar kaydı (`docs/kararlar`) | Kod bağlı karar, tarih ve geçerlilik | trace karar defteri yalnız kod grafiği için |
 | Bağlam sıkıştırma | context-mode | Büyük çıktıyı bağlam dışına taşır | Hook olarak kurulmaz; yalnız çağrı anında |
-| Kod grafiği | \`~/.trace\` | trace-mcp | Evet |
-| Karar | \`docs/kararlar/\` | karar.mjs | Hayır, git ile taşınır |
+| Kod grafiği | trace-mcp | Sembol, çağrı ve etki grafiği | başka kod grafiği aracı kullanılmaz |
 | Sembol ve düzenleme | serena | LSP referansı, güvenli düzenleme | — |
 | Doküman | context7 | Sürüm ve API gerçeği | — |
 
