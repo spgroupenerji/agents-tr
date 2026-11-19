@@ -66,12 +66,35 @@ function BosPort($alt, $ust) {
     throw "Port araligi dolu: $alt-$ust"
 }
 
+function ElleBul($c) {
+    for ($p = [int]$c.portAraligi.alt; $p -le [int]$c.portAraligi.ust; $p++) {
+        $sahipPid = PortSahibi $p
+        if (-not $sahipPid) { continue }
+        $surec = $null
+        try { $surec = Get-Process -Id $sahipPid -ErrorAction Stop } catch { $surec = $null }
+        if ($surec -and $surec.Path -and ($surec.Path -ieq $c.uygulama) -and (DevToolsSaglikli $p)) {
+            $kayit = [pscustomobject]@{
+                pid = $sahipPid
+                port = $p
+                uygulama = $c.uygulama
+                mod = "elle"
+                basladi = (Get-Date).ToString("o")
+            }
+            KayitYaz (@(KayitAl) + $kayit)
+            return $kayit
+        }
+    }
+    return $null
+}
+
 function TarayiciAc {
     $c = ConfigAl
     if ($c.mod -eq 'mevcut') { throw "Mod mevcut: tarayici kullanici tarafindan acik olmali" }
     if ($Port -eq 0) {
         $mevcut = KayitliSaglikli
         if ($mevcut) { return $mevcut }
+        $elle = ElleBul $c
+        if ($elle) { return $elle }
     }
     $alt = [int]$c.portAraligi.alt
     $ust = [int]$c.portAraligi.ust
@@ -80,6 +103,19 @@ function TarayiciAc {
     if ($sahip) {
         $kayitli = @(KayitAl) | Where-Object { $_.port -eq $hedef -and $_.pid -eq $sahip }
         if ($kayitli -and (DevToolsSaglikli $hedef)) { return $kayitli }
+        $surec = $null
+        try { $surec = Get-Process -Id $sahip -ErrorAction Stop } catch { $surec = $null }
+        if ($surec -and $surec.Path -and ($surec.Path -ieq $c.uygulama) -and (DevToolsSaglikli $hedef)) {
+            $kayit = [pscustomobject]@{
+                pid = $sahip
+                port = $hedef
+                uygulama = $c.uygulama
+                mod = "elle"
+                basladi = (Get-Date).ToString("o")
+            }
+            KayitYaz (@(KayitAl) + $kayit)
+            return $kayit
+        }
         throw "Port $hedef alan disi surecte: PID $sahip. Dokunulmaz."
     }
     $argumanlar = @("--remote-debugging-port=$hedef")
