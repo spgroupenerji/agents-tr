@@ -1,6 +1,6 @@
 ---
 description: "Ajan gömme ve kurulum protokolü: depo bağlantısı verildiğinde anayasayı ve zorunlu araçları platformun global ortamına kuran icra adımları ve kopyala-kullan hazır prompt."
-version: "v202611191039"
+version: "v202611191052"
 ---
 
 # Ajan Gömme ve Kurulum Protokolü
@@ -15,8 +15,9 @@ version: "v202611191039"
 - **`03-denenecekler/` kapsam dışıdır:** okunmaz, değiştirilmez, yüklenmez. Bu dizin kullanıcının manuel havuzudur; kullanıcı denediği aracı kendisi `01-yuklenecekler/` dizinine taşır ve o an zorunlu yüklenenlere girer.
 - **Depo salt kaynaktır:** kurulum sırasında depo dosyaları değiştirilmez; değişiklik depoda yapılıp kurulum yenilenir.
 - **Tam otomatik:** onay sorulmaz. Yalnızca platform tespiti belirsizse, yedek alınamıyorsa veya geri dönüşü zor bir çakışma varsa durulur ve raporlanır.
-- **İdempotent:** protokol kaç kez çalıştırılırsa çalıştırılsın aynı sonuç üretilir; her çalıştırma yeni bir yedek damgası açar.
+- **İdempotent:** protokol kaç kez çalıştırılırsa çalıştırılsın aynı sonuç üretilir; yedek adı damga ve PID taşır, ilk kurulum öncesi yedek korunur.
 - **Varsayım yasağı:** platform, yol, sürüm, komut veya davranış konusunda şüphe varsa ya da bir adım hata verirse, önce aracın kendi kurulum skill'i, yetmezse [02-dokumantasyon/linkler.md](02-dokumantasyon/linkler.md) üzerindeki ana dokümanın yalnız ilgili bölümü okunur; web araması yapılmaz. Doğrulanamıyorsa adım atlanır ve rapora yazılır. Tahminle ilerlenmez.
+- **İşletim sistemi:** Önce OS belirlenir (`uname -s` veya `$env:OS`); [platformlar.md](platformlar.md) yolları bu OS'e göre çözülür (Unix eşlemesi bölümü).
 - **Dil:** rapor ve kurulum günlüğü Türkçe yazılır.
 - **Bilgi kaynağı:** kurulumda sıra aracın kendi kurulum skill'i → resmî dokümandır. Repodaki ana doküman bağlantısı yalnız doküman bilinmiyorsa tek bölüm için açılır, taranmaz. Kurulum için web araması yapılmaz.
 
@@ -27,9 +28,18 @@ version: "v202611191039"
 3. Tam olarak bir platform eşleşirse devam et. Eşleşme yoksa veya birden fazlaysa kullanıcıya tek soru sor; cevap yoksa dur ve raporla.
 4. Platform matrisindeki hücre "doğrulanmalı" ise ilgili resmî dokümanı ([02-dokumantasyon/linkler.md](02-dokumantasyon/linkler.md)) oku ve yolu teyit et. Teyit edilemezse dur ve raporla.
 
+## 1.5 Aşama 0.5 — Kaynak edinme (fail-closed)
+
+1. Benzersiz geçici dizin aç (`mktemp -d` veya `$env:TEMP\agents-tr-<GUID>`).
+2. Depoyu klonla ve tag'leri çek: `git clone <depo> <dizin>` + `git -C <dizin> fetch --tags --prune`.
+3. Doğrula: `git remote get-url origin` kullanıcının verdiği URL ile eşit; `git rev-parse HEAD` = `git ls-remote origin refs/heads/main`; `git status --porcelain` boş.
+4. `node araclar/dogrula.mjs` çalıştır; çıkış kodu 0 değilse dur.
+5. Herhangi bir adım hata verirse kuruluma devam etme; yedeği geri yükle, dur ve raporla.
+6. Tek kaynak bu temiz klondur; çalışma ağacındaki yerel kopya kullanılmaz.
+
 ## 2. Aşama 1 — Yedekleme
 
-1. Hedef global kural dosyası varsa aynı dizine `<ad>.yedek-<damga>` olarak kopyala. Damga: `vYYYYMMDDHHMM`, Türkiye saati (UTC+3), çalıştırma anında tek üretim.
+1. Hedef global kural dosyası varsa aynı dizine `<ad>.yedek-<damga>-<pid>` olarak kopyala. Damga: `vYYYYMMDDHHMM`, Türkiye saati (UTC+3), çalıştırma anında tek üretim.
 2. Yedek alınamazsa kuruluma devam etme; nedeni raporla.
 3. Yedek yolu Aşama 5 raporuna yazılır.
 
@@ -37,7 +47,7 @@ version: "v202611191039"
 
 1. `AGENTS-en.md` içeriğini oku (Türkçe `AGENTS-tr.md`'nin birebir İngilizce çevirisi).
 2. Hedef global kural dosyasını **tamamen yeniden yaz**: eski içerikten hiçbir satır kalmaz; ekleme, çıkarma veya uyarlama yapılmaz, birebir kopyadır; kaynak `AGENTS-en.md` dosyasıdır. Makineye özel ekleme, ikinci kural katmanı ve not satırı yazılmaz.
-3. Doğrula: `AGENTS-en.md` ile hedef için SHA256 eşit; satır sayısı eşit; hedef dosyada eski sürümden kalan işaret yok.
+3. Doğrula: `AGENTS-en.md` ile hedef için SHA256 eşit (`Get-FileHash -Algorithm SHA256` / `shasum -a 256` / `sha256sum`); satır sayısı eşit; hedef dosyada eski sürümden kalan işaret yok.
 4. Doğrulama başarısızsa yedeği geri yükle, dur ve raporla.
 
 Kural dosyası yolu platforma göre değişir; [platformlar.md](platformlar.md) **Global kural dosyası** sütunundaki yolu kullan.
@@ -47,9 +57,9 @@ Kural dosyası yolu platforma göre değişir; [platformlar.md](platformlar.md) 
 1. [01-yuklenecekler/envanter.md](01-yuklenecekler/envanter.md) dosyasını oku.
 2. Her satır için önce **mevcut durumu tespit et**: araç kurulu mu ve sürümü envanterdeki doğrulama ölçütüyle uyumlu mu? Kurulu ve güncel satırı **atla**; kurulu ama eski satırı resmî yöntemle **güncelle**; hiç kurulu olmayan ya da eksik kalan satırı **kur**. Tespit edilen durum Aşama 5 raporuna yazılır.
 3. Her satırı türüne göre **kur veya güncelle**:
-   - `skill`: depoyu geçici dizine klonla (`git clone --depth 1`), `SKILL.md` ve eşlik eden dosyaları platformun skill dizinine `<ad>/` altına kopyala, geçici dizini sil.
-   - `MCP`: platformun MCP yapılandırma dosyasına `{command, args}` girişi ekle; aynı adlı eski girişi ez. Chrome DevTools MCP satırında kullanıcıya sormadan yapılandırma yazma: (1) kullanılacak uygulama — mevcut Chrome, izole profil veya harici indirilen Chrome — ve (2) remote debugging portu sorulur; cevap tek tarayıcı config'ine (`uygulama`, `mod`, `port`) yazılır ve seçilen port `/json/version` ile doğrulanır. Varsayılan profilde remote debugging'in kabul edilip edilmediği build'e göre değişir; kurulumda ölçülür, varsayılmaz. Seçim `araclar/tarayici/tarayici.ps1` ile `%USERPROFILE%\.agents\tarayici.json` dosyasına yazılır; MCP `araclar/tarayici/sarmala.mjs` ile bu config'e bağlanır. `ac`, `kapat -HedefPid`, `durum` komutları kullanılır; alan dışı PID reddedilir.
-   - `CLI`: envanterdeki kurulum komutunu çalıştır, ardından `command -v` ile doğrula.
+   - `skill`: benzersiz geçici dizine klonla (`git clone --depth 1`), `SKILL.md` ve eşlik eden dosyaları platformun skill dizinine `<ad>/` altına kopyala, geçici dizini hata olsa da sil.
+   - `MCP`: platformun MCP yapılandırma dosyasına `{command, args}` girişi ekle; aynı adlı eski girişi ez. Chrome DevTools MCP satırında kullanıcıya sormadan yapılandırma yazma: (1) kullanılacak uygulama — mevcut Chrome, izole profil veya harici indirilen Chrome — ve (2) remote debugging portu sorulur; cevap tek tarayıcı config'ine (`uygulama`, `mod`, `port`) yazılır ve seçilen port `/json/version` ile doğrulanır. Varsayılan profilde remote debugging'in kabul edilip edilmediği build'e göre değişir; kurulumda ölçülür, varsayılmaz. Seçim `araclar/tarayici/tarayici.ps1` ile `%USERPROFILE%\.agents\tarayici.json` dosyasına yazılır; MCP `araclar/tarayici/sarmala.mjs` ile bu config'e bağlanır. Windows'ta `araclar/tarayici/tarayici.ps1`, macOS/Linux'ta `araclar/tarayici/tarayici.sh`; config `~/.agents/tarayici.json`. `ac`, `kapat`, `durum` komutları kullanılır; alan dışı PID reddedilir.
+   - `CLI`: envanterdeki kurulum komutunu çalıştır, ardından `command -v` (Unix) veya `Get-Command` (Windows) ile doğrula.
    - `kütüphane`, `site`, `veri`: kurulum yok; Aşama 4'e bırak.
 4. Envanterde kurulum alanı `doğrulanmalı` olan satırı **kurma**; rapora "atlandı" olarak yaz.
 5. Yalnızca resmî dağıtım yöntemini kullan (`npm`, `pipx`, `cargo`, `go install`, `git clone`). Doğrudan indirilmiş betiği icra etme.
@@ -94,11 +104,11 @@ Aşağıdakileri ölç ve sonucu kullanıcıya düz metin olarak ver:
 | Kalıntı | eski MCP girdisi ve çoklu yedek yok |
 | Atlanan / hatalı satır | liste halinde |
 
-Rapor; platform adı, kural dosyası yolu, yedek yolu, kurulan/atlanan/hatalı sayıları ve yeniden çalıştırma komutunu içerir. Rapor hassas veri (token, şifre, kişisel veri) taşımaz.
+Rapor; platform adı, kaynak commit SHA ve klon zamanı, kurulan `AGENTS-en.md` damgası, kural dosyası yolu, yedek yolu, kurulan/atlanan/hatalı sayıları ve yeniden çalıştırma komutunu içerir. Rapor hassas veri (token, şifre, kişisel veri) taşımaz.
 
 ## 7. Yeniden çalıştırma ve geri alma
 
-- **Yeniden çalıştırma:** protokol baştan uygulanır; her çalıştırma yeni bir yedek damgası üretir, eski yedekler silinmez.
+- **Yeniden çalıştırma:** protokol baştan uygulanır; her çalıştırma yeni bir yedek açar, ilk kurulum öncesi yedek korunur ve ara yedeklerden yalnız en yenisi kalır.
 - **Geri alma:** en son yedek dosyayı hedefin üzerine kopyala; envanterdeki adlarla kurulmuş skill dizinlerini ve MCP girişlerini sil. Geri alma sonrası Aşama 5 doğrulamasını tekrar çalıştır.
 
 ## 8. Güvenlik sınırları

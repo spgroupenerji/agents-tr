@@ -1,6 +1,6 @@
 ---
 description: "Desteklenen ajan platformlarının global kural, skill ve MCP kurulum matrisi."
-version: "v202611040439"
+version: "v202611191052"
 ---
 
 # Platform Matrisi
@@ -38,3 +38,15 @@ Kurulum protokolü bu tabloyu okur. Ajan önce **Tespit işareti** sütunundan k
 Hiçbir işaret eşleşmezse protokol kullanıcıdan platform adını ister; cevap yoksa kurulum yapmaz. Birden çok işaret aynı anda doğruysa (örneğin DSH ile VS Code birlikte kurulu) protokol kullanıcıya hangi platformda çalıştığını sorar (tek soru); cevap yoksa durur.
 
 Paylaşılan okuma yolları: `%USERPROFILE%\.agents\skills` (OpenCode, Cline, Codex, Gemini CLI ve VS Code okur), `%USERPROFILE%\.claude\skills` (OpenCode ve VS Code geri düşüş olarak okur), `%USERPROFILE%\.gemini` (Antigravity ile Gemini CLI ortak kök). Bu yüzden bir yetenek yalnız `.agents\skills` altına kurulduğunda birden çok platformda görünür; her platformun kendi dizinine kurmak ise platform bazlı izolasyon sağlar.
+
+## Unix eşlemesi
+
+Tablodaki yollar Windows biçimindedir; macOS ve Linux'ta kökler şöyle çözülür:
+
+| Windows | macOS / Linux |
+| --- | --- |
+| `%USERPROFILE%` | `$HOME` (DSH yolu için `DSH_HOME` doluysa o) |
+| `%APPDATA%` | Linux `$XDG_CONFIG_HOME` (genelde `$HOME/.config`); macOS `$HOME/Library/Application Support` |
+| `%LOCALAPPDATA%` | Linux `$XDG_DATA_HOME` (genelde `$HOME/.local/share`); macOS `$HOME/Library/Application Support` |
+
+Doğrulama komutları: `Test-Path` → `test -f`, `Select-String` → `grep -q`, `Get-FileHash -Algorithm SHA256` → `shasum -a 256` (macOS) veya `sha256sum` (Linux). Antigravity'nin macOS/Linux kurulum dizini `/Applications/Antigravity.app` veya dağıtıma bağlıdır; doğrulanmalı.

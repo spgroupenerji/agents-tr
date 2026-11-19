@@ -22,13 +22,13 @@ try {
 const mod = config.mod || 'mevcut';
 let port = Number(config.port || 0);
 
+const arac = process.platform === 'win32'
+    ? ['powershell.exe', ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', join(dizin, 'tarayici.ps1'), '-Komut', 'ac']]
+    : [process.execPath, [join(dizin, 'tarayici.mjs'), 'ac']];
+
 if (mod !== 'mevcut') {
     try {
-        const cikti = execFileSync('powershell.exe', [
-            '-NoProfile', '-ExecutionPolicy', 'Bypass',
-            '-File', join(dizin, 'tarayici.ps1'),
-            '-Komut', 'ac'
-        ], { encoding: 'utf8' });
+        const cikti = execFileSync(arac[0], arac[1], { encoding: 'utf8' });
         port = JSON.parse(cikti.trim()).port;
     } catch (e) {
         hata('tarayici acilamadi: ' + (e.stderr || e.message));
