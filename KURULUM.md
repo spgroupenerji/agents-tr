@@ -1,6 +1,6 @@
 ---
 description: "Ajan gömme ve kurulum protokolü: depo bağlantısı verildiğinde anayasayı ve zorunlu araçları platformun global ortamına kuran icra adımları ve kopyala-kullan hazır prompt."
-version: "v202611191052"
+version: "v202611192256"
 ---
 
 # Ajan Gömme ve Kurulum Protokolü
@@ -101,6 +101,7 @@ Aşağıdakileri ölç ve sonucu kullanıcıya düz metin olarak ver:
 | Araç yüzeyi | sürekli yük hedefi 180 araç ve altı |
 | Hafıza raporu | `hafiza-bakim.mjs` çalıştı ve sayılar raporlandı |
 | Karar denetimi | `karar.mjs denetle` 0 hata |
+| Araç config'i | kurulumda yazılan config yolu ve değerleri rapora girer |
 | Kalıntı | eski MCP girdisi ve çoklu yedek yok |
 | Atlanan / hatalı satır | liste halinde |
 
