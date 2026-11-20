@@ -1,6 +1,6 @@
 ---
 description: "Ajan gömme ve kurulum protokolü: depo bağlantısı verildiğinde anayasayı ve zorunlu araçları platformun global ortamına kuran icra adımları ve kopyala-kullan hazır prompt."
-version: "v202611192256"
+version: "v202611201838"
 ---
 
 # Ajan Gömme ve Kurulum Protokolü
@@ -15,7 +15,7 @@ version: "v202611192256"
 - **`03-denenecekler/` kapsam dışıdır:** okunmaz, değiştirilmez, yüklenmez. Bu dizin kullanıcının manuel havuzudur; kullanıcı denediği aracı kendisi `01-yuklenecekler/` dizinine taşır ve o an zorunlu yüklenenlere girer.
 - **Depo salt kaynaktır:** kurulum sırasında depo dosyaları değiştirilmez; değişiklik depoda yapılıp kurulum yenilenir.
 - **Tam otomatik:** onay sorulmaz. Yalnızca platform tespiti belirsizse, yedek alınamıyorsa veya geri dönüşü zor bir çakışma varsa durulur ve raporlanır.
-- **İdempotent:** protokol kaç kez çalıştırılırsa çalıştırılsın aynı sonuç üretilir; yedek adı damga ve PID taşır, ilk kurulum öncesi yedek korunur.
+- **İdempotent:** protokol kaç kez çalıştırılırsa çalıştırılsın aynı sonuç üretilir; yedek adı damga ve PID taşır; her hedefte en yeni iki yedek saklanır.
 - **Varsayım yasağı:** platform, yol, sürüm, komut veya davranış konusunda şüphe varsa ya da bir adım hata verirse, önce aracın kendi kurulum skill'i, yetmezse [02-dokumantasyon/linkler.md](02-dokumantasyon/linkler.md) üzerindeki ana dokümanın yalnız ilgili bölümü okunur; web araması yapılmaz. Doğrulanamıyorsa adım atlanır ve rapora yazılır. Tahminle ilerlenmez.
 - **İşletim sistemi:** Önce OS belirlenir (`uname -s` veya `$env:OS`); [platformlar.md](platformlar.md) yolları bu OS'e göre çözülür (Unix eşlemesi bölümü).
 - **Dil:** rapor ve kurulum günlüğü Türkçe yazılır.
@@ -41,7 +41,8 @@ version: "v202611192256"
 
 1. Hedef global kural dosyası varsa aynı dizine `<ad>.yedek-<damga>-<pid>` olarak kopyala. Damga: `vYYYYMMDDHHMM`, Türkiye saati (UTC+3), çalıştırma anında tek üretim.
 2. Yedek alınamazsa kuruluma devam etme; nedeni raporla.
-3. Yedek yolu Aşama 5 raporuna yazılır.
+3. Yedek yolu ve saklanan yedek sayısı Aşama 5 raporuna yazılır.
+4. Saklama: aynı hedefte en yeni iki yedek kalır — bu çalıştırmanın açtığı yedek ve ondan bir önceki. Adaylar yalnız aynı dizindeki `<ad>.yedek-*` dosyalarıdır; hedef dosyanın kendisi ve desen dışı dosyalar dokunulmaz. Sıralama dosya yazma zamanına (UTC) göre azalan, eşitlikte ada göre; en yeni ikisinin dışındakiler silinir ve silinenler adlarıyla raporlanır. Silme başarısızsa dur ve raporla.
 
 ## 3. Aşama 2 — Anayasayı (İngilizce çeviriyi) sıfırdan yaz
 
@@ -72,7 +73,7 @@ Kural dosyası yolu platforma göre değişir; [platformlar.md](platformlar.md) 
 3. Yapılandırmaya yazmadan önce yedek al; yazımı idempotent yap (aynı anahtarın eski girdisini ez); yazdıktan sonra doğrula.
 4. Görev aracını açma ve kapama: platformun MCP yapılandırmasındaki ilgili bloğu yorumla veya aç, ajanı yeniden başlat. REA 229 araç taşır ve varsayılan olarak kapalıdır.
 5. Hafıza: epizodik gözlem claude-mem'de, kod bağlı karar repo içindeki `docs/kararlar/` kaydında tutulur; saklama kuralları [hafiza-politikasi.md](01-yuklenecekler/hafiza-politikasi.md). Kurulum sonrası `node araclar/hafiza-bakim.mjs` raporunu al.
-6. Kalıntı temizliği: aynı hedefin birden çok yedeği varsa yalnız en yenisini bırak; eski araçların MCP girdilerini, hook'larını ve yapılandırma yedeklerini sil. `.env`, kullanıcı verisi ve çalışma dosyaları silinmez; silinenler listelenir.
+6. Kalıntı temizliği: aynı hedefin yedeklerinden en yeni ikisini bırak (bu çalıştırmanın yedeği + bir önceki); eski araçların MCP girdilerini, hook'larını ve yapılandırma yedeklerini sil. `.env`, kullanıcı verisi ve çalışma dosyaları silinmez; silinenler listelenir.
 
 ## 5. Aşama 4 — Kaynak indeksi
 
@@ -102,15 +103,15 @@ Aşağıdakileri ölç ve sonucu kullanıcıya düz metin olarak ver:
 | Hafıza raporu | `hafiza-bakim.mjs` çalıştı ve sayılar raporlandı |
 | Karar denetimi | `karar.mjs denetle` 0 hata |
 | Araç config'i | kurulumda yazılan config yolu ve değerleri rapora girer |
-| Kalıntı | eski MCP girdisi ve çoklu yedek yok |
+| Kalıntı | eski MCP girdisi yok; her hedefte en fazla 2 yedek |
 | Atlanan / hatalı satır | liste halinde |
 
-Rapor; platform adı, kaynak commit SHA ve klon zamanı, kurulan `AGENTS-en.md` damgası, kural dosyası yolu, yedek yolu, kurulan/atlanan/hatalı sayıları ve yeniden çalıştırma komutunu içerir. Rapor hassas veri (token, şifre, kişisel veri) taşımaz.
+Rapor; platform adı, kaynak commit SHA ve klon zamanı, kurulan `AGENTS-en.md` damgası, kural dosyası yolu, yedek yolu ve saklanan yedek sayısı, kurulan/atlanan/hatalı sayıları ve yeniden çalıştırma komutunu içerir. Rapor hassas veri (token, şifre, kişisel veri) taşımaz.
 
 ## 7. Yeniden çalıştırma ve geri alma
 
-- **Yeniden çalıştırma:** protokol baştan uygulanır; her çalıştırma yeni bir yedek açar, ilk kurulum öncesi yedek korunur ve ara yedeklerden yalnız en yenisi kalır.
-- **Geri alma:** en son yedek dosyayı hedefin üzerine kopyala; envanterdeki adlarla kurulmuş skill dizinlerini ve MCP girişlerini sil. Geri alma sonrası Aşama 5 doğrulamasını tekrar çalıştır.
+- **Yeniden çalıştırma:** protokol baştan uygulanır; her çalıştırma yeni bir yedek açar; her hedefte en yeni iki yedek kalır (bu çalıştırmanınki + bir önceki), daha eskiler silinir.
+- **Geri alma:** en yeni yedeği, o da bozuksa bir öncekini hedefin üzerine kopyala; envanterdeki adlarla kurulmuş skill dizinlerini ve MCP girişlerini sil. Geri alma sonrası Aşama 5 doğrulamasını tekrar çalıştır.
 
 ## 8. Güvenlik sınırları
 
@@ -137,7 +138,7 @@ Kurulum kuralları:
 - İdempotent çalış: protokol tekrar çalıştırıldığında aynı sonucu üretsin.
 - Araç sahipliğini uygula: arac-rolleri.md tablosuna göre her rolde tek sahip; görev araçlarını (rea, blender, chrome, gsc, geo) varsayılan kapalı tut, yalnız o görevde aç.
 - Hafıza katmanlarını kur: claude-mem epizodik, docs/kararlar semantik; kurulum sonrası hafiza-bakim.mjs raporunu ve karar.mjs denetle sonucunu rapora ekle.
-- Kalıntıları temizle: eski MCP girdileri, eski hook'lar ve aynı hedefin çoklu yedekleri silinsin; en yeni tek yedek kalsın; .env ve kullanıcı verisi silinmesin.
+- Kalıntıları temizle: eski MCP girdileri, eski hook'lar ve aynı hedefin en yeni iki yedeği kalsın (güncellemenin açtığı + bir önceki), daha eskiler silinsin; .env ve kullanıcı verisi silinmesin.
 - Raporu Türkçe ver: tespit edilen platform, kural dosyası yolu, yedek yolu, kurulan / güncellenen / atlanan / hatalı satır listesi. Rapor secret, token veya kişisel veri içermesin.
 ```
 
